@@ -14,3 +14,10 @@ export_credentials.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+# Pong
+pong/.godot/
+pong/.nomedia
+pong/.import/
+pong/export.cfg
+pong/export_credentials.cfg
