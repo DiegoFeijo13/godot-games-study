@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cv6r2wbfv4e8f"]
+[gd_scene load_steps=4 format=3 uid="uid://cv6r2wbfv4e8f"]
 
 [ext_resource type="Texture2D" uid="uid://cnbxkahvr1v8j" path="res://assets/paddle.png" id="1_0sbc1"]
+[ext_resource type="Script" uid="uid://dkgeifjy0rvme" path="res://actors/paddles/left_paddle.gd" id="1_o0gp1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tbytw"]
 size = Vector2(16, 128)
 
 [node name="LeftPaddle" type="CharacterBody2D"]
+collision_mask = 6
+motion_mode = 1
+script = ExtResource("1_o0gp1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_0sbc1")

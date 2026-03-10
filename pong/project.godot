@@ -15,6 +15,10 @@ run/main_scene="uid://dv1uuf8ekm2l5"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalGameState="*res://_globals/global_game_state.gd"
+
 [display]
 
 window/size/viewport_width=1024
@@ -54,6 +58,7 @@ cancel={
 2d_physics/layer_1="Paddle"
 2d_physics/layer_2="Ball"
 2d_physics/layer_3="Walls"
+2d_physics/layer_4="Goals"
 
 [rendering]
 
