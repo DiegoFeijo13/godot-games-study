@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalGameState="*res://_globals/global_game_state.gd"
+GlobalEventBus="*res://_globals/event_bus.gd"
 
 [display]
 

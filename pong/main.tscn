@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://dv1uuf8ekm2l5"]
+[gd_scene load_steps=7 format=4 uid="uid://dv1uuf8ekm2l5"]
 
 [ext_resource type="PackedScene" uid="uid://sn3cbmyjo714" path="res://tilemap/tilemap.tscn" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://cv6r2wbfv4e8f" path="res://actors/paddles/left_paddle.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://e8o6gc46r5pu" path="res://actors/ball/ball.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://jamks8ha5d1a" path="res://actors/paddles/right_paddle.tscn" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dyi5fh40jg7px" path="res://actors/goals/goal.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://cfy5wyg2t3b2i" path="res://ui/control.tscn" id="6_7mycd"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -17,8 +18,9 @@ position = Vector2(-448, 0)
 
 [node name="Ball" parent="." instance=ExtResource("2_0xm2m")]
 
-[node name="RightPaddle" parent="." instance=ExtResource("4_lquwl")]
+[node name="RightPaddle" parent="." node_paths=PackedStringArray("ball") instance=ExtResource("4_lquwl")]
 position = Vector2(448, 0)
+ball = NodePath("../Ball")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -28,3 +30,5 @@ position = Vector2(-496, 0)
 [node name="RightGoal" parent="." instance=ExtResource("5_lquwl")]
 position = Vector2(496, 0)
 side = 1
+
+[node name="Control" parent="." instance=ExtResource("6_7mycd")]

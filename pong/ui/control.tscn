@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfy5wyg2t3b2i"]
+
+[ext_resource type="FontFile" uid="uid://dhnmk8se0yvif" path="res://assets/Pixeboy-z8XGD.ttf" id="1_elkka"]
+[ext_resource type="Script" uid="uid://buc7htco0dwdw" path="res://ui/score_ui.gd" id="1_sq3tw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_272bh"]
+font = ExtResource("1_elkka")
+font_size = 64
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -112.0
+offset_top = -336.0
+offset_right = 112.0
+offset_bottom = -256.0
+script = ExtResource("1_sq3tw")
+
+[node name="LeftScore" type="Label" parent="."]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 64.0
+text = "0"
+label_settings = SubResource("LabelSettings_272bh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RightScore" type="Label" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_right = 224.0
+offset_bottom = 64.0
+text = "0"
+label_settings = SubResource("LabelSettings_272bh")
+horizontal_alignment = 1
+vertical_alignment = 1
