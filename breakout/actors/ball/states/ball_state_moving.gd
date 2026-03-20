@@ -1,7 +1,7 @@
 class_name BallStateMoving extends BallState
 
 const START_SPEED = 300.0
-const SPEED_STEP = 0.0
+const SPEED_STEP = 0.5
 const MAX_SPEED = 1200.0
 
 var current_speed : float

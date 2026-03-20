@@ -7,6 +7,7 @@ func init() -> void:
 func enter() -> void:
 	brick.invunerable = true
 	brick.queue_free()
+	GlobalEventBus.update_score.emit(brick.score)
 
 func exit() -> void:
 	pass

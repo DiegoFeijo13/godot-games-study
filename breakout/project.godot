@@ -65,6 +65,7 @@ cancel={
 2d_physics/layer_2="Wall"
 2d_physics/layer_3="Ball"
 2d_physics/layer_4="Bricks"
+2d_physics/layer_5="Floor"
 
 [rendering]
 

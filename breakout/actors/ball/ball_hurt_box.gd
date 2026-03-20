@@ -11,3 +11,6 @@ func on_area_entered(a : Area2D) -> void:
 	if a is BrickHitBox:
 		did_damage.emit()
 		a.take_damage(self)
+	
+	if a is Floor:
+		a.ball_lost()

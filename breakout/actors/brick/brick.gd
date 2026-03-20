@@ -6,12 +6,19 @@ signal brick_destroyed
 @onready var brick_state_machine: BrickStateMachine = $BrickStateMachine
 @onready var hit_box: BrickHitBox = $HitBox
 
-@export_range(1, 3, 1) 
+@export_range(1, 6, 1) 
 var hp : int = 1
-var invunerable : bool = false
 
+var invunerable : bool = false
+var score : int = (hp + ((hp-1) * 2)) * 10
 var current_hp : int = 1
-var colors = [Color.WHITE, Color.DARK_GRAY, Color.DIM_GRAY]
+var colors = [
+	Color("4248c8"),
+	Color("48a048"),
+	Color("a2a22a"),
+	Color("b47a30"),
+	Color("c66c3a"),
+	Color("c84848")]
 
 func _ready() -> void:
 	brick_state_machine.initialize(self)

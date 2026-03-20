@@ -18,3 +18,6 @@ func _physics_process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("action"):
 		GlobalEventBus.action_pressed.emit()
+	if event.is_action_pressed("start"):
+		GlobalEventBus.next_round.emit()
+	
