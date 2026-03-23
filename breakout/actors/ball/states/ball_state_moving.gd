@@ -21,6 +21,9 @@ func process(_d : float) -> BallState:
 	return null
 
 func physics(_d : float) -> BallState:
+	if GlobalGameState.is_paused || GlobalGameState.is_game_over:
+		return
+		
 	if ball.move_and_slide():
 		var normal := ball.get_last_slide_collision().get_normal()
 		change_dir_by_normal(normal)

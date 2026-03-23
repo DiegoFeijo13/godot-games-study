@@ -21,3 +21,10 @@ pong/.nomedia
 pong/.import/
 pong/export.cfg
 pong/export_credentials.cfg
+
+# Breakout
+breakout/.godot/
+breakout/.nomedia
+breakout/.import/
+breakout/export.cfg
+breakout/export_credentials.cfg

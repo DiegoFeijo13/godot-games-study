@@ -1,11 +1,9 @@
-extends Node
+class_name BaseStrategy extends Node
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func decide(row : int, column : int, context : StrategyContext) -> StrategyResult:
+	return null
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func get_hp(row : int, context: StrategyContext) -> int:
+	var max_hp = min(6, context.row_max - row)  
+	return max(1, max_hp)

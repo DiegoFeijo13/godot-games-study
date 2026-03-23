@@ -1,28 +1,28 @@
 [gd_scene load_steps=7 format=4 uid="uid://fop01yrfd6on"]
 
 [ext_resource type="PackedScene" uid="uid://sn3cbmyjo714" path="res://tilemap/tilemap.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://dt2d44rwke7vo" path="res://level.gd" id="1_7mycd"]
 [ext_resource type="PackedScene" uid="uid://cv6r2wbfv4e8f" path="res://actors/paddle/paddle.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c2hv7s8x1poll" path="res://actors/ball/ball.tscn" id="3_h2yge"]
-[ext_resource type="Script" uid="uid://cmdmho0jt1tsf" path="res://actors/brick/bricks_container.gd" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://ds5m7eogs3nm0" path="res://ui/ui_control.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://x3rybkxfli45" path="res://actors/floor/floor.tscn" id="7_272bh"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_7mycd")
 
 [node name="TileMapLayer" parent="." instance=ExtResource("1_0xm2m")]
 tile_map_data = PackedByteArray("AAAcAAEAAAABAAAAAAAbAAEAAAABAAAAAAAaAAEAAAABAAAAAAAZAAEAAAABAAAAAAAYAAEAAAABAAAAAAAXAAEAAAABAAAAAAAWAAEAAAABAAAAAAAVAAEAAAABAAAAAAAUAAEAAAABAAAAAAATAAEAAAABAAAAAAASAAEAAAABAAAAAAARAAEAAAABAAAAAAAQAAEAAAABAAAAAAAPAAEAAAABAAAAAAAOAAEAAAABAAAAAAANAAEAAAABAAAAAAAMAAEAAAABAAAAAAALAAEAAAABAAAAAAAKAAEAAAABAAAAAAAJAAEAAAABAAAAAAAIAAEAAAABAAAAAAAHAAEAAAABAAAAAAAGAAEAAAABAAAAAAAFAAEAAAABAAAAAAAEAAEAAAABAAAAAAADAAEAAAABAAAAAAAAAAIAAAAAAAEAAAAAAAMAAAAAAAEAAAAAAAQAAAAAAAEAAAAAAAUAAAAAAAEAAAAAAAYAAAAAAAEAAAAAAAcAAAAAAAEAAAAAAAgAAAAAAAEAAAAAAAkAAAAAAAEAAAAAAAoAAAAAAAEAAAAAAAsAAAAAAAEAAAAAAAwAAAAAAAEAAAAAAA0AAAAAAAEAAAAAAA4AAAAAAAEAAAAAAA8AAAAAAAEAAAAAABAAAAAAAAEAAAAAABEAAAAAAAEAAAAAABIAAAAAAAEAAAAAABMAAAAAAAEAAAAAABQAAAAAAAEAAAAAABUAAAAAAAEAAAAAABYAAAAAAAEAAAAAABcAAAAAAAEAAAAfABcAAAACAAEAAAAfABYAAAACAAEAAAAfABUAAAACAAEAAAAfABQAAAACAAEAAAAfABMAAAACAAEAAAAfABIAAAACAAEAAAAfABEAAAACAAEAAAAfABAAAAACAAEAAAAfAA8AAAACAAEAAAAfAA4AAAACAAEAAAAfAA0AAAACAAEAAAAfAAwAAAACAAEAAAAfAAsAAAACAAEAAAAfAAoAAAACAAEAAAAfAAkAAAACAAEAAAAfAAgAAAACAAEAAAAfAAcAAAACAAEAAAAfAAYAAAACAAEAAAAfAAUAAAACAAEAAAAfAAQAAAACAAEAAAAfAAMAAAACAAEAAAAfAAIAAAACAAEAAAAdAAEAAAABAAAAAAAeAAEAAAABAAAAAAACAAEAAAABAAAAAAABAAEAAAABAAAAAAAfAAEAAAACAAAAAAAAAAEAAAAAAAAAAAA=")
 
 [node name="Paddle" parent="." instance=ExtResource("2_h2yge")]
-position = Vector2(512, 720)
+position = Vector2(512, 736)
 
 [node name="Ball" parent="." instance=ExtResource("3_h2yge")]
 position = Vector2(512, 384)
-
-[node name="BricksContainer" type="Node2D" parent="."]
-position = Vector2(128, 128)
-script = ExtResource("4_lquwl")
 
 [node name="Control" parent="." instance=ExtResource("6_7mycd")]
 
 [node name="Floor" parent="." instance=ExtResource("7_272bh")]
 position = Vector2(512, 784)
+
+[node name="BricksContainer" type="Node2D" parent="."]
+position = Vector2(128, 112)

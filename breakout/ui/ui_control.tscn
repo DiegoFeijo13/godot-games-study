@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://ds5m7eogs3nm0"]
+[gd_scene load_steps=5 format=3 uid="uid://ds5m7eogs3nm0"]
 
 [ext_resource type="Script" uid="uid://co0k86ehupd7p" path="res://ui/ui_control.gd" id="1_gt3kx"]
 [ext_resource type="FontFile" uid="uid://c2kf5scwp8sx0" path="res://assets/Pixeboy-z8XGD.ttf" id="2_owath"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_272bh"]
+font = ExtResource("2_owath")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_gt3kx"]
 font = ExtResource("2_owath")
 font_size = 32
 
@@ -16,15 +20,21 @@ offset_right = 928.0
 offset_bottom = 56.0
 script = ExtResource("1_gt3kx")
 
-[node name="ScoreLabel" type="Label" parent="."]
-layout_mode = 0
+[node name="InGameUI" type="Control" parent="."]
+visible = false
+anchors_preset = 0
 offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreLabel" type="Label" parent="InGameUI"]
+layout_mode = 0
+offset_right = 85.0
 offset_bottom = 32.0
 text = "SCORE: "
 label_settings = SubResource("LabelSettings_272bh")
 vertical_alignment = 1
 
-[node name="ScorePoints" type="Label" parent="."]
+[node name="ScorePoints" type="Label" parent="InGameUI"]
 layout_mode = 0
 offset_left = 96.0
 offset_right = 288.0
@@ -33,7 +43,7 @@ text = "999999999"
 label_settings = SubResource("LabelSettings_272bh")
 vertical_alignment = 1
 
-[node name="RoundLabel" type="Label" parent="."]
+[node name="RoundLabel" type="Label" parent="InGameUI"]
 layout_mode = 0
 offset_left = 288.0
 offset_right = 544.0
@@ -43,7 +53,7 @@ label_settings = SubResource("LabelSettings_272bh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LivesLabel" type="Label" parent="."]
+[node name="LivesLabel" type="Label" parent="InGameUI"]
 layout_mode = 0
 offset_left = 688.0
 offset_right = 773.0
@@ -52,7 +62,7 @@ text = "LIVES:"
 label_settings = SubResource("LabelSettings_272bh")
 vertical_alignment = 1
 
-[node name="LivesCounter" type="Label" parent="."]
+[node name="LivesCounter" type="Label" parent="InGameUI"]
 layout_mode = 0
 offset_left = 784.0
 offset_right = 832.0
@@ -60,4 +70,37 @@ offset_bottom = 32.0
 text = "999"
 label_settings = SubResource("LabelSettings_272bh")
 horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PausedGameUI" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="PausedGameUI"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 4.0
+offset_right = 816.0
+offset_bottom = 27.0
+text = "GAME PAUSED - PRESS START TO CONTINUE"
+label_settings = SubResource("LabelSettings_gt3kx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverUI" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="GameOverUI"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 4.0
+offset_right = 816.0
+offset_bottom = 27.0
+text = "GAME OVER - PRESS START TO RESTART"
+label_settings = SubResource("LabelSettings_gt3kx")
+horizontal_alignment = 1
 vertical_alignment = 1
