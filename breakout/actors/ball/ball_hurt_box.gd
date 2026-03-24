@@ -13,4 +13,5 @@ func on_area_entered(a : Area2D) -> void:
 		a.take_damage(self)
 	
 	if a is Floor:
+		get_parent().queue_free()
 		a.ball_lost()

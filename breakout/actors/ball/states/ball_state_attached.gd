@@ -4,9 +4,7 @@ class_name BallStateAttached extends BallState
 
 func init() -> void:
 	ball.global_position.x = GlobalGameState.paddle.global_position.x
-	ball.global_position.y = GlobalGameState.paddle.global_position.y - 16
-	GlobalEventBus.ball_lost.connect(_on_ball_lost)
-	GlobalEventBus.next_round.connect(_on_ball_lost)
+	ball.global_position.y = GlobalGameState.paddle.global_position.y - 16	
 	pass
 
 func enter() -> void:
@@ -27,6 +25,3 @@ func physics(_d : float) -> BallState:
 
 func _on_action_pressed() -> void:
 	state_machine.change_state(state_moving)
-
-func _on_ball_lost() -> void:
-	state_machine.change_state(self)

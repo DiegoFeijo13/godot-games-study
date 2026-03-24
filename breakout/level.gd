@@ -4,6 +4,7 @@ const NUM_COLUMNS = 7
 const ROW_SIZE = 32
 const COLUMN_SIZE = 128
 const BRICK = preload("uid://bhwe0knkuj72h")
+const BALL = preload("uid://c2hv7s8x1poll")
 
 @onready var bricksContainer: Node2D = $BricksContainer
 
@@ -11,15 +12,28 @@ var bricks_loaded : int
 
 func _ready() -> void:
 	GlobalEventBus.next_round.connect(_on_next_round)
-	
+	GlobalEventBus.spawn_extra_ball.connect(_on_spawn_extra_ball)
+	GlobalEventBus.ball_lost.connect(_on_ball_lost)
 	GlobalEventBus.next_round.emit()
+	_spawn_ball()
 
 func _on_next_round() -> void:
 	_clear_container()
-	execute_strategy()
+	_remove_balls()
+	_spawn_ball()
+	_execute_strategy()
 	GlobalGameState.bricks = bricks_loaded
 
-func execute_strategy() -> void:
+func _spawn_ball() -> void:
+	var ball = BALL.instantiate() as Ball
+	call_deferred("add_child", ball)
+
+func _remove_balls() -> void:	
+	for c in get_children():
+		if c is Ball:
+			c.queue_free()
+	
+func _execute_strategy() -> void:
 	bricks_loaded = 0	
 	var strategy = GlobalGameState.current_strategy
 	var context := _build_context()
@@ -48,4 +62,16 @@ func _load_brick(pos_y : float, pos_x : float, hp : int) -> void:
 	b.position.y = pos_y
 	b.position.x = pos_x
 	b.hp = hp
-	bricksContainer.add_child(b)
+	bricksContainer.call_deferred("add_child",b)
+
+func _on_spawn_extra_ball() -> void:
+	_spawn_ball()
+
+func _on_ball_lost() -> void:
+	for b in get_children():
+		if b is Ball && !b.is_queued_for_deletion():
+			return
+	# no ball found
+	GlobalEventBus.life_lost.emit()
+	_spawn_ball()
+	
