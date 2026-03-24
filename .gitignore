@@ -28,3 +28,10 @@ breakout/.nomedia
 breakout/.import/
 breakout/export.cfg
 breakout/export_credentials.cfg
+
+# Breakout
+shooter/.godot/
+shooter/.nomedia
+shooter/.import/
+shooter/export.cfg
+shooter/export_credentials.cfg
