@@ -62,7 +62,15 @@ cancel={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Wall"
+2d_physics/layer_3="Bullet"
+2d_physics/layer_9="Enemy"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.05882353, 0.05882353, 0.05882353, 1)

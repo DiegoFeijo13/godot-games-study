@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://drojwdohb1g2p"]
+[gd_scene load_steps=12 format=3 uid="uid://drojwdohb1g2p"]
 
 [ext_resource type="Script" uid="uid://drxjrww08lb05" path="res://actors/player/player.gd" id="1_ilk7j"]
 [ext_resource type="Texture2D" uid="uid://qu541j2w3ybo" path="res://assets/blob.png" id="2_ax26v"]
 [ext_resource type="Script" uid="uid://vwn8gjkonsd7" path="res://actors/player/states/state_machine.gd" id="3_ax26v"]
 [ext_resource type="Script" uid="uid://utadarqa1em5" path="res://actors/player/states/state_idle.gd" id="4_6p1w3"]
 [ext_resource type="Script" uid="uid://d18phqij0p8yd" path="res://actors/player/states/state_walk.gd" id="5_15y17"]
+[ext_resource type="Script" uid="uid://3im4bptpqhqr" path="res://actors/player/gun.gd" id="6_15y17"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lsqbn"]
 radius = 16.0
@@ -64,6 +65,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_ilk7j")
 
@@ -88,3 +90,6 @@ script = ExtResource("5_15y17")
 libraries = {
 &"": SubResource("AnimationLibrary_15y17")
 }
+
+[node name="Gun" type="Node2D" parent="."]
+script = ExtResource("6_15y17")

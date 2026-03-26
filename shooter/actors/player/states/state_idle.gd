@@ -16,4 +16,4 @@ func process(_delta : float) -> PlayerState:
 		
 	player.velocity.x = move_toward(player.velocity.x, 0, player.SPEED)
 	player.velocity.y = move_toward(player.velocity.y, 0, player.SPEED)
-	return null	
+	return null

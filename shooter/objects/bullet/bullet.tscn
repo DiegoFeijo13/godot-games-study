@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3taluwpnqkb"]
+
+[ext_resource type="Script" uid="uid://boxy5xlv88qy" path="res://objects/bullet/bullet.gd" id="1_g08x3"]
+[ext_resource type="Texture2D" uid="uid://k4spqg0jdl0v" path="res://assets/bullet.png" id="1_ofkrt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l2pgv"]
+
+[sub_resource type="Animation" id="Animation_l2pgv"]
+resource_name = "moving"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.7853982, 1.5707963267948966, 2.356194490192345, 3.141592653589793]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_31544"]
+_data = {
+&"moving": SubResource("Animation_l2pgv")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g08x3"]
+radius = 12.0
+
+[node name="Bullet" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 258
+motion_mode = 1
+script = ExtResource("1_g08x3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.7853982
+texture = ExtResource("1_ofkrt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_l2pgv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_31544")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 258
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_g08x3")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
