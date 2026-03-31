@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3taluwpnqkb"]
+[gd_scene load_steps=8 format=3 uid="uid://b3taluwpnqkb"]
 
 [ext_resource type="Script" uid="uid://boxy5xlv88qy" path="res://objects/bullet/bullet.gd" id="1_g08x3"]
 [ext_resource type="Texture2D" uid="uid://k4spqg0jdl0v" path="res://assets/bullet.png" id="1_ofkrt"]
+[ext_resource type="Script" uid="uid://bvf32cjdmyeco" path="res://misc/hurt_box.gd" id="3_l2pgv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l2pgv"]
+radius = 6.0
 
 [sub_resource type="Animation" id="Animation_l2pgv"]
 resource_name = "moving"
@@ -27,17 +29,18 @@ _data = {
 &"moving": SubResource("Animation_l2pgv")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g08x3"]
-radius = 12.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_b7usj"]
+radius = 8.0
 
 [node name="Bullet" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 258
+collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_g08x3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 0.7853982
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_ofkrt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -48,12 +51,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_31544")
 }
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 258
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 256
 monitorable = false
+script = ExtResource("3_l2pgv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_g08x3")
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_b7usj")
+debug_color = Color(1, 0, 0, 0.41960785)

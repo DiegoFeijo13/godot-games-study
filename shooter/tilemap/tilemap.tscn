@@ -127,7 +127,6 @@ physics_layer_0/collision_mask = 261
 sources/0 = SubResource("TileSetAtlasSource_toa5u")
 
 [node name="TileMapLayer" type="TileMapLayer"]
-self_modulate = Color(0.4662798, 0.30369738, 1, 1)
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1, 0, 0, 0)
 tile_set = SubResource("TileSet_yipvg")

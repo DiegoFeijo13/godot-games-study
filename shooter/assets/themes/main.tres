@@ -1,0 +1,22 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dn741ckakw5rx"]
+
+[ext_resource type="FontFile" uid="uid://05m10g3bu7tn" path="res://assets/Pixeboy-z8XGD.ttf" id="1_aiue4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pgokm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mpy8"]
+bg_color = Color(0.05882353, 0.05882353, 0.05882353, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.60784316, 0.6784314, 0.7176471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fsoa"]
+bg_color = Color(0.60784316, 0.6784314, 0.7176471, 1)
+
+[resource]
+default_font = ExtResource("1_aiue4")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_pgokm")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_7mpy8")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_6fsoa")
