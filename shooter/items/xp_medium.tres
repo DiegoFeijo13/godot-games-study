@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://3apwt034yu5j"]
+
+[ext_resource type="Script" uid="uid://l23ik88l1tvg" path="res://items/item_data.gd" id="1_ihjt4"]
+[ext_resource type="Texture2D" uid="uid://b6ghb3lkdrs22" path="res://assets/xp_ball.png" id="2_ttngf"]
+
+[resource]
+script = ExtResource("1_ihjt4")
+name = "Medium Xp Orb"
+texture = ExtResource("2_ttngf")
+texture_scale = 1.5
+texture_modulate = Color(0.5411765, 0.43529412, 0.1882353, 1)
+xp_amount = 3
+metadata/_custom_type_script = "uid://l23ik88l1tvg"

@@ -2,7 +2,6 @@ class_name PlayerStateWalk extends PlayerState
 
 const ANIM_NAME = "walk"
 
-@export var move_speed : float = 300.0
 @onready var idle: PlayerStateIdle = $"../Idle"
 
 func enter() -> void:
@@ -16,5 +15,5 @@ func process(_delta : float) -> PlayerState:
 	if player.direction == Vector2.ZERO:
 		return idle
 	
-	player.velocity = player.direction * move_speed
+	player.velocity = player.direction * player.get_speed()
 	return null

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://d1lly3c82rowa"]
+
+[ext_resource type="Script" uid="uid://l23ik88l1tvg" path="res://items/item_data.gd" id="1_np1ye"]
+[ext_resource type="Texture2D" uid="uid://b6ghb3lkdrs22" path="res://assets/xp_ball.png" id="2_itvr8"]
+
+[resource]
+script = ExtResource("1_np1ye")
+name = "Small Xp Orb"
+texture = ExtResource("2_itvr8")
+texture_scale = 1.5
+texture_modulate = Color(0.6745098, 0.19607843, 0.19607843, 1)
+heal_power = 3
+metadata/_custom_type_script = "uid://l23ik88l1tvg"

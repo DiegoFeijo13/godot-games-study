@@ -1,17 +1,22 @@
-[gd_scene load_steps=25 format=3 uid="uid://ddrpbk1x3s5ar"]
+[gd_scene load_steps=34 format=3 uid="uid://ddrpbk1x3s5ar"]
 
-[ext_resource type="Script" uid="uid://bw6etrrpja213" path="res://actors/enemies/enemy.gd" id="1_dluy2"]
+[ext_resource type="Script" uid="uid://bw6etrrpja213" path="res://enemies/enemy.gd" id="1_dluy2"]
 [ext_resource type="Texture2D" uid="uid://dhvow0roqwh4b" path="res://assets/foe.png" id="2_838wa"]
 [ext_resource type="Script" uid="uid://bvf32cjdmyeco" path="res://misc/hurt_box.gd" id="2_mmmyn"]
-[ext_resource type="Script" uid="uid://jiglaeiism6h" path="res://actors/enemies/enemy_hit_box.gd" id="3_mmmyn"]
-[ext_resource type="Script" uid="uid://bnpdd3oc0q18i" path="res://actors/enemies/states/enemy_state_machine.gd" id="3_tnkxp"]
-[ext_resource type="Script" uid="uid://bu6a6pnrqgcrt" path="res://actors/enemies/states/enemy_state_follow.gd" id="5_dluy2"]
-[ext_resource type="Script" uid="uid://b78jw6r07eqmo" path="res://actors/enemies/states/enemy_state_wander.gd" id="6_838wa"]
-[ext_resource type="Script" uid="uid://duiua8nieq2po" path="res://actors/enemies/states/enemy_state_hurt.gd" id="6_yf1bw"]
-[ext_resource type="Script" uid="uid://bayjb4tjapx73" path="res://actors/enemies/states/enemy_state_dead.gd" id="7_j4d7i"]
+[ext_resource type="Script" uid="uid://jiglaeiism6h" path="res://enemies/enemy_hit_box.gd" id="3_mmmyn"]
+[ext_resource type="Script" uid="uid://bnpdd3oc0q18i" path="res://enemies/states/enemy_state_machine.gd" id="3_tnkxp"]
+[ext_resource type="Script" uid="uid://bu6a6pnrqgcrt" path="res://enemies/states/enemy_state_follow.gd" id="5_dluy2"]
+[ext_resource type="Script" uid="uid://b78jw6r07eqmo" path="res://enemies/states/enemy_state_wander.gd" id="6_838wa"]
+[ext_resource type="Script" uid="uid://duiua8nieq2po" path="res://enemies/states/enemy_state_hurt.gd" id="6_yf1bw"]
+[ext_resource type="Script" uid="uid://bayjb4tjapx73" path="res://enemies/states/enemy_state_dead.gd" id="7_j4d7i"]
+[ext_resource type="Script" uid="uid://cqmfg5ca53nge" path="res://enemies/drop_data.gd" id="10_ii2rx"]
 [ext_resource type="Script" uid="uid://bcm7uilhmfoxh" path="res://misc/player_detection.gd" id="10_mmmyn"]
-[ext_resource type="Script" uid="uid://cm3pt0610408m" path="res://actors/enemies/gui/enemy_hp_bar.gd" id="11_e6qfo"]
+[ext_resource type="Script" uid="uid://cm3pt0610408m" path="res://enemies/gui/enemy_hp_bar.gd" id="11_e6qfo"]
 [ext_resource type="Theme" uid="uid://dn741ckakw5rx" path="res://assets/themes/main.tres" id="11_i6yqm"]
+[ext_resource type="Resource" uid="uid://b8fn7352chme3" path="res://items/xp_small.tres" id="11_mwak4"]
+[ext_resource type="Resource" uid="uid://3apwt034yu5j" path="res://items/xp_medium.tres" id="12_mwak4"]
+[ext_resource type="Resource" uid="uid://c4r3twh5tt7ll" path="res://items/hp_small.tres" id="13_grymm"]
+[ext_resource type="Resource" uid="uid://d1lly3c82rowa" path="res://items/hp_medium.tres" id="14_ymuxt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j4d7i"]
 radius = 16.0
@@ -148,6 +153,30 @@ _data = {
 &"wander": SubResource("Animation_i6yqm")
 }
 
+[sub_resource type="Resource" id="Resource_bu8ed"]
+script = ExtResource("10_ii2rx")
+item = ExtResource("11_mwak4")
+max_amount = 3
+metadata/_custom_type_script = "uid://cqmfg5ca53nge"
+
+[sub_resource type="Resource" id="Resource_xpn8i"]
+script = ExtResource("10_ii2rx")
+item = ExtResource("12_mwak4")
+probability = 10.0
+metadata/_custom_type_script = "uid://cqmfg5ca53nge"
+
+[sub_resource type="Resource" id="Resource_2dcpb"]
+script = ExtResource("10_ii2rx")
+item = ExtResource("13_grymm")
+probability = 5.0
+metadata/_custom_type_script = "uid://cqmfg5ca53nge"
+
+[sub_resource type="Resource" id="Resource_xvjrt"]
+script = ExtResource("10_ii2rx")
+item = ExtResource("14_ymuxt")
+probability = 1.0
+metadata/_custom_type_script = "uid://cqmfg5ca53nge"
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_dluy2"]
 radius = 100.0
 
@@ -207,6 +236,7 @@ script = ExtResource("6_yf1bw")
 
 [node name="Dead" type="Node2D" parent="StateMachine"]
 script = ExtResource("7_j4d7i")
+drops = Array[ExtResource("10_ii2rx")]([SubResource("Resource_bu8ed"), SubResource("Resource_xpn8i"), SubResource("Resource_2dcpb"), SubResource("Resource_xvjrt")])
 
 [node name="PlayerDetection" type="Area2D" parent="."]
 collision_layer = 0

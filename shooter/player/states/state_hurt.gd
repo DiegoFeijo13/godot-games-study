@@ -35,4 +35,4 @@ func _on_take_damage(_hurt_box : HurtBox) -> void:
 	if state_machine.current_state == self:
 		return
 	state_machine.change_state(self)
-	player.take_damage(_hurt_box)
+	player.update_hp(-_hurt_box.damage)

@@ -15,7 +15,7 @@ func exit() -> void:
 	pass
 
 func process(_delta : float) -> EnemyState:
-	var direction = (GlobalGameState.player.global_position - enemy.global_position).normalized()
+	var direction = (GlobalPlayerManager.get_player_global_position() - enemy.global_position).normalized()
 	
 	enemy.set_direction(direction)
 	

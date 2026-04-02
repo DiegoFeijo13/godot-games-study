@@ -26,5 +26,5 @@ func process(_delta : float) -> EnemyState:
 	return null
 
 func _move_to_player() -> void:
-	var next_dir = (GlobalGameState.player.global_position - enemy.global_position)	
+	var next_dir = (GlobalPlayerManager.get_player_global_position() - enemy.global_position)	
 	enemy.set_direction(next_dir.normalized())

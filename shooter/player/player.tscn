@@ -1,13 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://drojwdohb1g2p"]
+[gd_scene load_steps=18 format=3 uid="uid://drojwdohb1g2p"]
 
-[ext_resource type="Script" uid="uid://drxjrww08lb05" path="res://actors/player/player.gd" id="1_ilk7j"]
+[ext_resource type="Script" uid="uid://drxjrww08lb05" path="res://player/player.gd" id="1_ilk7j"]
 [ext_resource type="Texture2D" uid="uid://qu541j2w3ybo" path="res://assets/blob.png" id="2_ax26v"]
-[ext_resource type="Script" uid="uid://vwn8gjkonsd7" path="res://actors/player/states/state_machine.gd" id="3_ax26v"]
-[ext_resource type="Script" uid="uid://utadarqa1em5" path="res://actors/player/states/state_idle.gd" id="4_6p1w3"]
-[ext_resource type="Script" uid="uid://d18phqij0p8yd" path="res://actors/player/states/state_walk.gd" id="5_15y17"]
-[ext_resource type="Script" uid="uid://3im4bptpqhqr" path="res://actors/player/gun.gd" id="6_15y17"]
-[ext_resource type="Script" uid="uid://cqgklvtq63myq" path="res://actors/player/states/state_hurt.gd" id="6_a744p"]
+[ext_resource type="Script" uid="uid://vwn8gjkonsd7" path="res://player/states/state_machine.gd" id="3_ax26v"]
+[ext_resource type="Script" uid="uid://utadarqa1em5" path="res://player/states/state_idle.gd" id="4_6p1w3"]
+[ext_resource type="Script" uid="uid://d18phqij0p8yd" path="res://player/states/state_walk.gd" id="5_15y17"]
+[ext_resource type="Script" uid="uid://3im4bptpqhqr" path="res://player/gun.gd" id="6_15y17"]
+[ext_resource type="Script" uid="uid://cqgklvtq63myq" path="res://player/states/state_hurt.gd" id="6_a744p"]
 [ext_resource type="Script" uid="uid://d1eslcyspvtrw" path="res://misc/hit_box.gd" id="8_a744p"]
+[ext_resource type="Script" uid="uid://b1tichwqs6f4i" path="res://player/item_magnet.gd" id="9_388e2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lsqbn"]
 radius = 16.0
@@ -99,6 +100,9 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_388e2"]
 radius = 14.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lsln6"]
+radius = 32.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
 motion_mode = 1
@@ -141,3 +145,13 @@ script = ExtResource("8_a744p")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_388e2")
+
+[node name="ItemMagnet" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+script = ExtResource("9_388e2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemMagnet"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_lsln6")
+debug_color = Color(0.5437199, 0.43366486, 0, 0.41960785)

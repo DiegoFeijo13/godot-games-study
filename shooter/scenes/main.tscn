@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=4 uid="uid://cw5eekjepuohr"]
 
-[ext_resource type="PackedScene" uid="uid://drojwdohb1g2p" path="res://actors/player/player.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://drojwdohb1g2p" path="res://player/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cs553y4m5nb4u" path="res://game/level_manager.gd" id="1_tipki"]
 [ext_resource type="PackedScene" uid="uid://bq8rn08xineym" path="res://tilemap/tilemap.tscn" id="2_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://f2g7y1dtcrdo" path="res://actors/enemies/spawner/enemy_spawner.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://f2g7y1dtcrdo" path="res://enemies/spawner/enemy_spawner.tscn" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://dxbobhq6xljsn" path="res://gui/hud.gd" id="4_85g3d"]
 [ext_resource type="Theme" uid="uid://dn741ckakw5rx" path="res://assets/themes/main.tres" id="4_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://b81e8cukmpthg" path="res://assets/ui/blob-icon.png" id="5_tefeu"]

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://plobpwiyrycq"]
+
+[ext_resource type="Script" uid="uid://c23brrmo1jntt" path="res://items/drop.gd" id="1_jks2g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rq0bn"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vnhr0"]
+radius = 8.0
+
+[node name="Drop" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_jks2g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rq0bn")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_vnhr0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
