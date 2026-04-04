@@ -4,13 +4,6 @@ const INVENTORY_DATA : InventoryData = preload("uid://3adpuhlrdqrj")
 
 var player : Player
 
-# Modifiers
-var hp_add : int = 0
-var xp_mod : float = 0.0
-var bullet_speed_mod : float = 0.0
-var player_speed_mod : float = 0.0
-var item_magnet_radius_mod : float = 0.0
-
 func _ready() -> void:
 	GlobalEventBus.player_loaded.connect(_on_player_loaded)
 	GlobalEventBus.pickup_item.connect(_on_pick_up_item)
@@ -27,28 +20,30 @@ func _on_pick_up_item(item_data : ItemData) -> void:
 		player.update_hp(item_data.heal_power)
 
 func _on_pick_up_upgrade(upgrade_data : UpgradeData) -> void:
-	if INVENTORY_DATA.add_upgrade(upgrade_data):
-		_recalculate_upgrades_modifiers()
+	INVENTORY_DATA.add_upgrade(upgrade_data)
+	_recalculate_upgrades_modifiers()
+	GlobalEventBus.pickup_upgrade_done.emit()
 
 func _recalculate_upgrades_modifiers() -> void:
-	hp_add = 0
-	xp_mod = 0.0
-	bullet_speed_mod = 0.0
-	player_speed_mod = 0.0
-	item_magnet_radius_mod = 0.0
+	var modifiers = ModifiersResponse.new()	
 	
 	for u in INVENTORY_DATA.upgrades:
 		if u == null or u.quantity < 1:
 			continue
-		hp_add += u.upgrade_data.hp_add * u.quantity
-		xp_mod += u.upgrade_data.xp_mod * u.quantity
-		bullet_speed_mod += u.upgrade_data.bullet_speed_mod * u.quantity
-		player_speed_mod += u.upgrade_data.player_speed_mod * u.quantity
-		item_magnet_radius_mod += u.upgrade_data.item_magnet_radius_mod * u.quantity
+		modifiers.hp_add += u.upgrade_data.hp_add * u.quantity
+		modifiers.xp_mod += u.upgrade_data.xp_mod * u.quantity
+		modifiers.bullet_speed_mod += u.upgrade_data.bullet_speed_mod * u.quantity
+		modifiers.player_speed_mod += u.upgrade_data.player_speed_mod * u.quantity
+		modifiers.item_magnet_radius_mod += u.upgrade_data.item_magnet_radius_mod * u.quantity
 	
-	GlobalEventBus.modifiers_changed.emit()
+	GlobalEventBus.modifiers_changed.emit(modifiers)
 
 func get_player_global_position() -> Vector2:
 	if player:
 		return player.global_position
 	return Vector2.ZERO
+
+func get_player_current_level() -> int:
+	if player:
+		return player._level
+	return 0

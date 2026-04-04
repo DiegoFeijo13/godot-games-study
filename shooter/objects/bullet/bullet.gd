@@ -1,9 +1,11 @@
 class_name Bullet extends CharacterBody2D
 
-const SPEED : float = 700.0
 const LIFETIME : float = 0.8
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hurt_box: HurtBox = $HurtBox
+
+var speed : float = 700.0
 
 var direction : Vector2
 var _current_lifetime : float
@@ -19,7 +21,7 @@ func _process(_d: float) -> void:
 		queue_free()
 
 func _physics_process(_d: float) -> void:
-	velocity = direction * SPEED
+	velocity = direction * speed
 	
 	if move_and_slide():
 		queue_free()

@@ -2,6 +2,8 @@ class_name Gun extends Node2D
 
 const BULLET = preload("uid://b3taluwpnqkb")
 const COOLDOWN :float = 0.3
+const BULLET_SPEED : float = 700.0
+const BULLET_MAX_SPEED : float = 1200.0
 
 @onready var player: Player = $".."
 
@@ -25,4 +27,12 @@ func _shoot() -> void:
 	var bullet: = BULLET.instantiate() as Bullet
 	bullet.direction = direction.normalized()
 	bullet.position = player.position
+	bullet.speed = _calculate_bullet_speed()
 	player.get_parent().add_child(bullet)
+
+func _calculate_bullet_speed() -> float:
+	var speed : float = BULLET_SPEED * player._bullet_speed_mod
+	return clampf(speed,BULLET_SPEED, BULLET_MAX_SPEED)
+	
+	
+	

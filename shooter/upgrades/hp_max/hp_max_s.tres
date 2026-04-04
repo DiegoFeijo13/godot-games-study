@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=2 format=3 uid="uid://cd78ch26q3ox2"]
+
+[ext_resource type="Script" uid="uid://bcvj2nbq48afu" path="res://upgrades/upgrade_data.gd" id="1_lgk3n"]
+
+[resource]
+script = ExtResource("1_lgk3n")
+description = "HP MAX + 10"
+rarity = 3
+hp_add = 10
+metadata/_custom_type_script = "uid://bcvj2nbq48afu"

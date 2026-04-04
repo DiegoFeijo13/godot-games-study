@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=2 format=3 uid="uid://0mtegtw0oq6j"]
+
+[ext_resource type="Script" uid="uid://bcvj2nbq48afu" path="res://upgrades/upgrade_data.gd" id="1_1kojj"]
+
+[resource]
+script = ExtResource("1_1kojj")
+description = "Exp gain + 50%"
+rarity = 2
+category = 1
+xp_mod = 1.5
+metadata/_custom_type_script = "uid://bcvj2nbq48afu"

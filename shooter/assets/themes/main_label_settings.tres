@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://j13urppxmq8e"]
+
+[ext_resource type="FontFile" uid="uid://05m10g3bu7tn" path="res://assets/Pixeboy-z8XGD.ttf" id="1_0aoh6"]
+
+[resource]
+font = ExtResource("1_0aoh6")
+font_size = 32

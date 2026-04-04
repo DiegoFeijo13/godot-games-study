@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=2 format=3 uid="uid://b1qdrscv07yad"]
+
+[ext_resource type="Script" uid="uid://bcvj2nbq48afu" path="res://upgrades/upgrade_data.gd" id="1_tagxf"]
+
+[resource]
+script = ExtResource("1_tagxf")
+description = "Bullet speed + 100%"
+rarity = 3
+category = 2
+bullet_speed_mod = 2.0
+metadata/_custom_type_script = "uid://bcvj2nbq48afu"

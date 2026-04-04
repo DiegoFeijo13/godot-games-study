@@ -21,6 +21,11 @@ GlobalEventBus="*res://_globals/global_event_bus.gd"
 GlobalGameState="*res://_globals/global_game_state.gd"
 GlobalPlayerManager="*res://_globals/global_player_manager.gd"
 
+[display]
+
+window/size/window_width_override=1152
+window/size/window_height_override=684
+
 [dotnet]
 
 project/assembly_name="shooter"
@@ -85,4 +90,4 @@ pause={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.05882353, 0.05882353, 0.05882353, 1)
+environment/defaults/default_clear_color=Color(0.27058825, 0.15686275, 0.23529412, 1)

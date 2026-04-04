@@ -2,13 +2,15 @@ class_name GameState extends Node
 
 var enemies_on_screen : int
 var max_enemies_on_screen : int = 8
-var is_game_over : bool
+var can_player_control : bool = true
 
 func _ready() -> void:
 	GlobalEventBus.enemy_spawned.connect(_on_enemy_spawned)
 	GlobalEventBus.enemy_died.connect(_on_enemy_died)
 	GlobalEventBus.player_died.connect(_on_player_died)
 	GlobalEventBus.restart.connect(_on_restart)	
+	GlobalEventBus.level_up.connect(_on_level_up)
+	GlobalEventBus.pickup_upgrade_done.connect(_on_pickup_upgrade_done)
 
 func can_spawn_enemy() -> bool:
 	return enemies_on_screen < max_enemies_on_screen
@@ -21,7 +23,7 @@ func _on_enemy_died(_e : Enemy) -> void:
 
 func _on_player_died() -> void:
 	get_tree().paused = true
-	is_game_over = true
+	can_player_control = false
 
 func _on_restart() -> void:
 	get_tree().create_timer(0.5).timeout.connect(_restart)
@@ -30,4 +32,13 @@ func _restart() -> void:
 	get_tree().reload_current_scene()
 	get_tree().paused = false
 	enemies_on_screen = 0
-	is_game_over = false
+	can_player_control = true
+
+func _on_level_up(_levels_gained : int, _current_level : int) -> void:
+	get_tree().paused = true
+	can_player_control = false
+
+func _on_pickup_upgrade_done() -> void:
+	can_player_control = true
+	get_tree().paused = false
+	
