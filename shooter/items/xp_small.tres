@@ -8,5 +8,5 @@ script = ExtResource("1_kymry")
 name = "Small Xp Orb"
 texture = ExtResource("2_reux6")
 texture_modulate = Color(0.5411765, 0.43529412, 0.1882353, 1)
-xp_amount = 50
+xp_amount = 10
 metadata/_custom_type_script = "uid://l23ik88l1tvg"

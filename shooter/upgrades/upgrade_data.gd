@@ -9,10 +9,11 @@ enum UpgradeRarity {
 
 enum UpgradeCategory {
 	hp_max,
-	xp_max,
-	bullet_speed,
+	xp_max,	
+	fire_rate,
 	player_speed,
-	item_magnet
+	item_magnet,
+	bullet_damage
 }
 
 @export_category("Attributes")
@@ -23,6 +24,7 @@ enum UpgradeCategory {
 @export_category("Modifiers")
 @export var hp_add : int = 0
 @export var xp_mod : float = 0.0
-@export var bullet_speed_mod : float = 0.0
+@export var fire_rate_mod : float = 0.0
 @export var player_speed_mod : float = 0.0
 @export var item_magnet_radius_mod : float = 0.0
+@export var damage_mod : float = 0.0

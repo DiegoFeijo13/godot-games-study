@@ -32,9 +32,10 @@ func _recalculate_upgrades_modifiers() -> void:
 			continue
 		modifiers.hp_add += u.upgrade_data.hp_add * u.quantity
 		modifiers.xp_mod += u.upgrade_data.xp_mod * u.quantity
-		modifiers.bullet_speed_mod += u.upgrade_data.bullet_speed_mod * u.quantity
+		modifiers.fire_rate_mod += u.upgrade_data.fire_rate_mod * u.quantity
 		modifiers.player_speed_mod += u.upgrade_data.player_speed_mod * u.quantity
 		modifiers.item_magnet_radius_mod += u.upgrade_data.item_magnet_radius_mod * u.quantity
+		modifiers.damage_mod += u.upgrade_data.damage_mod * u.quantity
 	
 	GlobalEventBus.modifiers_changed.emit(modifiers)
 

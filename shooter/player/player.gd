@@ -17,7 +17,8 @@ var _xp : float = 0
 var _max_xp : float = 100.0
 var _xp_mod : float = 0.0
 
-var _bullet_speed_mod : float = 0.0
+var _fire_rate_mod : float = 0.0
+var _bullet_damage_mod : float = 0.0
 
 var direction : Vector2
 
@@ -61,11 +62,13 @@ func update_hp(delta : int) -> void:
 func update_xp(delta : float) -> void:
 	var xp_to_add := delta * (1.0 + _xp_mod)
 	var levels_gained = int((_xp + xp_to_add) / _max_xp)
-	_xp = int(xp_to_add) % int(_max_xp)
 	if levels_gained > 0:
+		_xp = int(xp_to_add) % int(_max_xp)
 		_level += levels_gained
+		GlobalEventBus.level_up.emit(levels_gained, _level)
+	else:
+		_xp += xp_to_add
 	GlobalEventBus.update_xpbar.emit(_xp, _max_xp)
-	GlobalEventBus.level_up.emit(levels_gained, _level)
 	_send_update_status()
 
 func _on_modifiers_change(modifiers : ModifiersResponse) -> void:	
@@ -77,7 +80,8 @@ func _on_modifiers_change(modifiers : ModifiersResponse) -> void:
 		_current_hp = clampi(current_hp + new_hp, _current_hp, get_max_hp())	
 	_xp_mod = modifiers.xp_mod
 	_speed_mod = modifiers.player_speed_mod
-	_bullet_speed_mod = modifiers.bullet_speed_mod
+	_fire_rate_mod = modifiers.fire_rate_mod
+	_bullet_damage_mod = modifiers.damage_mod
 	GlobalEventBus.update_xpbar.emit(_xp, _max_xp)
 	GlobalEventBus.update_hpbar.emit(_current_hp, get_max_hp())
 	_send_update_status()
@@ -86,9 +90,10 @@ func _send_update_status() -> void:
 	var status_data = PlayerStatusData.new()
 	status_data.current_hp = _current_hp
 	status_data.max_hp = get_max_hp()
-	status_data.bullet_speed_mod = _bullet_speed_mod
+	status_data.fire_rate_mod = _fire_rate_mod
 	status_data.current_xp = _xp
 	status_data.xp_mod = _xp_mod
 	status_data.next_level_xp = _max_xp
+	status_data.bullet_dmg_mod = _bullet_damage_mod
 	GlobalEventBus.update_status_screen.emit(status_data)
 	

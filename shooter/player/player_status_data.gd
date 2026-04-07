@@ -6,4 +6,5 @@ var speed : float
 var current_xp : int
 var next_level_xp : int
 var xp_mod : float
-var bullet_speed_mod : float
+var fire_rate_mod : float
+var bullet_dmg_mod : float

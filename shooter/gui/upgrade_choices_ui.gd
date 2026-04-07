@@ -5,6 +5,7 @@ const RARE_BUTTON_THEME = preload("uid://coodd8i7d7ph5")
 const UNCOMMON_BUTTON_THEME = preload("uid://cter0lvn1og0x")
 const MAIN_THEME = preload("uid://dn741ckakw5rx")
 
+const TITLE_LABEL = "you are now level %s!"
 var btn_1_upgrade_data : UpgradeData
 var btn_2_upgrade_data : UpgradeData
 var btn_3_upgrade_data : UpgradeData
@@ -20,7 +21,7 @@ func update_buttons(choices : Array[UpgradeData]) -> void:
 		return
 	var player_level = GlobalPlayerManager.get_player_current_level()
 	
-	title_label.text = title_label.text.replace("%s", str(player_level))
+	title_label.text = TITLE_LABEL.replace("%s", str(player_level))
 	
 	upgrade_1.text = choices[0].description
 	_update_button_theme(upgrade_1, choices[0].rarity)

@@ -1,7 +1,7 @@
 class_name Hud extends Control
 
-const PAUSED_POS_Y : float = 0.0
-const IN_GAME_POS_Y : float = 584.0
+const PAUSED_POS_Y : float = 64.0
+const IN_GAME_POS_Y : float = 700.0
 
 @onready var hp_bar: ProgressBar = $HpBar/ProgressBar
 @onready var xp_bar: ProgressBar = $XpBar/ProgressBar

@@ -23,8 +23,10 @@ GlobalPlayerManager="*res://_globals/global_player_manager.gd"
 
 [display]
 
-window/size/window_width_override=1152
-window/size/window_height_override=684
+window/size/viewport_width=1024
+window/size/viewport_height=768
+window/size/window_width_override=1024
+window/size/window_height_override=768
 
 [dotnet]
 
@@ -90,4 +92,3 @@ pause={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.27058825, 0.15686275, 0.23529412, 1)

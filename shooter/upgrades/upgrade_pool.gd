@@ -18,21 +18,25 @@ func _ready() -> void:
 
 func _on_level_up(_levels_gained : int, _current_level : int) -> void:
 	_upgrades_drawn = []
+	_categories_drawn = []
 	
-	_draw(epic_upgrades, EPIC_PROB)
-	
-	if _upgrades_drawn.size() < 3:
-		_draw(rare_upgrades, RARE_PROB)
-	
-	if _upgrades_drawn.size() < 3:
-		_draw(uncommon_upgrades, UNCOMMON_PROB)
-	
-	if _upgrades_drawn.size() < 3:
-		_draw(common_upgrades, COMMON_PROB)
+	_draw(_draw_pool())
+	_draw(_draw_pool())
+	_draw(_draw_pool())
 	
 	GlobalEventBus.update_upgrade_choices.emit(_upgrades_drawn)
 
-func _draw(pool : Array[UpgradeData], prob : float) -> void:
+func _draw_pool() -> Array[UpgradeData]:
+	var prob = randf()
+	if prob <= EPIC_PROB:
+		return epic_upgrades
+	if prob <= RARE_PROB:
+		return rare_upgrades
+	if prob <= UNCOMMON_PROB:
+		return uncommon_upgrades
+	return common_upgrades
+
+func _draw(pool : Array[UpgradeData]) -> void:
 	if pool == null or pool.size() == 0:
 		return
 	
@@ -44,9 +48,7 @@ func _draw(pool : Array[UpgradeData], prob : float) -> void:
 		
 		if _categories_drawn.size() > 0 and _categories_drawn.has(pool[i].category):
 			continue
-		
-		if randf() < prob:
-			_categories_drawn.append(pool[i].category)
-			_upgrades_drawn.append(pool[i])
-			if _upgrades_drawn.size() >= 3:
-				return
+				
+		_categories_drawn.append(pool[i].category)
+		_upgrades_drawn.append(pool[i])
+		return

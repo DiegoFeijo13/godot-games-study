@@ -7,5 +7,5 @@ script = ExtResource("1_1kojj")
 description = "Exp gain + 50%"
 rarity = 2
 category = 1
-xp_mod = 1.5
+xp_mod = 0.5
 metadata/_custom_type_script = "uid://bcvj2nbq48afu"

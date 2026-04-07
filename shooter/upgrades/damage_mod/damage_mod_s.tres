@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=2 format=3 uid="uid://b5vogqcyerlam"]
+
+[ext_resource type="Script" uid="uid://bcvj2nbq48afu" path="res://upgrades/upgrade_data.gd" id="1_wxany"]
+
+[resource]
+script = ExtResource("1_wxany")
+description = "Damage + 100%"
+rarity = 3
+category = 5
+damage_mod = 1.0
+metadata/_custom_type_script = "uid://bcvj2nbq48afu"
