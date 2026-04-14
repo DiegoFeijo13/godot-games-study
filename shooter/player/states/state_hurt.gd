@@ -3,20 +3,21 @@ class_name PlayerStateHurt extends PlayerState
 const ANIM_NAME = "hurt"
 
 @export var invulnerable_time : float = 0.6
+@export var knockback_speed : float = 250.0
 
-@onready var hit_box: HitBox = $"../../HitBox"
 @onready var idle: PlayerStateIdle = $"../Idle"
 
 var _i_frames : float
-
-func _ready() -> void:
-	hit_box.damaged.connect(_on_take_damage)
+var damage_position : Vector2
 
 func init() -> void:
 	pass
 
 func enter() -> void:
 	player.update_animation(ANIM_NAME)
+	var knockback_dir = player.global_position.direction_to(damage_position)
+	player.direction = knockback_dir.normalized()
+	player.velocity = player.direction * -knockback_speed
 	_i_frames = invulnerable_time
 
 func exit() -> void:
@@ -27,12 +28,3 @@ func process(_delta : float) -> PlayerState:
 	if _i_frames <= 0:
 		return idle
 	return null
-
-func physics(_delta : float) -> PlayerState:
-	return null
-
-func _on_take_damage(_hurt_box : HurtBox) -> void:
-	if state_machine.current_state == self:
-		return
-	state_machine.change_state(self)
-	player.update_hp(-_hurt_box.damage)

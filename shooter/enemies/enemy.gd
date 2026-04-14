@@ -6,10 +6,10 @@ signal update_hpbar(current_value : float, max_value : float)
 
 @export var speed : float = 150.0
 @export var hp : int = 3
-@export var xp_grant : float = 3.0
 
 @onready var state_machine: EnemyStateMachine = $StateMachine
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 var current_hp : int
 var invulnerable: bool = false
@@ -31,6 +31,8 @@ func set_direction(new_direction : Vector2) -> bool:
 	if direction == Vector2.ZERO:
 		return false
 	
+	sprite_2d.flip_h = direction.x < 0
+		
 	velocity = direction * current_speed
 	return true
 

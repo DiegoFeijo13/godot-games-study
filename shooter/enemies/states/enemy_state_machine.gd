@@ -10,7 +10,7 @@ var enemy : Enemy
 
 # States
 @onready var wander: EnemyStateWander = $Wander
-@onready var follow: EnemyStateFollow = $Follow
+@onready var throw: EnemyStateThrow = $Throw
 @onready var hurt: EnemyStateHurt = $Hurt
 @onready var dead: EnemyStateDead = $Dead
 
@@ -33,7 +33,7 @@ func initialize( _enemy : Enemy ) -> void:
 	
 	states = [
 		wander,
-		follow,
+		throw,
 		hurt,
 		dead
 	]
@@ -62,7 +62,7 @@ func change_state(new_state : EnemyState) -> void:
 func _on_player_enter() -> void:		
 	if current_state is EnemyStateHurt or current_state is EnemyStateDead:
 		return
-	change_state(follow)
+	change_state(throw)
 
 func _on_player_exit() -> void:
 	if current_state is EnemyStateHurt or current_state is EnemyStateDead:

@@ -4,6 +4,13 @@ var states : Array[PlayerState]
 var prev_state : PlayerState
 var current_state : PlayerState
 var next_state : PlayerState
+var player : Player
+
+@onready var idle: PlayerStateIdle = $Idle
+@onready var walk: PlayerStateWalk = $Walk
+@onready var hurt: PlayerStateHurt = $Hurt
+
+@onready var hit_box: HitBox = $"../HitBox"
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
@@ -14,23 +21,19 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	change_state( current_state.physics(delta))
 
-func _unhandled_input(event: InputEvent) -> void:
-	change_state(current_state.handle_input(event))
-
 func initialize( _player : Player ) -> void:
-	states = []
+	states = [
+		idle,
+		walk,
+		hurt
+	]		
 	
-	for c in get_children():
-		if c is PlayerState:
-			states.append(c)
+	player = _player
 	
-	if states.size() == 0:
-		return
-	
-	states[0].player = _player
-	states[0].state_machine = self
+	hit_box.damaged.connect(_on_take_damage)
 	
 	for state in states:
+		state.player = _player
 		state.init()
 	
 	change_state( states[0] )
@@ -48,3 +51,10 @@ func change_state(new_state : PlayerState) -> void:
 	prev_state = current_state
 	current_state = new_state
 	current_state.enter()
+
+func _on_take_damage(_hurt_box : HurtBox) -> void:
+	if current_state == hurt:
+		return
+	hurt.damage_position = _hurt_box.global_position
+	change_state(hurt)
+	player.update_hp(-_hurt_box.damage)

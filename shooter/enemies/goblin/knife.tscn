@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://cosi1b8d2b71w"]
+
+[ext_resource type="Script" uid="uid://boxy5xlv88qy" path="res://player/bullet/bullet.gd" id="1_gcfe3"]
+[ext_resource type="Texture2D" uid="uid://d25kpc45i7xdf" path="res://assets/goblin_knife.png" id="2_4x6wa"]
+[ext_resource type="Script" uid="uid://bvf32cjdmyeco" path="res://misc/hurt_box.gd" id="3_ssvgr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l2pgv"]
+radius = 6.0
+
+[sub_resource type="Animation" id="Animation_l2pgv"]
+resource_name = "moving"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.7853982, 1.5707963267948966, 2.356194490192345, 3.141592653589793]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_31544"]
+_data = {
+&"moving": SubResource("Animation_l2pgv")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b7usj"]
+radius = 8.0
+
+[node name="Knife" type="CharacterBody2D"]
+collision_layer = 512
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_gcfe3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4x6wa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_l2pgv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_31544")
+}
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+script = ExtResource("3_ssvgr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_b7usj")
+debug_color = Color(1, 0, 0, 0.41960785)

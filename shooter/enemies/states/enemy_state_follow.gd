@@ -4,8 +4,6 @@ const ANIM_NAME = "follow"
 
 @export var aggro_speed : float = 170.0
 
-@onready var wander: EnemyStateWander = $"../Wander"
-
 func enter() -> void:	
 	enemy.set_speed(aggro_speed)
 	enemy.play_animation(ANIM_NAME)

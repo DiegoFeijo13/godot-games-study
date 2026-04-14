@@ -16,11 +16,7 @@ func _process(_d: float) -> void:
 	if _current_cooldown > 0.0:		
 		_current_cooldown -= _d
 
-func _unhandled_input(_e: InputEvent) -> void:
-	if Input.is_action_pressed("shoot"):
-		_shoot()
-
-func _shoot() -> void:	
+func shoot() -> void:	
 	if _current_cooldown > 0.0:
 		return
 	

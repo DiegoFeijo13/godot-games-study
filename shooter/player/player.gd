@@ -6,6 +6,7 @@ const MAX_HP : int = 3
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var state_machine: PlayerStateMachine = $StateMachine
+@onready var gun: Gun = $Gun
 
 var _current_hp : int
 var _max_hp_mod : int
@@ -36,9 +37,12 @@ func _process(_delta: float) -> void:
 		Input.get_axis("up", "down")
 	).normalized()
 	
+	if Input.is_action_pressed("shoot"):
+		gun.shoot()
+		
 	var camera = get_viewport().get_camera_2d()
 	var mouse_direction : Vector2 = camera.get_global_mouse_position() - global_position
-	sprite_2d.flip_h = mouse_direction.x > 0
+	sprite_2d.flip_h = mouse_direction.x < 0
 
 func _physics_process(_d: float) -> void:	
 	move_and_slide()
