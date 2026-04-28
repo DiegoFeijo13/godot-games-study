@@ -2,12 +2,15 @@ class_name Player extends CharacterBody2D
 
 const SPEED : float = 175.0
 const JUMP_VELOCITY : float = -400.0
+const FALL_VELOCITY : float = 450.0
 const COYOTE_TIME : float = 0.1
 const JUMP_BUFFER_TIME : float = 0.2
-const ACCELERATION : float = 5.83
-const DECELERATION : float = 11.66
-const AIR_ACCELERATION : float = 2.91
-const AIR_DECELERATION : float = 5.83
+const ACCELERATION : float = 6.0
+const DECELERATION : float = 12.0
+const AIR_ACCELERATION : float = 4.0
+const AIR_DECELERATION : float = 8.0
+const FALL : float = 3.0
+const JUMP_CUT : float = 4.5
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -43,10 +46,10 @@ func _physics_process(_d: float) -> void:
 	if direction != 0:
 		looking_direction = direction
 	
-	sprite_2d.flip_h = looking_direction > 0
+	sprite_2d.flip_h = looking_direction > 0	
 	
+	update_velocity()
 	state_machine.physics(_d)
-	
 	move_and_slide()
 
 func update_velocity() -> void:
@@ -70,3 +73,6 @@ func can_jump() -> bool:
 
 func is_holding_jump() -> bool:
 	return Input.is_action_pressed("ui_accept")
+
+func fall(_delta: float) -> void:
+	velocity.y = minf(velocity.y + (get_gravity().y * FALL * _delta), FALL_VELOCITY)

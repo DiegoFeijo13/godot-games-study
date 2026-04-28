@@ -21,4 +21,5 @@ func process(_delta : float) -> PlayerState:
 
 func physics(_delta : float) -> void:
 	if not player.is_on_floor():
-		player.velocity += player.get_gravity() * _delta
+		player.fall(_delta)
+		

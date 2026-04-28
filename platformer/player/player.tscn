@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://drojwdohb1g2p"]
+[gd_scene load_steps=14 format=3 uid="uid://drojwdohb1g2p"]
 
 [ext_resource type="Script" uid="uid://drxjrww08lb05" path="res://player/player.gd" id="1_ilk7j"]
 [ext_resource type="Texture2D" uid="uid://cs7q85o8efqpn" path="res://assets/player.png" id="2_g6k8r"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://utadarqa1em5" path="res://player/states/state_idle.gd" id="4_6p1w3"]
 [ext_resource type="Script" uid="uid://d18phqij0p8yd" path="res://player/states/state_walk.gd" id="5_15y17"]
 [ext_resource type="Script" uid="uid://c2ikttbfi16rh" path="res://player/states/state_jump.gd" id="7_boad6"]
+[ext_resource type="Script" uid="uid://dql338ky1j6mb" path="res://player/camera.gd" id="7_rgyib"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_boad6"]
 radius = 7.0
@@ -126,3 +127,8 @@ script = ExtResource("7_boad6")
 libraries = {
 &"": SubResource("AnimationLibrary_15y17")
 }
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, 50)
+zoom = Vector2(2, 2)
+script = ExtResource("7_rgyib")

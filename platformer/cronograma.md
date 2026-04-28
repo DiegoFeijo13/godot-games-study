@@ -1,5 +1,13 @@
 # Cronograma de desenvolvimento do jogo Platformer
 
+1. Fundação do Movimento
+2. Game Feel e Polimento do Player
+3. Interações com o Mundo
+4. Câmera e Leitura de Jogo
+5. Level Design (primeiros níveis)
+6. Sistema de Iteração e Ferramentas
+7. Polimento Final (juice + feedback)
+
 ## Sessão 1 (15/04/2026)- Fundação do Movimento
 
 Objetivo:
@@ -48,6 +56,28 @@ Hipótese:
     - estados responsáveis por setar velocidade
 Fix:
     - estados agora indicam se player está no ar ou no chão e chamam função no player para atualizar a velocidade de acordo
+
+---
+## Sesãso 3 (25/04/2026) - Game Feel e Polimento do Player II
+Objetivo:
+    Implementar:
+    - gravidade subida
+    - gravidade descida (mais forte)
+    Ajustar:
+    - aceleração chão
+    - aceleração ar
+    - desaceleração
+    - gravidade
+Fiz:
+    - multiplicador de gravidades por estado do pulo (subindo apertando botão, subindo e soltar botão, caindo)
+    - ajustei valores para aceleração e gravidade para melhorar o feel
+    - adicionei camera que segue o player e ajusta seus limites conforme o uso de tiles no mapa
+Problema:
+    - player cai muito rápido
+Hipótese:
+    - sem cap na velocidade de queda
+Fix:
+    - implementei velocidade máxima de queda e o cap em todos os estados
 
 ---
 Template
