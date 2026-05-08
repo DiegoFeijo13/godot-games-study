@@ -29,9 +29,16 @@ breakout/.import/
 breakout/export.cfg
 breakout/export_credentials.cfg
 
-# Breakout
+# Shooter
 shooter/.godot/
 shooter/.nomedia
 shooter/.import/
 shooter/export.cfg
 shooter/export_credentials.cfg
+
+# Platformer
+platformer/.godot/
+platformer/.nomedia
+platformer/.import/
+platformer/export.cfg
+platformer/export_credentials.cfg

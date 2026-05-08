@@ -80,6 +80,18 @@ Fix:
     - implementei velocidade máxima de queda e o cap em todos os estados
 
 ---
+## Sessão 4 (07/05/2026) - Apex jump e Wall Slide
+Objetivo:
+    Implementar:
+    - Apex jump
+    - Wall slide
+Fiz:
+    - multiplicador de apex jump no player e janela de aplicação desse multiplicador se botão de pulo ainda pressionado
+    - adicionado novo estado para WallSlide e ajustado gravidade para esse estado
+Problema:
+    - nenhum problema considerável nessa sessão
+
+---
 Template
 Objetivo:
 Fiz:

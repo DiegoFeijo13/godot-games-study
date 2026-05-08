@@ -9,6 +9,7 @@ var player : Player
 @onready var idle: PlayerStateIdle = $Idle
 @onready var walk: PlayerStateWalk = $Walk
 @onready var jump: PlayerStateJump = $Jump
+@onready var wall_slide: PlayerStateWallSlide = $WallSlide
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
@@ -23,7 +24,8 @@ func initialize( _player : Player ) -> void:
 	states = [
 		idle,
 		walk,
-		jump
+		jump,
+		wall_slide
 	]		
 	
 	player = _player

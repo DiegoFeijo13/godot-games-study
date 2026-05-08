@@ -22,4 +22,3 @@ func process(_delta : float) -> PlayerState:
 func physics(_delta : float) -> void:
 	if not player.is_on_floor():
 		player.fall(_delta)
-		

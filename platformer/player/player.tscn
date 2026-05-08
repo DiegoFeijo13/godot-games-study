@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://drojwdohb1g2p"]
+[gd_scene load_steps=15 format=3 uid="uid://drojwdohb1g2p"]
 
 [ext_resource type="Script" uid="uid://drxjrww08lb05" path="res://player/player.gd" id="1_ilk7j"]
 [ext_resource type="Texture2D" uid="uid://cs7q85o8efqpn" path="res://assets/player.png" id="2_g6k8r"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://utadarqa1em5" path="res://player/states/state_idle.gd" id="4_6p1w3"]
 [ext_resource type="Script" uid="uid://d18phqij0p8yd" path="res://player/states/state_walk.gd" id="5_15y17"]
 [ext_resource type="Script" uid="uid://c2ikttbfi16rh" path="res://player/states/state_jump.gd" id="7_boad6"]
+[ext_resource type="Script" uid="uid://lxjmm5fybhd3" path="res://player/states/state_wall_slide.gd" id="7_hg6s5"]
 [ext_resource type="Script" uid="uid://dql338ky1j6mb" path="res://player/camera.gd" id="7_rgyib"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_boad6"]
@@ -123,6 +124,9 @@ script = ExtResource("5_15y17")
 [node name="Jump" type="Node2D" parent="StateMachine"]
 script = ExtResource("7_boad6")
 
+[node name="WallSlide" type="Node2D" parent="StateMachine"]
+script = ExtResource("7_hg6s5")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_15y17")
@@ -132,3 +136,10 @@ libraries = {
 offset = Vector2(0, 50)
 zoom = Vector2(2, 2)
 script = ExtResource("7_rgyib")
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-18, 0)
+collision_mask = 2
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(18, 0)

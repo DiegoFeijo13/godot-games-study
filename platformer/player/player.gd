@@ -5,6 +5,7 @@ const JUMP_VELOCITY : float = -400.0
 const FALL_VELOCITY : float = 450.0
 const COYOTE_TIME : float = 0.1
 const JUMP_BUFFER_TIME : float = 0.2
+const JUMP_APEX_X : float = 0.4
 const ACCELERATION : float = 6.0
 const DECELERATION : float = 12.0
 const AIR_ACCELERATION : float = 4.0
@@ -15,6 +16,8 @@ const JUMP_CUT : float = 4.5
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var state_machine: PlayerStateMachine = $StateMachine
+@onready var ray_cast_left: RayCast2D = $RayCastLeft
+@onready var ray_cast_right: RayCast2D = $RayCastRight
 
 var direction : float
 var looking_direction : float
@@ -22,6 +25,8 @@ var looking_direction : float
 var jump_requested : bool
 var current_coyote_time : float = 0.0
 var current_jump_buffer_time : float = 0.0
+var is_touching_left_wall : bool = false
+var is_touching_right_wall : bool = false
 
 func _ready() -> void:
 	state_machine.initialize(self)
@@ -46,6 +51,9 @@ func _physics_process(_d: float) -> void:
 	if direction != 0:
 		looking_direction = direction
 	
+	is_touching_left_wall = ray_cast_left.is_colliding() and direction < 0
+	is_touching_right_wall = ray_cast_right.is_colliding() and direction > 0
+		
 	sprite_2d.flip_h = looking_direction > 0	
 	
 	update_velocity()
