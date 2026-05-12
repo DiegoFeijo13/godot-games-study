@@ -5,14 +5,14 @@ const WALL_SLIDE_X : float = 0.3
 
 @onready var idle: PlayerStateIdle = $"../Idle"
 @onready var walk: PlayerStateWalk = $"../Walk"
+@onready var wall_jump: PlayerStateWallJump = $"../WallJump"
 
 func enter() -> void:
-	#player.update_animation(ANIM_NAME)		
-	print("wall sliding")
+	#player.update_animation(ANIM_NAME)
+	player.velocity.y = 0
 	pass
 	
 func exit() -> void:
-	print("not wall sliding")
 	pass
 
 func process(_delta : float) -> PlayerState:	
@@ -24,6 +24,9 @@ func process(_delta : float) -> PlayerState:
 	if !player.is_touching_left_wall and !player.is_touching_right_wall:
 		return idle
 	
+	if player.jump_requested:
+		return wall_jump
+	
 	return null
 
 func physics(_delta : float) -> void:
@@ -31,7 +34,3 @@ func physics(_delta : float) -> void:
 	var cap = player.FALL_VELOCITY
 	player.velocity.y = minf(d_vel, cap)
 	pass
-
-
-
-	

@@ -1,13 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://drojwdohb1g2p"]
+[gd_scene load_steps=18 format=3 uid="uid://drojwdohb1g2p"]
 
 [ext_resource type="Script" uid="uid://drxjrww08lb05" path="res://player/player.gd" id="1_ilk7j"]
 [ext_resource type="Texture2D" uid="uid://cs7q85o8efqpn" path="res://assets/player.png" id="2_g6k8r"]
 [ext_resource type="Script" uid="uid://vwn8gjkonsd7" path="res://player/states/state_machine.gd" id="3_ax26v"]
 [ext_resource type="Script" uid="uid://utadarqa1em5" path="res://player/states/state_idle.gd" id="4_6p1w3"]
 [ext_resource type="Script" uid="uid://d18phqij0p8yd" path="res://player/states/state_walk.gd" id="5_15y17"]
+[ext_resource type="Script" uid="uid://cfqptnkhs7nil" path="res://player/states/state_fall.gd" id="6_2ieo8"]
 [ext_resource type="Script" uid="uid://c2ikttbfi16rh" path="res://player/states/state_jump.gd" id="7_boad6"]
 [ext_resource type="Script" uid="uid://lxjmm5fybhd3" path="res://player/states/state_wall_slide.gd" id="7_hg6s5"]
 [ext_resource type="Script" uid="uid://dql338ky1j6mb" path="res://player/camera.gd" id="7_rgyib"]
+[ext_resource type="Script" uid="uid://cxgi2w5n2412k" path="res://player/states/state_wall_jump.gd" id="8_hg6s5"]
+[ext_resource type="Script" uid="uid://cnjfk54jbe4mn" path="res://player/states/state_dash.gd" id="9_8t03j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_boad6"]
 radius = 7.0
@@ -121,11 +124,20 @@ script = ExtResource("4_6p1w3")
 [node name="Walk" type="Node2D" parent="StateMachine"]
 script = ExtResource("5_15y17")
 
+[node name="Fall" type="Node2D" parent="StateMachine"]
+script = ExtResource("6_2ieo8")
+
 [node name="Jump" type="Node2D" parent="StateMachine"]
 script = ExtResource("7_boad6")
 
 [node name="WallSlide" type="Node2D" parent="StateMachine"]
 script = ExtResource("7_hg6s5")
+
+[node name="WallJump" type="Node2D" parent="StateMachine"]
+script = ExtResource("8_hg6s5")
+
+[node name="Dash" type="Node2D" parent="StateMachine"]
+script = ExtResource("9_8t03j")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -143,3 +155,4 @@ collision_mask = 2
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 target_position = Vector2(18, 0)
+collision_mask = 2

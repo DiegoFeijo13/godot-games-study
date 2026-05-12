@@ -1,15 +1,16 @@
-class_name PlayerStateJump extends PlayerState
+class_name PlayerStateWallJump extends PlayerState
 
-const ANIM_NAME = "jump"
+const ANIM_NAME = "wall_jump"
 
 @onready var idle: PlayerStateIdle = $"../Idle"
 @onready var walk: PlayerStateWalk = $"../Walk"
-@onready var wall_slide: PlayerStateWallSlide = $"../WallSlide"
 @onready var dash: PlayerStateDash = $"../Dash"
+@onready var wall_slide: PlayerStateWallSlide = $"../WallSlide"
 
 func enter() -> void:
 	#player.update_animation(ANIM_NAME)		
-	player.velocity.y = player.JUMP_VELOCITY
+	player.velocity.y = player.WALL_JUMP_VELOCITY
+	player.velocity.x = player.WALL_JUMP_X_FORCE * player.direction * -1
 	player.jump_requested = false	
 	pass
 	
@@ -31,7 +32,6 @@ func process(_delta : float) -> PlayerState:
 	return null
 
 func physics(_delta : float) -> void:
-	player.update_x_velocity()
 	_apply_gravity(_delta, _select_gravity_multiplier())
 
 func _select_gravity_multiplier() -> float:

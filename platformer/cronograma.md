@@ -109,6 +109,23 @@ Implementar:
 - nenhum problema considerável nessa sessão
 
 ---
+
+## Sessão 5 (11/05/2026) - Wall Jump e Dash
+
+### Objetivo:
+Implementar:
+- wall jump
+- dash
+
+### Fiz:
+- wall jump state, que permite pular após um wall slide. É possível pular de uma parede pra outra escalando verticalmente. Não é possível escalar a mesma parede verticalmente.
+- fall state, que é acessado quando personagem não está no chão e não está pulando
+- dash state, que pode ser usado uma vez no ar, no chão ou depois de um wall jump
+
+
+### Problema:
+- nenhum problema considerável nessa sessão
+
 Template
 //*
 ### Objetivo:

@@ -8,8 +8,11 @@ var player : Player
 
 @onready var idle: PlayerStateIdle = $Idle
 @onready var walk: PlayerStateWalk = $Walk
+@onready var fall: PlayerStateFall = $Fall
 @onready var jump: PlayerStateJump = $Jump
 @onready var wall_slide: PlayerStateWallSlide = $WallSlide
+@onready var wall_jump: PlayerStateWallJump = $WallJump
+@onready var dash: PlayerStateDash = $Dash
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
@@ -24,8 +27,11 @@ func initialize( _player : Player ) -> void:
 	states = [
 		idle,
 		walk,
+		fall,
 		jump,
-		wall_slide
+		wall_slide,
+		wall_jump,
+		dash
 	]		
 	
 	player = _player
@@ -48,4 +54,5 @@ func change_state(new_state : PlayerState) -> void:
 		
 	prev_state = current_state
 	current_state = new_state
+	print(current_state)
 	current_state.enter()
