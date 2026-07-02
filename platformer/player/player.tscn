@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://drojwdohb1g2p"]
+[gd_scene load_steps=21 format=3 uid="uid://drojwdohb1g2p"]
 
 [ext_resource type="Script" uid="uid://drxjrww08lb05" path="res://player/player.gd" id="1_ilk7j"]
 [ext_resource type="Texture2D" uid="uid://cs7q85o8efqpn" path="res://assets/player.png" id="2_g6k8r"]
@@ -11,10 +11,10 @@
 [ext_resource type="Script" uid="uid://dql338ky1j6mb" path="res://player/camera.gd" id="7_rgyib"]
 [ext_resource type="Script" uid="uid://cxgi2w5n2412k" path="res://player/states/state_wall_jump.gd" id="8_hg6s5"]
 [ext_resource type="Script" uid="uid://cnjfk54jbe4mn" path="res://player/states/state_dash.gd" id="9_8t03j"]
+[ext_resource type="Script" uid="uid://c73ioub3xxxrs" path="res://player/hazards_hurt_box.gd" id="12_ebec5"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_boad6"]
-radius = 7.0
-height = 20.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yllr7"]
+size = Vector2(8, 8)
 
 [sub_resource type="Animation" id="Animation_6p1w3"]
 length = 0.001
@@ -102,6 +102,13 @@ _data = {
 &"walk": SubResource("Animation_lsqbn")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ieo8"]
+radius = 7.0
+height = 20.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebec5"]
+size = Vector2(16, 8)
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
 motion_mode = 1
@@ -112,8 +119,8 @@ texture = ExtResource("2_g6k8r")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
-shape = SubResource("CapsuleShape2D_boad6")
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_yllr7")
 
 [node name="StateMachine" type="Node2D" parent="."]
 script = ExtResource("3_ax26v")
@@ -145,7 +152,6 @@ libraries = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(0, 50)
 zoom = Vector2(2, 2)
 script = ExtResource("7_rgyib")
 
@@ -156,3 +162,24 @@ collision_mask = 2
 [node name="RayCastRight" type="RayCast2D" parent="."]
 target_position = Vector2(18, 0)
 collision_mask = 2
+
+[node name="Collector" type="Area2D" parent="."]
+collision_mask = 4
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collector"]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_2ieo8")
+
+[node name="HazardsHurtBox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 16
+script = ExtResource("12_ebec5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardsHurtBox"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_ebec5")
+debug_color = Color(0.96296173, 0.17719132, 0.20968464, 0.41960785)
+
+[connection signal="area_entered" from="HazardsHurtBox" to="HazardsHurtBox" method="_on_area_entered"]
+[connection signal="body_shape_entered" from="HazardsHurtBox" to="HazardsHurtBox" method="_on_body_shape_entered"]

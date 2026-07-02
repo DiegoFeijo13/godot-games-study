@@ -4,6 +4,8 @@ class_name EventBus extends Node
 @warning_ignore("unused_signal") signal player_loaded(player : Player)
 @warning_ignore("unused_signal") signal player_died
 
+# Object events
+@warning_ignore("unused_signal") signal coin_collected
 # Enemy events
 
 # Game events

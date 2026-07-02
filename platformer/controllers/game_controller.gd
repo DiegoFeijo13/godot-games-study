@@ -1,6 +1,6 @@
 class_name GameController extends Node
 
-@onready var tile_map_layer: TileMapLayer = $TileMapLayer
+@onready var tile_map_layer: TileMapLayer = $Foreground
 
 
 func _ready() -> void:

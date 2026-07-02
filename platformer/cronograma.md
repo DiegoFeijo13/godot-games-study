@@ -126,6 +126,30 @@ Implementar:
 ### Problema:
 - nenhum problema considerável nessa sessão
 
+## Sessão 6 (01/07/2026) - 
+
+### Objetivo:
+Criar uma fase completa, do início ao fim.
+O que implementar
+- Uma área inicial segura para o jogador entender os controles.
+- Plataformas com desafios progressivos.
+- Um objetivo claro (porta, bandeira, cristal, etc.).
+- Alguns trechos que exijam domínio do movimento.
+
+### Fiz:
+- Moedas para coletar
+- Desafios de plataforma no level principal
+- Perigos (espinhos e agua)
+
+### Problema:
+- Como fazer plataformas de caminho único em tilemaps
+
+### Hipótese:
+- Uso de Physics layer
+
+### Fix:
+- Acionado propriedade "one way" no layer
+
 Template
 //*
 ### Objetivo:

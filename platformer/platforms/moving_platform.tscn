@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2kir03cvy72v"]
+
+[ext_resource type="PackedScene" uid="uid://behrc8xvv2w1u" path="res://tilemaps/foreground.tscn" id="1_pt0kt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kcv71"]
+size = Vector2(72, 18)
+
+[sub_resource type="Animation" id="Animation_pt0kt"]
+resource_name = "move"
+length = 6.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.02103689, 1, 5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -180), Vector2(0, -180)]
+}
+
+[sub_resource type="Animation" id="Animation_kcv71"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5jun7"]
+_data = {
+&"RESET": SubResource("Animation_kcv71"),
+&"move": SubResource("Animation_pt0kt")
+}
+
+[node name="MovingPlatform" type="Node2D"]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+collision_layer = 2
+
+[node name="Foreground" parent="AnimatableBody2D" instance=ExtResource("1_pt0kt")]
+tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 9, 0, 2, 0, 0, 0, 0, 0, 255, 255, 0, 0, 9, 0, 2, 0, 0, 0, 254, 255, 255, 255, 0, 0, 8, 0, 2, 0, 0, 0, 1, 0, 255, 255, 0, 0, 10, 0, 2, 0, 0, 0)
+collision_enabled = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_kcv71")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5jun7")
+}
+autoplay = "move"

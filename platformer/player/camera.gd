@@ -14,7 +14,3 @@ func _on_update_bounds(tml : TileMapLayer) -> void:
 	limit_left = map_boundaries.position.x
 	limit_bottom = map_boundaries.end.y
 	limit_right = map_boundaries.end.x
-	print("Top ",limit_top)
-	print("Bottom ",limit_bottom)
-	print("Left ",limit_left)
-	print("Right ",limit_right)
