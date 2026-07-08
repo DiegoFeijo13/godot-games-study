@@ -2,7 +2,7 @@ class_name Player extends CharacterBody2D
 
 const SPEED : float = 175.0
 const JUMP_VELOCITY : float = -400.0
-const WALL_JUMP_VELOCITY : float = -475.0
+const WALL_JUMP_VELOCITY : float = -275.0
 const WALL_JUMP_X_FORCE : float = 275.0
 const FALL_VELOCITY : float = 450.0
 const COYOTE_TIME : float = 0.1
@@ -36,7 +36,7 @@ var current_dash_cooldown : float = 0
 
 func _ready() -> void:
 	state_machine.initialize(self)
-	GlobalEventBus.player_loaded.emit(self)
+	GlobalEventBus.player_loaded.emit(self)		
 
 func _process(_delta: float) -> void:
 	if current_dash_cooldown > 0:
@@ -49,7 +49,7 @@ func _process(_delta: float) -> void:
 		current_coyote_time = maxf(0, current_coyote_time - _delta)
 		current_jump_buffer_time = maxf(0, current_jump_buffer_time - _delta)
 
-func _physics_process(_d: float) -> void:
+func _physics_process(_d: float) -> void:	
 	if current_jump_buffer_time <= 0:
 		jump_requested = false
 	

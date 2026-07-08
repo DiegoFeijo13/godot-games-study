@@ -150,11 +150,21 @@ O que implementar
 ### Fix:
 - Acionado propriedade "one way" no layer
 
-Template
-//*
+## Sessão 7 (07/07/2026)
+
 ### Objetivo:
+Adicionar GUI e loop de jogo.
+O que implementar:
+- HUD com moedas coletadas e contagem de mortes
+- Goal que checa se pegou todas as moedas
+- GUI para reiniciar a fase após chegar ao fim
+
 ### Fiz:
+- Adicionado HUD em texto para exibir a contagem de moedas e mortes
+- Adicionado GUI ao finalizar a fase, com botão que permite reiniciar
+- Adicionado objeto Goal que confere a quantidade de moedas quando detecta o jogador e exibe o menu de restart se necessário
+
 ### Problema:
-### Hipótese:
-### Fix:
-*//
+Nenhum problema relevante encontrado
+
+Essa sessão finaliza o desenvolvimento do jogo.
