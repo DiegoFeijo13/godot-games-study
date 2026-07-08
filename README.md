@@ -5,6 +5,10 @@ Games done:
 - Pong
 - Breakout
 - Shooter
+- Platform
 
 Games in progress:
-- Platform
+-
+
+Next:
+- Action RPG
