@@ -26,9 +26,9 @@
 **Objetivo:** construir a arquitetura base.
 
 ## Checklist
-- [ ] Estrutura de pastas
-- [ ] Cena principal
-- [ ] Player
+- [x] Estrutura de pastas
+- [x] Cena principal
+- [x] Player
 - [ ] HUD mínima
 - [ ] GameManager
 - [ ] Troca de mapas
@@ -43,76 +43,90 @@
 - Managers demais
 - Acoplamento excessivo
 
-### Critério de conclusão
+### Critério
 Projeto organizado e jogável.
 
 ---
 
 # Fase 2 — Mundo dividido em áreas
 
-Objetivo: criar um mundo composto por mapas pequenos.
+**Objetivo:** criar um mundo composto por mapas pequenos.
 
-Checklist:
+## Checklist:
 - [ ] Área inicial
 - [ ] Segunda área
 - [ ] Portais
 - [ ] Spawn points
 - [ ] Limites da câmera
 
-Critério:
+## Critério
 Jogador navega entre áreas.
 
 ---
 
 # Fase 3 — Combate
 
+## Checklist
 - [ ] Ataque
 - [ ] Vida
 - [ ] Dano
 - [ ] Knockback
 - [ ] Morte
 
-Critério:
+## Critério:
 Combate agradável contra inimigos simples.
 
 ---
 
 # Fase 4 — IA
 
+## Checklist
 - [ ] Patrulha
 - [ ] Perseguição
 - [ ] Ataque
 - [ ] Retorno
 - [ ] Três tipos de inimigo
 
+## Critério    
+IA fluida e diversificada
 ---
 
 # Fase 5 — Loot e Itens
 
+## Checklist
 - [ ] Drops
 - [ ] Consumíveis
 - [ ] Moedas
 
+## Critério
+Coletaveis e consumíveis estão presentes e dropam de inimigos/objetos.
 ---
 
 # Fase 6 — Inventário e Equipamentos
 
+## Checklist
 - [ ] Inventário
 - [ ] Equipamentos
 - [ ] Atualização de atributos
 
+## Critério
+Inventário criado e é atualizado 
 ---
 
 # Fase 7 — NPCs e Diálogos
 
+## Checklist
 - [ ] Interação
 - [ ] Sistema de diálogo
 - [ ] Escolhas simples
 
+## Critério
+Ao menos um NPC com diálogo e escolhas. Sistema de interação está presente.
 ---
 
 # Fase 8 — Quests
 
+## Checklist
 - [ ] Aceitar missão
 - [ ] Progresso
 - [ ] Conclusão
@@ -156,9 +170,9 @@ Combate agradável contra inimigos simples.
 
 ## Sessão
 
-**Data:*13/06/2026*
+**Data:** 13/06/2026
 
-**Fase:*1*
+**Fase:** 1
 
 **Objetivo da sessão:**
 - Estrutura base de pastas
@@ -167,27 +181,17 @@ Combate agradável contra inimigos simples.
 
 ### O que foi feito
 
--
+- Criado pastas para scripts globais, assets, player e scenes
+- Criado main scene, por enquanto vazia
+- Importado estrutura base de player do projeto libs
 
 ### Problemas encontrados
 
--
-
-### Hipóteses
-
--
-
-### Correção aplicada
-
--
-
-### Aprendizados
-
--
+- Algumas adaptações necessárias no player, nada severo
 
 ### Próxima sessão
 
--
+- Criar mapas, HUD e troca de cenas
 
 
 > Copie este bloco para cada sessão.
