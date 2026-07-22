@@ -6,7 +6,7 @@
 
 | Fase | Status | Iniciada em |Concluída em |
 |---|---|---|---|
-| 1. Fundação do Projeto | ⬜ | | |
+| 1. Fundação do Projeto | ⬜ | 13/06/2026 | |
 | 2. Mundo dividido em áreas | ⬜ | | |
 | 3. Combate | ⬜ | | |
 | 4. IA dos inimigos | ⬜ | | |
@@ -87,8 +87,9 @@ Combate agradável contra inimigos simples.
 - [ ] Retorno
 - [ ] Três tipos de inimigo
 
-## Critério    
+## Critério
 IA fluida e diversificada
+
 ---
 
 # Fase 5 — Loot e Itens
@@ -100,6 +101,7 @@ IA fluida e diversificada
 
 ## Critério
 Coletaveis e consumíveis estão presentes e dropam de inimigos/objetos.
+
 ---
 
 # Fase 6 — Inventário e Equipamentos
@@ -111,6 +113,7 @@ Coletaveis e consumíveis estão presentes e dropam de inimigos/objetos.
 
 ## Critério
 Inventário criado e é atualizado 
+
 ---
 
 # Fase 7 — NPCs e Diálogos
@@ -122,6 +125,7 @@ Inventário criado e é atualizado
 
 ## Critério
 Ao menos um NPC com diálogo e escolhas. Sistema de interação está presente.
+
 ---
 
 # Fase 8 — Quests
@@ -193,6 +197,60 @@ Ao menos um NPC com diálogo e escolhas. Sistema de interação está presente.
 
 - Criar mapas, HUD e troca de cenas
 
+
+## Sessão
+
+**Data:** 16/07/2026
+
+**Fase:** 1
+
+**Objetivo da sessão:** Criar mapas, HUD e troca de cenas
+
+### O que foi feito
+
+- Adicionado texturas pro mapa
+- Criado tilemap, tileset e terrains
+- Criado mapa inicial
+- Adicionado texturas pro player
+- Ajustado viewport para tamanho do mapa
+
+
+### Próxima sessão
+- Adicionar segundo mapa, criar transição e adicionar HUD
+
+## Sessão
+
+**Data:** 21/07/2026
+
+**Fase:** 1
+
+**Objetivo da sessão:** Adicionar segundo mapa, criar transição e adicionar HUD
+
+
+### O que foi feito
+
+- Criado segundo mapa
+- Adicionado transição entre mapas (hard loaded).
+    - Transição acontece quando player sai da area da camera
+
+### Problemas encontrados
+
+- Bug quando player fica na posição onde a próxima área estará
+
+### Hipóteses
+
+- Tentar mover o player 8px na direção da transição pra evitar ficar na area
+
+### Correção aplicada
+
+- Aplicar na próxima sessão
+
+
+### Próxima sessão
+
+- Corrigir transição de câmera
+- Adicionar HUD
+- Adicionar GameManager e gerir load de mapas
 
 > Copie este bloco para cada sessão.
 

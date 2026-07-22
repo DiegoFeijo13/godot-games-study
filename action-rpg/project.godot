@@ -18,6 +18,14 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 
 GlobalEventBus="*res://_globals/global_event_bus.gd"
 
+[display]
+
+window/size/viewport_width=256
+window/size/viewport_height=176
+window/size/window_width_override=1024
+window/size/window_height_override=704
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="action-rpg"
@@ -74,6 +82,7 @@ pause={
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Wall"
+2d_physics/layer_9="Camera"
 
 [rendering]
 

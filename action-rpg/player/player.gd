@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody2D
 
-const SPEED : float = 300.0
+const SPEED : float = 150.0
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 #@onready var animation_player: AnimationPlayer = $AnimationPlayer
