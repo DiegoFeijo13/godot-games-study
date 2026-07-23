@@ -17,6 +17,8 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 [autoload]
 
 GlobalEventBus="*res://_globals/global_event_bus.gd"
+GlobalGameManager="*res://_globals/global_game_manager.gd"
+PlayerHud="*res://hud/player_hud.tscn"
 
 [display]
 
@@ -83,6 +85,8 @@ pause={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Wall"
 2d_physics/layer_9="Camera"
+2d_physics/layer_10="CameraBoundsDetector"
+2d_physics/layer_11="Map"
 
 [rendering]
 

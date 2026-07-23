@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://drojwdohb1g2p"]
+[gd_scene load_steps=8 format=3 uid="uid://drojwdohb1g2p"]
 
 [ext_resource type="Script" uid="uid://drxjrww08lb05" path="res://player/player.gd" id="1_g6k8r"]
 [ext_resource type="Texture2D" uid="uid://caml8qca7hjqy" path="res://assets/player/link.png" id="2_qjkh3"]
@@ -9,6 +9,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g6k8r"]
 radius = 4.0
 height = 14.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjkh3"]
+size = Vector2(8, 8)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
@@ -31,3 +34,11 @@ script = ExtResource("4_hg6s5")
 
 [node name="Walk" type="Node2D" parent="StateMachine"]
 script = ExtResource("5_8t03j")
+
+[node name="CameraBoundsArea" type="Area2D" parent="."]
+collision_layer = 768
+collision_mask = 768
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBoundsArea"]
+shape = SubResource("RectangleShape2D_qjkh3")

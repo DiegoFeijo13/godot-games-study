@@ -7,3 +7,7 @@ class_name EventBus extends Node
 @warning_ignore("unused_signal") signal game_paused
 @warning_ignore("unused_signal") signal game_unpaused
 @warning_ignore("unused_signal") signal restart
+
+# Map events
+@warning_ignore("unused_signal") signal load_next_map(position : Vector2)
+@warning_ignore("unused_signal") signal camera_transition_finished

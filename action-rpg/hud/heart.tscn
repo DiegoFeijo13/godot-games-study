@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://x8edn8tk7p7f"]
+
+[ext_resource type="Texture2D" uid="uid://c3uf42na8ixti" path="res://assets/hud/hearts_gui.png" id="1_o2nb8"]
+
+[node name="Heart" type="Control"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, 4)
+texture = ExtResource("1_o2nb8")
+hframes = 3
