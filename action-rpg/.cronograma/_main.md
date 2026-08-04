@@ -4,65 +4,25 @@
 
 ## Cronograma
 
-| Fase | Status | Iniciada em |Concluída em |
-|---|---|---|---|
-| 1. Fundação do Projeto | ⬜ | 13/06/2026 | 22/07/2026|
-| 2. Mundo dividido em áreas | ⬜ | | |
-| 3. Combate | ⬜ | | |
-| 4. IA dos inimigos | ⬜ | | |
-| 5. Loot e itens | ⬜ | | |
-| 6. Inventário e equipamentos | ⬜ | | |
-| 7. NPCs e diálogos | ⬜ | | |
-| 8. Quests | ⬜ | | |
-| 9. Save/Load | ⬜ | | |
-|10. Progressão | ⬜ | | |
-|11. Boss | ⬜ | | |
-|12. Polimento | ⬜ | | |
+| Fase | Iniciada em |Concluída em |
+|---|---|---|
+| 1. Fundação do Projeto | 13/06/2026 | 22/07/2026|
+| 2. Mundo dividido em áreas | 03/08/2026| |
+| 3. Combate | |
+| 4. IA dos inimigos | |
+| 5. Loot e itens | |
+| 6. Inventário e equipamentos  | |
+| 7. NPCs e diálogos  | |
+| 8. Quests  | |
+| 9. Save/Load  | |
+|10. Progressão  | |
+|11. Boss  | |
+|12. Polimento  | |
 
 ---
+## [Fase 1](./fase1.md)
+## [Fase 2](./fase2.md)
 
-# Fase 1 — Fundação do Projeto
-
-**Objetivo:** construir a arquitetura base.
-
-## Checklist
-- [x] Estrutura de pastas
-- [x] Cena principal
-- [x] Player
-- [x] HUD mínima
-- [x] GameManager
-- [x] Troca de mapas
-- [x] Convenções do projeto
-
-### Conceitos
-- Responsabilidade única
-- Modularização
-- Organização
-
-### Erros comuns
-- Managers demais
-- Acoplamento excessivo
-
-### Critério
-Projeto organizado e jogável.
-
----
-
-# Fase 2 — Mundo dividido em áreas
-
-**Objetivo:** criar um mundo composto por mapas pequenos.
-
-## Checklist:
-- [ ] Área inicial
-- [ ] Segunda área
-- [ ] Portais
-- [ ] Spawn points
-- [ ] Limites da câmera
-
-## Critério
-Jogador navega entre áreas.
-
----
 
 # Fase 3 — Combate
 
@@ -262,6 +222,27 @@ Adicionar segundo mapa, criar transição e adicionar HUD
 Iniciar fase 2
 </details>
 
+
+<details>
+
+<summary><b>Data:</b></summary>
+
+#### Objetivo da sessão
+
+#### O que foi feito
+
+
+#### Problemas encontrados
+
+#### Hipóteses
+
+#### Correção aplicada
+
+#### Aprendizados
+
+#### Próxima sessão
+
+</details>
 
 > Copie este bloco para cada sessão.
 ```

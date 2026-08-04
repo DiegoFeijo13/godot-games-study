@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1i5vducbt4uq"]
+[gd_scene load_steps=11 format=3 uid="uid://d1i5vducbt4uq"]
 
 [ext_resource type="PackedScene" uid="uid://drojwdohb1g2p" path="res://player/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://rv8twnx4d7th" path="res://level_manager/level_manager.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b2w8u8i2o7kb0" path="res://scenes/overworld/map1.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://40ovjywkw0w4" path="res://scenes/overworld/map2.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://ja3mgw2fotkx" path="res://camera/camera_2d.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://dboeh8xir5oa2" path="res://scenes/overworld/map3.tscn" id="4_tefeu"]
+[ext_resource type="PackedScene" uid="uid://dre7k3q45nrge" path="res://scenes/overworld/map4.tscn" id="5_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://bc6lkp3bmrnal" path="res://scenes/overworld/map5.tscn" id="6_tipki"]
+[ext_resource type="PackedScene" uid="uid://b14pffdxxu0i8" path="res://scenes/overworld/map6.tscn" id="7_choun"]
+[ext_resource type="PackedScene" uid="uid://b4bbpk2ejh6al" path="res://scenes/overworld/map7.tscn" id="8_ya4ey"]
 
 [node name="Main" type="Node2D"]
 
@@ -16,9 +21,34 @@ first_map = NodePath("Map1")
 [node name="Map1" parent="LevelManager" node_paths=PackedStringArray("top_map") instance=ExtResource("2_0wfyh")]
 top_map = NodePath("../Map2")
 
-[node name="Map2" parent="LevelManager" node_paths=PackedStringArray("bottom_map") instance=ExtResource("3_sugp2")]
+[node name="Map2" parent="LevelManager" node_paths=PackedStringArray("bottom_map", "right_map") instance=ExtResource("3_sugp2")]
 position = Vector2(0, -176)
 bottom_map = NodePath("../Map1")
+right_map = NodePath("../Map3")
+
+[node name="Map3" parent="LevelManager" node_paths=PackedStringArray("top_map", "left_map") instance=ExtResource("4_tefeu")]
+position = Vector2(256, -176)
+top_map = NodePath("../Map4")
+left_map = NodePath("../Map2")
+
+[node name="Map4" parent="LevelManager" node_paths=PackedStringArray("top_map", "bottom_map") instance=ExtResource("5_o6xl0")]
+position = Vector2(256, -352)
+top_map = NodePath("../Map5")
+bottom_map = NodePath("../Map3")
+
+[node name="Map5" parent="LevelManager" node_paths=PackedStringArray("top_map", "bottom_map") instance=ExtResource("6_tipki")]
+position = Vector2(256, -528)
+top_map = NodePath("../Map6")
+bottom_map = NodePath("../Map4")
+
+[node name="Map6" parent="LevelManager" node_paths=PackedStringArray("bottom_map", "left_map") instance=ExtResource("7_choun")]
+position = Vector2(256, -704)
+bottom_map = NodePath("../Map5")
+left_map = NodePath("../Map7")
+
+[node name="Map7" parent="LevelManager" node_paths=PackedStringArray("right_map") instance=ExtResource("8_ya4ey")]
+position = Vector2(0, -704)
+right_map = NodePath("../Map6")
 
 [node name="Player" parent="." instance=ExtResource("1_o5qli")]
 
