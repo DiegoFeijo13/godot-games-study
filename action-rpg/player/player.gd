@@ -8,9 +8,8 @@ const SPEED : float = 150.0
 
 var direction : Vector2
 
-func _ready() -> void:	
-	state_machine.initialize(self)	
-	GlobalEventBus.player_loaded.emit(self)
+func _ready() -> void:
+	state_machine.initialize(self)
 
 func _process(_delta: float) -> void:
 	direction = Vector2(

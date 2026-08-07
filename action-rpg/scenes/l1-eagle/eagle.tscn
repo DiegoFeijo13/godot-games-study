@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://eijfxsnkurkg"]
+
+[ext_resource type="Script" uid="uid://rv8twnx4d7th" path="res://level_manager/map_controller.gd" id="1_sty0s"]
+[ext_resource type="Script" uid="uid://2506mod0n0o4" path="res://level_manager/level.gd" id="1_wwxje"]
+[ext_resource type="PackedScene" uid="uid://dkwpt020xnd86" path="res://scenes/l1-eagle/entrance.tscn" id="2_0o2wk"]
+[ext_resource type="PackedScene" uid="uid://dlhq1i4kiaxn5" path="res://scenes/l1-eagle/room1.tscn" id="3_wwxje"]
+[ext_resource type="PackedScene" uid="uid://b01ehvf5i2l6y" path="res://scenes/l1-eagle/room2.tscn" id="4_6megy"]
+[ext_resource type="PackedScene" uid="uid://ja3mgw2fotkx" path="res://camera/camera_2d.tscn" id="10_rnp1r"]
+
+[node name="Eagle" type="Node2D"]
+script = ExtResource("1_wwxje")
+
+[node name="Controller" type="Node2D" parent="." node_paths=PackedStringArray("first_map")]
+position = Vector2(-128, -88)
+script = ExtResource("1_sty0s")
+first_map = NodePath("L1Entrance")
+
+[node name="L1Entrance" parent="Controller" node_paths=PackedStringArray("left_map", "right_map") instance=ExtResource("2_0o2wk")]
+left_map = NodePath("../Room1")
+right_map = NodePath("../Room2")
+
+[node name="Room1" parent="Controller" node_paths=PackedStringArray("right_map") instance=ExtResource("3_wwxje")]
+position = Vector2(-256, 0)
+right_map = NodePath("../L1Entrance")
+
+[node name="Room2" parent="Controller" node_paths=PackedStringArray("left_map") instance=ExtResource("4_6megy")]
+position = Vector2(256, 0)
+left_map = NodePath("../L1Entrance")
+
+[node name="Camera2D" parent="." instance=ExtResource("10_rnp1r")]
