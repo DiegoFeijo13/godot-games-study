@@ -11,4 +11,5 @@ monitorable = false
 script = ExtResource("1_rh2uo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 0)
 shape = SubResource("RectangleShape2D_rh2uo")

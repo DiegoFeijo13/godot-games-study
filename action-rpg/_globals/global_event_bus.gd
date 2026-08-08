@@ -3,7 +3,7 @@ class_name EventBus extends Node
 # Player events
 @warning_ignore("unused_signal") signal set_player_parent(node : Node2D)
 @warning_ignore("unused_signal") signal remove_player_parent(node : Node2D)
-@warning_ignore("unused_signal") signal set_player_spawned(value : bool)
+@warning_ignore("unused_signal") signal player_spawn(pos : Vector2)
 @warning_ignore("unused_signal") signal set_player_position(new_pos : Vector2)
 
 # Game events
@@ -14,11 +14,10 @@ class_name EventBus extends Node
 # Camera Events
 @warning_ignore("unused_signal") signal camera_transition_finished
 @warning_ignore("unused_signal") signal set_camera_position(pos : Vector2)
+@warning_ignore("unused_signal") signal camera_move_to(position : Vector2)
 
 # Map events
-@warning_ignore("unused_signal") signal set_current_map(map : Map)
 @warning_ignore("unused_signal") signal clear_next_map_name()
-@warning_ignore("unused_signal") signal load_next_map(position : Vector2)
 @warning_ignore("unused_signal") signal load_new_scene(path : String, player_position : Vector2, next_map_path : String)
 @warning_ignore("unused_signal") signal scene_load_start()
 @warning_ignore("unused_signal") signal scene_load_end()

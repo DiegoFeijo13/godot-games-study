@@ -16,19 +16,19 @@ func _physics_process(_delta: float) -> void:
 		global_position = global_position.move_toward(next_pos, 8)
 
 func _on_top_area_area_entered(_body: Node2D) -> void:	
-	_load_next_map(Vector2.UP)
+	_move_to(Vector2.UP)
 
 func _on_bottom_area_area_entered(_body: Node2D) -> void:		
-	_load_next_map(Vector2.DOWN)
+	_move_to(Vector2.DOWN)
 	
 func _on_left_area_area_entered(_body: Node2D) -> void:	
-	_load_next_map(Vector2.LEFT)
+	_move_to(Vector2.LEFT)
 
 func _on_right_area_area_entered(_body: Node2D) -> void:	
-	_load_next_map(Vector2.RIGHT)
+	_move_to(Vector2.RIGHT)
 
-func _load_next_map(pos:Vector2) -> void:
-	GlobalEventBus.load_next_map.emit(pos)	
+func _move_to(pos:Vector2) -> void:
+	GlobalEventBus.camera_move_to.emit(pos)	
 	get_tree().paused = true
 	next_pos = global_position + (pos * camera_size)
 	is_moving = true

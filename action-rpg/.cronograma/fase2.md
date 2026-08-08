@@ -7,8 +7,8 @@
 ## Checklist:
 - [x] Área inicial
 - [x] Segunda área
-- [ ] Portais
-- [ ] Spawn points
+- [x] Portais
+- [x] Spawn points
 - [x] Limites da câmera
 
 ## Critério
@@ -65,19 +65,18 @@ Jogador navega entre áreas.
 ### Próxima sessão
 - Modificar gerenciador de mapas para que carregue os mapas dinâmicamente conforme jogador se move, fazendo com que cada mapa seja sua própria cena, evitando assim modificar posição de câmera a cada transição de cena.
 
-> Copie este bloco para cada sessão.
-```
-## Data: 03/08/2026
+## Data: 08/08/2026
 
 ### Objetivo da sessão
-- 
+- Modificar gerenciador de mapas para carregar mapas adjacentes dinâmicamente
 
 ### O que foi feito
-- 
+- Modificado controller de mapas para que carregue os mapas por demanda
+- Adicionado MapData como Resource, para que a controller conheça os preloads dos mapas que precisa gerenciar
+- Os mapas são carregados a medida que o player entra em uma nova área. Para cada mapa exibido, seus mapas adjacentes são carregados em memória
 
 ### Problemas encontrados
 - 
 
 ### Próxima sessão
-- 
-```
+- Iniciar fase 3

@@ -16,5 +16,5 @@ tile_map_data = PackedByteArray("AAAAAAYAAwAEAAcAAAAAAAQAAwAEAAcAAAAHAAAAAwAFAAU
 [node name="ToHyrule" parent="." instance=ExtResource("3_83uh1")]
 position = Vector2(136, 160)
 level = "uid://d1i5vducbt4uq"
-next_map_name = "Map7"
-target_position = Vector2(40, -688)
+next_map_name = "map7"
+target_position = Vector2(40, 16)

@@ -6,13 +6,16 @@ var player : Player
 var player_spawned : bool = false
 
 func _ready() -> void:
-	add_player_instance()
+	add_player_instance(Vector2.ZERO)
 	GlobalEventBus.set_player_position.connect(_on_set_position)
 	GlobalEventBus.set_player_parent.connect(_on_set_player_parent)
 	GlobalEventBus.remove_player_parent.connect(_on_remove_player_parent)
+	GlobalEventBus.player_spawn.connect(add_player_instance)
 
-func add_player_instance() -> void:
-	player = PLAYER.instantiate()
+func add_player_instance(pos: Vector2) -> void:
+	player = PLAYER.instantiate() as Player
+	player.global_position = pos
+	print(pos)
 	add_child(player)
 
 func _on_set_position(new_pos : Vector2) -> void:

@@ -13,6 +13,6 @@ tile_map_data = PackedByteArray("AAAAAAAAAQAEAAIAAAAAAAEAAQAEAAIAAAAAAAIAAQAEAAI
 [node name="ToEagle" parent="." instance=ExtResource("3_ho7vp")]
 position = Vector2(168, 88)
 level = "uid://eijfxsnkurkg"
-next_map_name = "L1Entrance"
+next_map_name = "entrance"
 target_position = Vector2(0, 40)
 side = 2
