@@ -7,6 +7,7 @@ var player : Player
 
 @onready var idle: PlayerStateIdle = $Idle
 @onready var walk: PlayerStateWalk = $Walk
+@onready var attack: PlayerStateAttack = $Attack
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
@@ -17,10 +18,14 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	change_state( current_state.physics(delta))
 
+func _unhandled_input(event: InputEvent) -> void:
+	change_state(current_state.handle_input(event))
+	
 func initialize( _player : Player ) -> void:
 	var states = [
 		idle,
-		walk
+		walk,
+		attack
 	]		
 	
 	player = _player

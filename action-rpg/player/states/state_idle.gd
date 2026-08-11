@@ -3,6 +3,7 @@ class_name PlayerStateIdle extends PlayerState
 const ANIM_NAME = "idle"
 
 @onready var walk: PlayerStateWalk = $"../Walk"
+@onready var attack: PlayerStateAttack = $"../Attack"
 
 func enter() -> void:
 	player.update_animation(ANIM_NAME)	
@@ -16,4 +17,9 @@ func process(_delta : float) -> PlayerState:
 		
 	player.velocity.x = move_toward(player.velocity.x, 0, player.SPEED)
 	player.velocity.y = move_toward(player.velocity.y, 0, player.SPEED)
+	return null
+
+func handle_input(_event: InputEvent) -> PlayerState:
+	if _event.is_action_pressed("action"):
+		return attack
 	return null
