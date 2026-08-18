@@ -36,7 +36,6 @@ func _ready() -> void:
 	pass
 
 func _player_entered( _p : Node2D ) -> void:
-	print("level_transition.target_position: ", target_position)
 	GlobalEventBus.load_new_scene.emit(level, target_position, next_map_name)
 
 func _update_area() -> void:

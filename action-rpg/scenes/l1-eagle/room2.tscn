@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=4 uid="uid://b01ehvf5i2l6y"]
 
 [ext_resource type="Script" uid="uid://dt4due4n652v6" path="res://level_manager/map.gd" id="1_tr388"]
-[ext_resource type="PackedScene" uid="uid://dvflu665ngwep" path="res://tilemaps/overworld.tscn" id="2_gckmr"]
+[ext_resource type="PackedScene" uid="uid://dvflu665ngwep" path="res://tilemaps/tilemaplayer.tscn" id="2_gckmr"]
 
 [node name="Room1" type="Node2D"]
 script = ExtResource("1_tr388")

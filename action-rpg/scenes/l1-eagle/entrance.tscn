@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=4 uid="uid://dkwpt020xnd86"]
 
 [ext_resource type="Script" uid="uid://dt4due4n652v6" path="res://level_manager/map.gd" id="1_203ef"]
-[ext_resource type="PackedScene" uid="uid://dvflu665ngwep" path="res://tilemaps/overworld.tscn" id="2_0cj3w"]
+[ext_resource type="PackedScene" uid="uid://dvflu665ngwep" path="res://tilemaps/tilemaplayer.tscn" id="2_0cj3w"]
 [ext_resource type="PackedScene" uid="uid://c1dhy52sxeh16" path="res://level_manager/levelTransition.tscn" id="3_83uh1"]
 
 [node name="L1Entrance" type="Node2D"]

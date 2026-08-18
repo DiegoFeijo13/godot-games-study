@@ -5,6 +5,9 @@ class_name EventBus extends Node
 @warning_ignore("unused_signal") signal remove_player_parent(node : Node2D)
 @warning_ignore("unused_signal") signal player_spawn(pos : Vector2)
 @warning_ignore("unused_signal") signal set_player_position(new_pos : Vector2)
+@warning_ignore("unused_signal") signal player_heal(value : int)
+@warning_ignore("unused_signal") signal player_take_damage(value : int)
+@warning_ignore("unused_signal") signal player_hp_updated(current_hp : int, max_hp : int)
 
 # Game events
 @warning_ignore("unused_signal") signal game_paused

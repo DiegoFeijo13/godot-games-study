@@ -23,7 +23,6 @@ func _load_new_scene(level_path: String, target_position : Vector2, next_map: St
 	#await SceneTransition.fade_out()	
 	get_tree().change_scene_to_file( level_path )
 	
-	print("target_position: ", target_position)
 	GlobalEventBus.player_spawn.emit(target_position)
 	
 	get_tree().paused = false	

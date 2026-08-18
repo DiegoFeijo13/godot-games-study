@@ -6,12 +6,15 @@ const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP ]
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var state_machine: PlayerStateMachine = $StateMachine
+@onready var hit_box: HitBox = $HitBox
 
 var direction : Vector2
 var cardinal_direction : Vector2
+var invulnerable : bool = false
 
 func _ready() -> void:
 	state_machine.initialize(self)
+	hit_box.damaged.connect(_on_take_damage)
 
 func _process(_delta: float) -> void:
 	direction = Vector2(
@@ -50,3 +53,10 @@ func anim_direction() -> String:
 	
 func get_speed() -> float:
 	return SPEED
+
+func _on_take_damage(hurt_box : HurtBox) -> void:
+	GlobalEventBus.player_take_damage.emit(hurt_box.damage)
+
+func set_invulnerable(value : bool) -> void:
+	invulnerable = value
+	hit_box.monitoring = !value

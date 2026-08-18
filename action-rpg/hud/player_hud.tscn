@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2okxomk0l364"]
+[gd_scene load_steps=3 format=3 uid="uid://c2okxomk0l364"]
 
+[ext_resource type="Script" uid="uid://c4abmre23yeox" path="res://hud/player_hud.gd" id="1_uo4yc"]
 [ext_resource type="PackedScene" uid="uid://x8edn8tk7p7f" path="res://hud/heart.tscn" id="2_msh7k"]
 
 [node name="PlayerHud" type="CanvasLayer"]
+script = ExtResource("1_uo4yc")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

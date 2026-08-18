@@ -34,5 +34,4 @@ func _move_to(pos:Vector2) -> void:
 	is_moving = true
 
 func _on_set_position(pos : Vector2) -> void:
-	print(pos)
 	global_position = pos

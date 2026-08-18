@@ -8,9 +8,11 @@ var player : Player
 @onready var idle: PlayerStateIdle = $Idle
 @onready var walk: PlayerStateWalk = $Walk
 @onready var attack: PlayerStateAttack = $Attack
+@onready var hurt: PlayerStateHurt = $Hurt
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
+	GlobalEventBus.player_take_damage.connect(_on_player_take_damage)
 
 func _process(delta: float) -> void:
 	change_state( current_state.process(delta))
@@ -25,7 +27,8 @@ func initialize( _player : Player ) -> void:
 	var states = [
 		idle,
 		walk,
-		attack
+		attack,
+		hurt
 	]		
 	
 	player = _player
@@ -49,3 +52,7 @@ func change_state(new_state : PlayerState) -> void:
 	prev_state = current_state
 	current_state = new_state
 	current_state.enter()
+	print(current_state)
+
+func _on_player_take_damage(_value : int) -> void:
+	change_state(hurt)

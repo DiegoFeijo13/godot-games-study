@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=4 uid="uid://bc6lkp3bmrnal"]
 
 [ext_resource type="Script" uid="uid://dt4due4n652v6" path="res://level_manager/map.gd" id="1_hy2ks"]
-[ext_resource type="PackedScene" uid="uid://dvflu665ngwep" path="res://tilemaps/overworld.tscn" id="2_kxs3u"]
+[ext_resource type="PackedScene" uid="uid://dvflu665ngwep" path="res://tilemaps/tilemaplayer.tscn" id="2_kxs3u"]
 
 [node name="Map5" type="Node2D"]
 script = ExtResource("1_hy2ks")
