@@ -7,10 +7,12 @@ const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP ]
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var state_machine: PlayerStateMachine = $StateMachine
 @onready var hit_box: HitBox = $HitBox
+@onready var effect_animation_player: AnimationPlayer = $EffectAnimationPlayer
 
 var direction : Vector2
 var cardinal_direction : Vector2
 var invulnerable : bool = false
+var damage_position : Vector2
 
 func _ready() -> void:
 	state_machine.initialize(self)
@@ -55,8 +57,17 @@ func get_speed() -> float:
 	return SPEED
 
 func _on_take_damage(hurt_box : HurtBox) -> void:
+	if invulnerable == true:
+		return
+	
+	damage_position = hurt_box.global_position
 	GlobalEventBus.player_take_damage.emit(hurt_box.damage)
 
-func set_invulnerable(value : bool) -> void:
-	invulnerable = value
-	hit_box.monitoring = !value
+func make_invulnerable(duration : float = 1.0) -> void:
+	invulnerable = true
+	hit_box.monitoring = false
+	
+	await get_tree().create_timer(duration).timeout
+	
+	invulnerable = false
+	hit_box.monitoring = true

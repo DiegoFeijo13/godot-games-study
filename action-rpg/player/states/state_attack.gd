@@ -30,7 +30,7 @@ func process(_delta : float) -> PlayerState:
 		return walk
 	return null
 
-func handle_input(_event: InputEvent) -> PlayerState:
+func handle_input(_event: InputEvent, _action_state : PlayerState) -> PlayerState:
 	return null
 	
 func on_attack_end(_a : String) -> void:

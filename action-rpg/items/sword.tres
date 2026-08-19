@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://dscl3340w888d"]
+
+[ext_resource type="Script" uid="uid://564u1cwuy2jq" path="res://items/item_data.gd" id="1_es5ut"]
+
+[resource]
+script = ExtResource("1_es5ut")
+name = "Sword"
+description = "It swings and cut things"
+is_unique = true
+player_state_name = "attack"
+metadata/_custom_type_script = "uid://564u1cwuy2jq"

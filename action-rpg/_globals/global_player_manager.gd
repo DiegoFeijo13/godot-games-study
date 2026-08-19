@@ -8,6 +8,7 @@ var player_spawned : bool = false
 
 func _ready() -> void:
 	add_player_instance(Vector2.ZERO)
+	inventory.equip_action_one(0) #TODO:temp for testing, remove it when menu GUI is done
 	GlobalEventBus.set_player_position.connect(_on_set_position)
 	GlobalEventBus.set_player_parent.connect(_on_set_player_parent)
 	GlobalEventBus.remove_player_parent.connect(_on_remove_player_parent)

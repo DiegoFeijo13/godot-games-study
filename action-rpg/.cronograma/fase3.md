@@ -6,7 +6,7 @@
 - [ ] Ataque
 - [x] Vida
 - [ ] Dano
-- [ ] Knockback
+- [x] Knockback
 - [ ] Morte
 
 ## Critério:
@@ -57,6 +57,25 @@ Combate agradável contra inimigos simples.
 - Corrigir knockback
 - Inventário para arma
 - Evento para equipar arma
+
+## Data: 18/08/2026
+
+### Objetivo da sessão
+- Corrigir knockback
+- Inventário para arma
+- Evento para equipar arma
+
+### O que foi feito
+- Corrigido knockback
+- Adicionado vetor de itens no inventário, com customização de item como recurso. Cada item informa qual estado do jogador ele ativa quando utilizado
+- Criado espada e testado ação com espada equipada e não equipada, obtendo retorno esperado
+
+### Problemas encontrados
+- n/a
+
+### Próxima sessão
+- HurtBox para a espada
+- Causar dano no inimigo
 
 > Template
 ```
