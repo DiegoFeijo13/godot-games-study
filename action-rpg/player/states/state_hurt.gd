@@ -5,8 +5,10 @@ const KNOCKBACK_SPEED : float = 250.0
 const DECELERATE_SPEED : float = 10.0
 
 @onready var idle: PlayerStateIdle = $"../Idle"
+@onready var death: PlayerStateDeath = $"../Death"
 
 var animation_finished : bool = false
+var next_state : PlayerState
 
 func init() -> void:
 	pass
@@ -27,7 +29,7 @@ func exit() -> void:
 func process(_delta : float) -> PlayerState:
 	player.velocity -= player.velocity * DECELERATE_SPEED * _delta
 	if animation_finished:
-		return idle
+		return next_state
 	return null
 
 func handle_input(_event: InputEvent, _action_state : PlayerState) -> PlayerState:
@@ -35,3 +37,6 @@ func handle_input(_event: InputEvent, _action_state : PlayerState) -> PlayerStat
 
 func _on_animation_finished(_a : String) -> void:
 	animation_finished = true
+	next_state = idle
+	if GlobalPlayerManager.inventory.current_hp <= 0:
+		next_state = death

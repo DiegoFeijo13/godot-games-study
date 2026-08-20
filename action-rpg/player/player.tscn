@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://drojwdohb1g2p"]
+[gd_scene load_steps=38 format=3 uid="uid://drojwdohb1g2p"]
 
 [ext_resource type="Script" uid="uid://drxjrww08lb05" path="res://player/player.gd" id="1_g6k8r"]
 [ext_resource type="Texture2D" uid="uid://caml8qca7hjqy" path="res://assets/player/link.png" id="2_qjkh3"]
@@ -8,6 +8,10 @@
 [ext_resource type="Script" uid="uid://dnx8jpx0kkjwu" path="res://player/states/state_attack.gd" id="6_g6k8r"]
 [ext_resource type="Script" uid="uid://cqgklvtq63myq" path="res://player/states/state_hurt.gd" id="7_rgyib"]
 [ext_resource type="PackedScene" uid="uid://ewr4bpmmts1y" path="res://components/hitbox/hit_box.tscn" id="8_hg6s5"]
+[ext_resource type="Script" uid="uid://t8unhv0huaaf" path="res://player/states/state_death.gd" id="9_8t03j"]
+[ext_resource type="PackedScene" uid="uid://bkyrx0x4p7g21" path="res://components/hurtbox/hurtbox.tscn" id="9_hg6s5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8t03j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g6k8r"]
 radius = 4.0
@@ -54,6 +58,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/SwordHurtbox:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g6k8r"]
 _data = {
@@ -74,6 +90,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [4, 5, 6]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/SwordHurtbox:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 16)]
+}
 
 [sub_resource type="Animation" id="Animation_kb6p2"]
 resource_name = "side"
@@ -89,6 +117,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [10, 11, 12]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/SwordHurtbox:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-16, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_yllr7"]
@@ -106,12 +146,56 @@ tracks/0/keys = {
 "update": 0,
 "values": [7, 8, 9]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/SwordHurtbox:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -16)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wodsf"]
 _data = {
 &"down": SubResource("Animation_ebec5"),
 &"side": SubResource("Animation_kb6p2"),
 &"up": SubResource("Animation_yllr7")
+}
+
+[sub_resource type="Animation" id="Animation_65viv"]
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 1, 2, 0, 2, 1, 2, 25]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.45, 0.5, 1.05, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-1, 1), Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x7c3f"]
+_data = {
+&"default": SubResource("Animation_65viv")
 }
 
 [sub_resource type="Animation" id="Animation_wodsf"]
@@ -388,7 +472,15 @@ texture = ExtResource("2_qjkh3")
 hframes = 13
 vframes = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="SwordHurtbox" parent="Sprite2D" instance=ExtResource("9_hg6s5")]
+collision_mask = 64
+monitoring = false
+
+[node name="SwordCollisionShape2D" type="CollisionShape2D" parent="Sprite2D/SwordHurtbox"]
+shape = SubResource("CircleShape2D_8t03j")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_g6k8r")
 
 [node name="StateMachine" type="Node2D" parent="."]
@@ -406,18 +498,22 @@ script = ExtResource("6_g6k8r")
 [node name="Hurt" type="Node2D" parent="StateMachine"]
 script = ExtResource("7_rgyib")
 
+[node name="Death" type="Node2D" parent="StateMachine"]
+script = ExtResource("9_8t03j")
+
 [node name="CameraBoundsArea" type="Area2D" parent="."]
 collision_layer = 512
 collision_mask = 0
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBoundsArea"]
+[node name="CameraCollisionShape2D" type="CollisionShape2D" parent="CameraBoundsArea"]
 shape = SubResource("RectangleShape2D_qjkh3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_g6k8r"),
 &"attack": SubResource("AnimationLibrary_wodsf"),
+&"death": SubResource("AnimationLibrary_x7c3f"),
 &"hurt": SubResource("AnimationLibrary_e7oew"),
 &"idle": SubResource("AnimationLibrary_8t03j"),
 &"walk": SubResource("AnimationLibrary_ebec5")
@@ -426,7 +522,7 @@ libraries = {
 [node name="HitBox" parent="." instance=ExtResource("8_hg6s5")]
 collision_layer = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+[node name="HitBoxCollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CircleShape2D_rgyib")
 debug_color = Color(0.9621236, 0.08979104, 0.4421665, 0.41960785)
 

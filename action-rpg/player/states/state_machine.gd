@@ -9,6 +9,7 @@ var player : Player
 @onready var walk: PlayerStateWalk = $Walk
 @onready var attack: PlayerStateAttack = $Attack
 @onready var hurt: PlayerStateHurt = $Hurt
+@onready var death: PlayerStateDeath = $Death
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
@@ -31,7 +32,8 @@ func initialize( _player : Player ) -> void:
 		idle,
 		walk,
 		attack,
-		hurt
+		hurt,
+		death
 	]		
 	
 	player = _player
@@ -77,4 +79,6 @@ func _resolve_state_by_name(state_name : String) -> PlayerState:
 			return attack
 		"hurt":
 			return hurt
+		"death":
+			return death
 	return null

@@ -88,6 +88,7 @@ pause={
 2d_physics/layer_2="Wall"
 2d_physics/layer_3="Enemy"
 2d_physics/layer_5="PlayerHitBox"
+2d_physics/layer_7="EnemyHitBox"
 2d_physics/layer_9="Camera"
 2d_physics/layer_10="CameraBoundsDetector"
 2d_physics/layer_11="Map"

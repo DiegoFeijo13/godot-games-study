@@ -3,11 +3,11 @@
 # Fase 3 — Combate
 
 ## Checklist
-- [ ] Ataque
+- [x] Ataque
 - [x] Vida
-- [ ] Dano
+- [x] Dano
 - [x] Knockback
-- [ ] Morte
+- [x] Morte
 
 ## Critério:
 Combate agradável contra inimigos simples.
@@ -77,19 +77,22 @@ Combate agradável contra inimigos simples.
 - HurtBox para a espada
 - Causar dano no inimigo
 
-> Template
-```
-## Data: 03/08/2026
+## Data: 20/08/2026
 
 ### Objetivo da sessão
-- 
+- HurtBox para a espada
+- Causar dano no inimigo
+- Evento morte para player com zero hp 
 
 ### O que foi feito
-- 
+- Adicionado hurtbox para espada
+- Ajustado animações de ataque para mover colisão da espada de acordo
+- Criado state death para quando player chega a zero hp
+- Criano animação de morte
+- State hurt muda para death quando chega a zero hp
 
 ### Problemas encontrados
-- 
+- n/a
 
 ### Próxima sessão
-- 
-```
+- Iniciar fase 4

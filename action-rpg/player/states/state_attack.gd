@@ -6,6 +6,8 @@ const DECELERATE_SPEED : float = 5.0
 @onready var idle: PlayerStateIdle = $"../Idle"
 @onready var walk: PlayerStateWalk = $"../Walk"
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
+@onready var sword_hurtbox: HurtBox = $"../../Sprite2D/SwordHurtbox"
+
 
 var attacking : bool = false
 
@@ -13,12 +15,14 @@ func enter() -> void:
 	player.update_animation(ANIM_NAME)
 	animation_player.animation_finished.connect(on_attack_end)
 	attacking = true
+	sword_hurtbox.monitoring = true
 	await get_tree().create_timer(0.075).timeout
 	pass
 	
 func exit() -> void:
 	animation_player.animation_finished.disconnect(on_attack_end)
 	attacking = false
+	sword_hurtbox.monitoring = false
 	pass
 
 func process(_delta : float) -> PlayerState:
