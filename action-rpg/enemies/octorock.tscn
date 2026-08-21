@@ -1,13 +1,18 @@
-[gd_scene load_steps=30 format=3 uid="uid://e22oxr6mywh0"]
+[gd_scene load_steps=35 format=3 uid="uid://e22oxr6mywh0"]
 
-[ext_resource type="Script" uid="uid://daq24tr5n6djr" path="res://enemies/octorock.gd" id="1_4u2r5"]
+[ext_resource type="Script" uid="uid://daq24tr5n6djr" path="res://enemies/scripts/enemy.gd" id="1_4u2r5"]
 [ext_resource type="PackedScene" uid="uid://bkyrx0x4p7g21" path="res://components/hurtbox/hurtbox.tscn" id="1_xb4qf"]
 [ext_resource type="PackedScene" uid="uid://ewr4bpmmts1y" path="res://components/hitbox/hit_box.tscn" id="2_4u2r5"]
 [ext_resource type="Texture2D" uid="uid://bwec2ql1flfeg" path="res://assets/enemies/octorok.png" id="3_3h4it"]
 [ext_resource type="Texture2D" uid="uid://vttpr85yo8tu" path="res://assets/enemies/death effects.png" id="4_11xup"]
+[ext_resource type="Script" uid="uid://dgstbvgsby3tb" path="res://enemies/scripts/states/enemy_state_machine.gd" id="6_3h4it"]
+[ext_resource type="Script" uid="uid://do2h78qoabygc" path="res://enemies/scripts/states/enemy_state_idle.gd" id="7_11xup"]
+[ext_resource type="Script" uid="uid://b08g7h0uhyy34" path="res://enemies/scripts/states/enemy_state_wander.gd" id="8_f6a32"]
+[ext_resource type="Script" uid="uid://yx8fv75v41g3" path="res://enemies/scripts/states/enemy_state_stun.gd" id="9_usk83"]
+[ext_resource type="Script" uid="uid://dytk6lwbufpy" path="res://enemies/scripts/states/enemy_state_destroy.gd" id="10_eu2uf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tyd16"]
-radius = 8.0
+radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kq68c"]
 radius = 8.0
@@ -455,9 +460,14 @@ _data = {
 }
 
 [node name="Octorock" type="CharacterBody2D"]
-collision_layer = 256
-collision_mask = 16
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_4u2r5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_3h4it")
+hframes = 5
+vframes = 2
 
 [node name="Hurtbox" parent="." instance=ExtResource("1_xb4qf")]
 collision_mask = 16
@@ -471,11 +481,6 @@ collision_layer = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CircleShape2D_kq68c")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_3h4it")
-hframes = 5
-vframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_b26kb")
@@ -499,3 +504,18 @@ hframes = 7
 libraries = {
 &"": SubResource("AnimationLibrary_pdova")
 }
+
+[node name="EnemyStateMachine" type="Node2D" parent="."]
+script = ExtResource("6_3h4it")
+
+[node name="Idle" type="Node2D" parent="EnemyStateMachine"]
+script = ExtResource("7_11xup")
+
+[node name="Wander" type="Node2D" parent="EnemyStateMachine"]
+script = ExtResource("8_f6a32")
+
+[node name="Stun" type="Node2D" parent="EnemyStateMachine"]
+script = ExtResource("9_usk83")
+
+[node name="Destroy" type="Node2D" parent="EnemyStateMachine"]
+script = ExtResource("10_eu2uf")
