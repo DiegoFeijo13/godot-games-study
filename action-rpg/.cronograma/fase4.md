@@ -34,6 +34,22 @@ IA fluida e diversificada
 ### Próxima sessão
 - Implementar ataque do octorock
 
+## Data: 24/08/2026
+
+### Objetivo da sessão
+- Generalizar Enemy e criar resource do Octorock
+- Implementar ataque do Octorock
+
+### O que foi feito
+- Adicionado classe EnemyData para armazenar dados dos inimigos 
+- Adaptado Enemy para ler de EnemyData
+
+### Problemas encontrados
+- 
+
+### Próxima sessão
+- 
+
 > Template
 ```
 ## Data: 20/08/2026

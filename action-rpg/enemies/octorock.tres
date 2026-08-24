@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://bccph0iyb8sag"]
+
+[ext_resource type="Script" uid="uid://gnt3mfugq2ci" path="res://enemies/scripts/enemy_data.gd" id="1_q1yq8"]
+[ext_resource type="Texture2D" uid="uid://bwec2ql1flfeg" path="res://assets/enemies/octorok.png" id="2_fwyjl"]
+
+[resource]
+script = ExtResource("1_q1yq8")
+name = "Octorock"
+sprite = ExtResource("2_fwyjl")
+metadata/_custom_type_script = "uid://gnt3mfugq2ci"

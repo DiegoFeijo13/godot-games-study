@@ -3,10 +3,11 @@ class_name Enemy extends CharacterBody2D
 signal enemy_damaged (hurt_box : HurtBox)
 signal enemy_destroyed (hurt_box : HurtBox)
 
-const DIR_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
+const DIR_4 : Array[Vector2] = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 
-@export var hp : int = 3
+@export var enemy_data : EnemyData
 
+var hp : int
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.DOWN
 var invulnerable : bool = false
@@ -19,6 +20,8 @@ var invulnerable : bool = false
 func _ready() -> void:
 	state_machine.initialize(self)
 	hit_box.damaged.connect(_on_damaged)
+	hp = enemy_data.hp
+	sprite_2d.texture = enemy_data.sprite
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
@@ -34,7 +37,7 @@ func set_direction(new_direction : Vector2) -> bool:
 			/ TAU * DIR_4.size() 
 	) )	
 	
-	var new_dir = DIR_4[ direction_id ]
+	var new_dir : Vector2 = DIR_4[ direction_id ]
 	
 	if new_dir == cardinal_direction:
 		return false

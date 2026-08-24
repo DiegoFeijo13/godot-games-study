@@ -2,16 +2,17 @@ class_name EnemyStateDestroy extends EnemyState
 
 const ANIM_NAME : String = "destroy"
 
-@export var knockback_speed : float = 200.0
-@export var decelerate_speed : float = 10.0
-
 var direction : Vector2
 var damage_position : Vector2
+var knockback_speed : float
+var decelerate_speed : float
 
 @onready var hurtbox: HurtBox = $"../../Hurtbox"
 
 func init() -> void:
 	enemy.enemy_destroyed.connect(_on_enemy_destroyed)
+	knockback_speed = enemy.enemy_data.stun_knockback_speed
+	decelerate_speed = enemy.enemy_data.stun_decelerate_speed
 	pass
 
 func enter() -> void:

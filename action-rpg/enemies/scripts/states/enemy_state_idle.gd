@@ -2,15 +2,15 @@ class_name EnemyStateIdle extends EnemyState
 
 const ANIM_NAME : String = "idle"
 
-@export_category("AI")
-@export var state_duration_min : float = 0.5
-@export var state_duration_max : float = 1.5
-
 @onready var wander: EnemyStateWander = $"../Wander"
 
 var _timer : float = 0.0
+var state_duration_min : float
+var state_duration_max : float
 
 func init() -> void:
+	state_duration_min = enemy.enemy_data.idle_state_duration_min
+	state_duration_max = enemy.enemy_data.idle_state_duration_max
 	pass
 
 func enter() -> void:
@@ -18,7 +18,6 @@ func enter() -> void:
 	enemy.velocity = Vector2.ZERO
 	_timer = randf_range(state_duration_min, state_duration_max)
 
-	
 func exit() -> void:
 	pass
 

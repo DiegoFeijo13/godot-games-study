@@ -2,17 +2,18 @@ class_name EnemyStateStun extends EnemyState
 
 const ANIM_NAME : String = "stun"
 
-@export var knockback_speed : float = 200.0
-@export var decelerate_speed : float = 10.0
-
 @onready var idle: EnemyStateIdle = $"../Idle"
 
 var animation_finished : bool = false
 var direction : Vector2
 var damage_position : Vector2
+var knockback_speed : float
+var decelerate_speed : float
 
 func init() -> void:
 	enemy.enemy_damaged.connect(_on_enemy_damaged)
+	knockback_speed = enemy.enemy_data.stun_knockback_speed
+	decelerate_speed = enemy.enemy_data.stun_decelerate_speed
 	pass
 
 func enter() -> void:

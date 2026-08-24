@@ -22,13 +22,18 @@ GlobalGameManager="*res://_globals/global_game_manager.gd"
 PlayerHud="*res://hud/player_hud.tscn"
 GlobalPlayerManager="*res://_globals/global_player_manager.gd"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+
 [display]
 
 window/size/viewport_width=256
 window/size/viewport_height=176
 window/size/window_width_override=1024
 window/size/window_height_override=704
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
 
 [dotnet]
 
