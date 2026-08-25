@@ -1,14 +1,18 @@
-[gd_scene load_steps=34 format=3 uid="uid://e22oxr6mywh0"]
+[gd_scene load_steps=39 format=3 uid="uid://df7aswoj6uuab"]
 
-[ext_resource type="Script" uid="uid://daq24tr5n6djr" path="res://enemies/scripts/enemy.gd" id="1_28xqf"]
-[ext_resource type="PackedScene" uid="uid://bkyrx0x4p7g21" path="res://components/hurtbox/hurtbox.tscn" id="3_ccbdt"]
-[ext_resource type="PackedScene" uid="uid://ewr4bpmmts1y" path="res://components/hitbox/hit_box.tscn" id="4_mgey2"]
-[ext_resource type="Texture2D" uid="uid://vttpr85yo8tu" path="res://assets/enemies/death effects.png" id="5_cjbay"]
-[ext_resource type="Script" uid="uid://dgstbvgsby3tb" path="res://enemies/scripts/states/enemy_state_machine.gd" id="6_0h01o"]
-[ext_resource type="Script" uid="uid://do2h78qoabygc" path="res://enemies/scripts/states/enemy_state_idle.gd" id="7_8cidi"]
-[ext_resource type="Script" uid="uid://b08g7h0uhyy34" path="res://enemies/scripts/states/enemy_state_wander.gd" id="8_grymm"]
-[ext_resource type="Script" uid="uid://yx8fv75v41g3" path="res://enemies/scripts/states/enemy_state_stun.gd" id="9_ymuxt"]
-[ext_resource type="Script" uid="uid://dytk6lwbufpy" path="res://enemies/scripts/states/enemy_state_destroy.gd" id="10_2dcpb"]
+[ext_resource type="Script" uid="uid://daq24tr5n6djr" path="res://enemies/scripts/enemy.gd" id="1_4u2r5"]
+[ext_resource type="PackedScene" uid="uid://bkyrx0x4p7g21" path="res://components/hurtbox/hurtbox.tscn" id="1_xb4qf"]
+[ext_resource type="PackedScene" uid="uid://ewr4bpmmts1y" path="res://components/hitbox/hit_box.tscn" id="2_4u2r5"]
+[ext_resource type="Resource" uid="uid://bccph0iyb8sag" path="res://enemies/octorock.tres" id="2_l5wkp"]
+[ext_resource type="Texture2D" uid="uid://bwec2ql1flfeg" path="res://assets/enemies/octorok.png" id="3_3h4it"]
+[ext_resource type="Texture2D" uid="uid://vttpr85yo8tu" path="res://assets/enemies/death effects.png" id="4_11xup"]
+[ext_resource type="Script" uid="uid://dgstbvgsby3tb" path="res://enemies/scripts/states/enemy_state_machine.gd" id="6_3h4it"]
+[ext_resource type="Script" uid="uid://do2h78qoabygc" path="res://enemies/scripts/states/enemy_state_idle.gd" id="7_11xup"]
+[ext_resource type="Script" uid="uid://b08g7h0uhyy34" path="res://enemies/scripts/states/enemy_state_wander.gd" id="8_f6a32"]
+[ext_resource type="Script" uid="uid://yx8fv75v41g3" path="res://enemies/scripts/states/enemy_state_stun.gd" id="9_usk83"]
+[ext_resource type="Script" uid="uid://dytk6lwbufpy" path="res://enemies/scripts/states/enemy_state_destroy.gd" id="10_eu2uf"]
+[ext_resource type="PackedScene" uid="uid://dox1svbm00080" path="res://enemies/vision_area/vision_area.tscn" id="12_8t20v"]
+[ext_resource type="Script" uid="uid://d0hb1jcdc1gei" path="res://enemies/scripts/states/enemy_state_shoot.gd" id="12_mxbgh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tyd16"]
 radius = 6.0
@@ -458,23 +462,28 @@ _data = {
 &"destroy": SubResource("Animation_ptt77")
 }
 
-[node name="Enemy" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxbgh"]
+size = Vector2(16, 80)
+
+[node name="Octorock" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("1_28xqf")
+script = ExtResource("1_4u2r5")
+enemy_data = ExtResource("2_l5wkp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_3h4it")
 hframes = 5
 vframes = 2
 
-[node name="Hurtbox" parent="." instance=ExtResource("3_ccbdt")]
+[node name="Hurtbox" parent="." instance=ExtResource("1_xb4qf")]
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CircleShape2D_tyd16")
 debug_color = Color(0.980392, 0, 0, 0.419608)
 
-[node name="HitBox" parent="." instance=ExtResource("4_mgey2")]
+[node name="HitBox" parent="." instance=ExtResource("2_4u2r5")]
 collision_layer = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
@@ -495,7 +504,7 @@ autoplay = "idle_down"
 
 [node name="DestroyEffectSprite" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("5_cjbay")
+texture = ExtResource("4_11xup")
 hframes = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DestroyEffectSprite"]
@@ -503,21 +512,31 @@ libraries = {
 &"": SubResource("AnimationLibrary_pdova")
 }
 
-[node name="EnemyStateMachine" type="Node2D" parent="."]
-script = ExtResource("6_0h01o")
+[node name="EnemyStateMachine" type="Node2D" parent="." node_paths=PackedStringArray("states")]
+script = ExtResource("6_3h4it")
+states = [NodePath("Idle"), NodePath("Wander"), NodePath("Stun"), NodePath("Destroy"), NodePath("Shoot")]
 
 [node name="Idle" type="Node2D" parent="EnemyStateMachine"]
-script = ExtResource("7_8cidi")
+script = ExtResource("7_11xup")
 
 [node name="Wander" type="Node2D" parent="EnemyStateMachine"]
-script = ExtResource("8_grymm")
+script = ExtResource("8_f6a32")
 
 [node name="Stun" type="Node2D" parent="EnemyStateMachine"]
-script = ExtResource("9_ymuxt")
+script = ExtResource("9_usk83")
 
 [node name="Destroy" type="Node2D" parent="EnemyStateMachine"]
-script = ExtResource("10_2dcpb")
+script = ExtResource("10_eu2uf")
+
+[node name="Shoot" type="Node2D" parent="EnemyStateMachine" node_paths=PackedStringArray("vision_area")]
+script = ExtResource("12_mxbgh")
+vision_area = NodePath("../../VisionArea")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+show_rect = false
 
-[connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]
+[node name="VisionArea" parent="." instance=ExtResource("12_8t20v")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea"]
+position = Vector2(0, 32)
+shape = SubResource("RectangleShape2D_mxbgh")

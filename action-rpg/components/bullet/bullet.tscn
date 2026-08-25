@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://de4c52phuqhsb"]
+
+[ext_resource type="Script" uid="uid://bhtjhmj777qa4" path="res://components/bullet/bullet.gd" id="1_iel4s"]
+[ext_resource type="Texture2D" uid="uid://bwec2ql1flfeg" path="res://assets/enemies/octorok.png" id="2_xttce"]
+[ext_resource type="PackedScene" uid="uid://bkyrx0x4p7g21" path="res://components/hurtbox/hurtbox.tscn" id="3_g71oc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hi37f"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5df3k"]
+radius = 4.0
+
+[node name="Bullet" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_iel4s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xttce")
+hframes = 5
+vframes = 2
+frame = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hi37f")
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_g71oc")]
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_5df3k")

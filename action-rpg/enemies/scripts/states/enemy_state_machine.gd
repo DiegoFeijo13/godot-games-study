@@ -4,10 +4,7 @@ var prev_state : EnemyState
 var current_state : EnemyState
 var enemy : Enemy
 
-@onready var idle: EnemyStateIdle = $Idle
-@onready var wander: EnemyStateWander = $Wander
-@onready var stun: EnemyStateStun = $Stun
-@onready var destroy: EnemyStateDestroy = $Destroy
+@export var states : Array[EnemyState]
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED	
@@ -19,16 +16,9 @@ func _physics_process(delta: float) -> void:
 	change_state( current_state.physics(delta))
 	
 func initialize( _enemy : Enemy ) -> void:	
-	var states = [
-		idle,
-		wander,
-		stun,
-		destroy
-	]		
-	
 	enemy = _enemy
 	
-	for state in states:
+	for state : EnemyState in states:
 		state.enemy = _enemy
 		state.state_machine = self
 		state.init()

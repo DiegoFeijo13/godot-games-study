@@ -28,7 +28,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	change_state(current_state.handle_input(event, action_state))
 	
 func initialize( _player : Player ) -> void:
-	var states = [
+	var states : Array[PlayerState]= [
 		idle,
 		walk,
 		attack,
@@ -63,7 +63,7 @@ func _on_player_take_damage(_value : int) -> void:
 
 func on_action_pressed() -> PlayerState:
 	# Checks what is equiped in action
-	var equip = GlobalPlayerManager.inventory.action_one_equip
+	var equip : InventoryItemData = GlobalPlayerManager.inventory.action_one_equip
 	if equip == null:
 		return null
 	return _resolve_state_by_name(equip.item_data.player_state_name)

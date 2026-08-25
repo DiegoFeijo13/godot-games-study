@@ -16,7 +16,7 @@ func init() -> void:
 func enter() -> void:
 	player.effect_animation_player.animation_finished.connect(_on_animation_finished)
 	player.make_invulnerable()
-	var knockback_dir = player.global_position.direction_to(player.damage_position)
+	var knockback_dir : Vector2 = player.global_position.direction_to(player.damage_position)
 	player.direction = knockback_dir.normalized()
 	player.velocity = player.direction * -KNOCKBACK_SPEED
 	player.update_animation(ANIM_NAME)

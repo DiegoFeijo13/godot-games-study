@@ -3,7 +3,7 @@ class_name LevelTransition extends Area2D
 
 enum SIDE { LEFT, RIGHT, TOP, BOTTOM }
 
-@export_file("*.tscn") var level
+@export_file("*.tscn") var level : String
 @export var next_map_name : String
 @export var target_position : Vector2 = Vector2.ZERO
 

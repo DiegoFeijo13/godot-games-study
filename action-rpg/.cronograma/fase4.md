@@ -5,7 +5,7 @@
 ## Checklist
 - [x] Patrulha
 - [ ] Perseguição
-- [ ] Ataque
+- [x] Ataque
 - [ ] Retorno
 - [ ] Três tipos de inimigo
 
@@ -43,12 +43,14 @@ IA fluida e diversificada
 ### O que foi feito
 - Adicionado classe EnemyData para armazenar dados dos inimigos 
 - Adaptado Enemy para ler de EnemyData
+- Adicionado EnemyStateShoot para o Octorock
+- Adicionado Bullet para ser disparada no estado shoot
 
 ### Problemas encontrados
-- 
+- n/a
 
 ### Próxima sessão
-- 
+- Criar inimigo que persegue jogador
 
 > Template
 ```

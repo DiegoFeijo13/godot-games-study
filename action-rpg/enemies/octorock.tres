@@ -7,4 +7,5 @@
 script = ExtResource("1_q1yq8")
 name = "Octorock"
 sprite = ExtResource("2_fwyjl")
+bullet_speed = 350.0
 metadata/_custom_type_script = "uid://gnt3mfugq2ci"

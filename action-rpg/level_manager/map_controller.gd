@@ -9,7 +9,7 @@ var current_map : MapData = null
 
 func _ready() -> void:
 	if GlobalLevelManager.next_map_name.is_empty() == false:
-		var map_data = _get_map_by_name(GlobalLevelManager.next_map_name)
+		var map_data : MapData = _get_map_by_name(GlobalLevelManager.next_map_name)
 		get_tree().paused = true
 		_load_map(map_data, Vector2.ZERO, true)
 		current_map = map_data
@@ -29,7 +29,7 @@ func _load_map(map_data : MapData, pos : Vector2, load_adjacents : bool) -> void
 	if _get_loaded_map_by_name(map_data.map_name):
 		return
 	
-	var map_node = map_data.map_packed_scene.instantiate() as Map
+	var map_node : Map = map_data.map_packed_scene.instantiate() as Map
 	map_node.name = map_data.map_name
 	loaded_maps.append(map_node)
 	map_node.global_position = pos		
@@ -40,10 +40,10 @@ func _load_map(map_data : MapData, pos : Vector2, load_adjacents : bool) -> void
 		_load_adjacent_maps(map_node, map_data)
 
 func _load_adjacent_maps(map_node : Map, map_data : MapData) -> void:
-	var top_map_data = _get_map_by_name(map_data.top_map_name)
-	var bottom_map_data = _get_map_by_name(map_data.bottom_map_name)
-	var left_map_data = _get_map_by_name(map_data.left_map_name)
-	var right_map_data = _get_map_by_name(map_data.right_map_name)
+	var top_map_data : MapData = _get_map_by_name(map_data.top_map_name)
+	var bottom_map_data : MapData = _get_map_by_name(map_data.bottom_map_name)
+	var left_map_data : MapData = _get_map_by_name(map_data.left_map_name)
+	var right_map_data : MapData = _get_map_by_name(map_data.right_map_name)
 			
 	if top_map_data:
 		var pos : Vector2 = map_node.position
@@ -67,13 +67,13 @@ func _load_adjacent_maps(map_node : Map, map_data : MapData) -> void:
 	
 
 func _get_map_by_name(map_name : String) -> MapData:
-	var i = maps.find_custom(func(m : MapData): return m.map_name == map_name)
+	var i : int = maps.find_custom(func(m : MapData) -> bool : return m.map_name == map_name)
 	if i == -1:
 		return null
 	return maps[i]
 
 func _get_loaded_map_by_name(map_name : String) -> Map:
-	var i = loaded_maps.find_custom(func(m : Map): return m.name == map_name)
+	var i : int = loaded_maps.find_custom(func(m : Map) -> bool : return m.name == map_name)
 	if i == -1:
 		return null
 	return loaded_maps[i]
@@ -99,7 +99,7 @@ func _on_camera_move_to(pos : Vector2) -> void:
 		return
 	
 	get_tree().paused = true
-	var map_data = _get_map_by_name(next_map.name)
+	var map_data : MapData = _get_map_by_name(next_map.name)
 	_load_adjacent_maps(next_map, map_data)
 	current_map = map_data
 	_disable_all_maps()

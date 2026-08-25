@@ -9,6 +9,7 @@ size = Vector2(16, 16)
 collision_layer = 0
 monitorable = false
 script = ExtResource("1_rh2uo")
+level = "<null>"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-8, 0)
