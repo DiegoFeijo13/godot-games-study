@@ -8,6 +8,7 @@ var knockback_speed : float
 var decelerate_speed : float
 
 @onready var hurtbox: HurtBox = $"../../Hurtbox"
+@onready var vision_area: VisionArea = $"../../VisionArea"
 
 func init() -> void:
 	enemy.enemy_destroyed.connect(_on_enemy_destroyed)
@@ -23,6 +24,7 @@ func enter() -> void:
 	enemy.update_animation(ANIM_NAME)
 	enemy.animation_player.animation_finished.connect(_on_animation_finished)
 	hurtbox.monitoring = false
+	vision_area.monitoring = false
 
 func exit() -> void:
 	pass

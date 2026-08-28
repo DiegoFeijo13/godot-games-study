@@ -25,7 +25,6 @@ func _ready() -> void:
 	state_machine.initialize(self)
 	hit_box.damaged.connect(_on_damaged)
 	hp = enemy_data.hp
-	sprite_2d.texture = enemy_data.sprite
 	attack_cooldown = enemy_data.attack_cooldown
 
 func _process(delta: float) -> void:

@@ -3,9 +3,6 @@ class_name EnemyData extends Resource
 @export var name : String = ""
 @export var hp : int = 3
 
-@export_category("Art")
-@export var sprite : Texture2D
-
 @export_category("AI")
 @export var idle_state_duration_min : float = 0.5
 @export var idle_state_duration_max : float = 1.5
@@ -15,6 +12,9 @@ class_name EnemyData extends Resource
 @export var wander_state_cycles_max : int = 3
 @export var stun_knockback_speed : float = 200.0
 @export var stun_decelerate_speed : float = 10.0
+@export var chase_speed : float = 40.0
+@export var chase_turn_rate : float = 0.25
+@export var chase_aggro_duration : float = 0.5
 
 @export_category("Attack")
 @export var attack_cooldown : float = 1.6

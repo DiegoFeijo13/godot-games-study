@@ -4,10 +4,11 @@
 
 ## Checklist
 - [x] Patrulha
-- [ ] Perseguição
+- [x] Perseguição
 - [x] Ataque
-- [ ] Retorno
+- [x] Retorno
 - [ ] Três tipos de inimigo
+- [ ] Reposicionamento de inimigos ao mudar de mapa
 
 ## Critério
 IA fluida e diversificada
@@ -51,6 +52,20 @@ IA fluida e diversificada
 
 ### Próxima sessão
 - Criar inimigo que persegue jogador
+
+## Data: 28/08/2026
+
+### Objetivo da sessão
+- Criar inimigo que persegue jogador
+
+### O que foi feito
+- Criado moblin, que persegue o jogador quando entra na sua área de visão. Desiste da perseguição quando sai da área.
+
+### Problemas encontrados
+- Moblin pode ficar nas estremidades do mapa quando jogador foge para outro mapa, impedindo assim a volta. Necessário sistema de reposicionamento de inimigos quando mudar de mapas.
+
+### Próxima sessão
+- Criar Keese e Stalfos
 
 > Template
 ```
