@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://daq24tr5n6djr" path="res://enemies/scripts/enemy.gd" id="1_4u2r5"]
 [ext_resource type="PackedScene" uid="uid://bkyrx0x4p7g21" path="res://components/hurtbox/hurtbox.tscn" id="1_xb4qf"]
 [ext_resource type="PackedScene" uid="uid://ewr4bpmmts1y" path="res://components/hitbox/hit_box.tscn" id="2_4u2r5"]
-[ext_resource type="Resource" uid="uid://bccph0iyb8sag" path="res://enemies/octorock.tres" id="2_l5wkp"]
+[ext_resource type="Resource" uid="uid://bccph0iyb8sag" path="res://enemies/data/octorock.tres" id="2_l5wkp"]
 [ext_resource type="Texture2D" uid="uid://bwec2ql1flfeg" path="res://assets/enemies/octorok.png" id="3_3h4it"]
 [ext_resource type="Texture2D" uid="uid://vttpr85yo8tu" path="res://assets/enemies/death effects.png" id="4_11xup"]
 [ext_resource type="Script" uid="uid://dgstbvgsby3tb" path="res://enemies/scripts/states/enemy_state_machine.gd" id="6_3h4it"]

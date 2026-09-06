@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://dvd4w4ldcjq60"]
+
+[ext_resource type="Script" uid="uid://gnt3mfugq2ci" path="res://enemies/scripts/enemy_data.gd" id="1_47ewa"]
+
+[resource]
+script = ExtResource("1_47ewa")
+name = "Stalfos"
+hp = 2
+idle_state_duration_min = 0.3
+idle_state_duration_max = 0.8
+wander_speed = 25.0
+chase_speed = 0.0
+chase_turn_rate = 0.0
+chase_aggro_duration = 0.0
+bullet_speed = 0.0
+bullet_damage = 0
+metadata/_custom_type_script = "uid://gnt3mfugq2ci"

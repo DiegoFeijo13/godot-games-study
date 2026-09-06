@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://dye6q2hk6l7wv"]
+
+[ext_resource type="Script" uid="uid://gnt3mfugq2ci" path="res://enemies/scripts/enemy_data.gd" id="1_073dn"]
+
+[resource]
+script = ExtResource("1_073dn")
+name = "Keese"
+hp = 1
+idle_state_duration_min = 0.3
+wander_speed = 40.0
+chase_turn_rate = 0.5
+bullet_speed = 0.0
+bullet_damage = 0
+metadata/_custom_type_script = "uid://gnt3mfugq2ci"

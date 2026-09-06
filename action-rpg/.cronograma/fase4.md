@@ -7,7 +7,7 @@
 - [x] Perseguição
 - [x] Ataque
 - [x] Retorno
-- [ ] Três tipos de inimigo
+- [x] Três tipos de inimigo
 - [ ] Reposicionamento de inimigos ao mudar de mapa
 
 ## Critério
@@ -66,6 +66,20 @@ IA fluida e diversificada
 
 ### Próxima sessão
 - Criar Keese e Stalfos
+
+## Data: 06/09/2026
+
+### Objetivo da sessão
+- Criar Keese e Stalfos
+
+### O que foi feito
+- Criado Keese e Stalfos
+
+### Problemas encontrados
+- n/a
+
+### Próxima sessão
+- Armazenar posições de inimigos e reposicioná-los ao recarregar mapa
 
 > Template
 ```
