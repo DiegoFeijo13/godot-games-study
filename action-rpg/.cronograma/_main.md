@@ -9,7 +9,7 @@
 | 1 | [Fundação do Projeto](./fase1.md)     | 13/06/2026 | 22/07/2026|
 | 2 | [Mundo dividido em áreas](./fase2.md) | 03/08/2026 | 08/08/2026|
 | 3 | [Combate](./fase3.md)                 | 10/08/2026 | 20/08/2026|
-| 4 | [IA dos inimigos](./fase4.md)         | 20/08/2026 | |
+| 4 | [IA dos inimigos](./fase4.md)         | 20/08/2026 | 07/09/2026|
 | 5 | Loot e itens                          | | |
 | 6 | Inventário e equipamentos             | | |
 | 7 | NPCs e diálogos                       | | |

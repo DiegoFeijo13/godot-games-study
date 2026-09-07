@@ -8,7 +8,7 @@
 - [x] Ataque
 - [x] Retorno
 - [x] Três tipos de inimigo
-- [ ] Reposicionamento de inimigos ao mudar de mapa
+- [x] Reposicionamento de inimigos ao mudar de mapa
 
 ## Critério
 IA fluida e diversificada
@@ -81,19 +81,16 @@ IA fluida e diversificada
 ### Próxima sessão
 - Armazenar posições de inimigos e reposicioná-los ao recarregar mapa
 
-> Template
-```
-## Data: 20/08/2026
+## Data: 07/09/2026
 
 ### Objetivo da sessão
-- 
+- Resetar inimigos ao trocar de mapa
 
 ### O que foi feito
-- 
+- Remake do load de mapas com movimento de camera. Agora apenas o mapa atual fica carregado em memória, e o mapa anterior é descarregado ao fim do movimento de câmera na transição.
 
 ### Problemas encontrados
-- 
+- n/a
 
 ### Próxima sessão
-- 
-```
+- Iniciar fase 5
