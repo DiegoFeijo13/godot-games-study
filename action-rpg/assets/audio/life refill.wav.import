@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cf7ncfn7g55uv"
+path="res://.godot/imported/life refill.wav-2740a1b61057d14cf34d41160571e736.sample"
+
+[deps]
+
+source_file="res://assets/audio/life refill.wav"
+dest_files=["res://.godot/imported/life refill.wav-2740a1b61057d14cf34d41160571e736.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

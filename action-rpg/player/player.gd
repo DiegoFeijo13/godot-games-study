@@ -1,7 +1,6 @@
 class_name Player extends CharacterBody2D
 
 const SPEED : float = 100.0
-const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP ]
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -30,10 +29,8 @@ func _physics_process(_d: float) -> void:
 func set_direction() -> bool:
 	if direction == Vector2.ZERO:
 		return false
-	
-	# bias the direction by the cardinal_direction to hold onto the first pressed key
-	var direction_id : int = int( round( (direction + cardinal_direction * 0.1).angle() / TAU * DIR_4.size() ) )	
-	var new_dir : Vector2 = DIR_4[ direction_id ]		
+			
+	var new_dir : Vector2 = GlobalContants.translate_to_dir4(direction, cardinal_direction)
 	
 	if new_dir == cardinal_direction:
 		return false

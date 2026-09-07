@@ -1,6 +1,7 @@
 class_name PlayerHUD extends Node
 
 var hearts : Array[HeartGUI] = []
+@onready var rupees: RupeesControl = $Control/Rupees
 
 func _ready() -> void:
 	for child in $Control/HFlowContainer.get_children():
@@ -8,11 +9,15 @@ func _ready() -> void:
 			hearts.append(child)
 			child.visible = false
 	GlobalEventBus.player_hp_updated.connect(_on_player_hp_updated)
+	GlobalEventBus.player_gold_updated.connect(_on_player_gold_updated)
 
 func _on_player_hp_updated(current_hp : int, max_hp : int) -> void:
 	update_max_hp(max_hp)	
 	for i in max_hp:
 		update_heart(i, current_hp)
+
+func _on_player_gold_updated(current_gold : int) -> void:
+	rupees.update_rupees(current_gold)
 
 func update_heart( _index : int, _hp : int)  -> void:
 	var _value : int = clampi( _hp - _index * 2, 0, 2 )

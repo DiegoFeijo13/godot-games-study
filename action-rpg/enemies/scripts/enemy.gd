@@ -4,8 +4,6 @@ signal enemy_damaged (hurt_box : HurtBox)
 signal enemy_destroyed (hurt_box : HurtBox)
 signal direction_changed (new_direction : Vector2)
 
-const DIR_4 : Array[Vector2] = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
-
 @export var enemy_data : EnemyData
 
 var hp : int
@@ -38,13 +36,7 @@ func set_direction(new_direction : Vector2) -> bool:
 	if direction == Vector2.ZERO:
 		return false
 	
-	# bias the direction by the cardinal_direction
-	var direction_id : int = int( round( 
-			(direction + cardinal_direction * 0.1).angle() 
-			/ TAU * DIR_4.size() 
-	) )	
-	
-	var new_dir : Vector2 = DIR_4[ direction_id ]
+	var new_dir : Vector2 = GlobalContants.translate_to_dir4(direction, cardinal_direction)
 	
 	if new_dir == cardinal_direction:
 		return false

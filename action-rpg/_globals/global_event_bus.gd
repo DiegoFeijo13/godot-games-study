@@ -7,7 +7,14 @@ class_name EventBus extends Node
 @warning_ignore("unused_signal") signal set_player_position(new_pos : Vector2)
 @warning_ignore("unused_signal") signal player_heal(value : int)
 @warning_ignore("unused_signal") signal player_take_damage(value : int)
+@warning_ignore("unused_signal") signal player_get_gold(value : int)
+@warning_ignore("unused_signal") signal player_lose_gold(value : int)
+@warning_ignore("unused_signal") signal player_pickup_item(drop : ItemDropData)
+
+
+# HUD events
 @warning_ignore("unused_signal") signal player_hp_updated(current_hp : int, max_hp : int)
+@warning_ignore("unused_signal") signal player_gold_updated(current_gold : int)
 
 # Game events
 @warning_ignore("unused_signal") signal game_paused

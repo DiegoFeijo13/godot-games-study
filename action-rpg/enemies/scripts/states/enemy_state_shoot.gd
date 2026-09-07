@@ -28,7 +28,7 @@ func process(_delta : float) -> EnemyState:
 	if enemy._current_attack_cooldown > 0:
 		return idle
 	
-	var x = randf()
+	var x : float = randf()
 	print("chance of shooting: ", x, " ref: ", chance_of_shooting)
 	if x > chance_of_shooting:
 		return idle	

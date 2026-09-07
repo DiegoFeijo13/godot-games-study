@@ -16,6 +16,7 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 
 [autoload]
 
+GlobalContants="*res://_globals/global_contants.gd"
 GlobalLevelManager="*res://_globals/global_level_manager.gd"
 GlobalEventBus="*res://_globals/global_event_bus.gd"
 GlobalGameManager="*res://_globals/global_game_manager.gd"
@@ -98,6 +99,7 @@ pause={
 2d_physics/layer_9="Camera"
 2d_physics/layer_10="CameraBoundsDetector"
 2d_physics/layer_11="Map"
+2d_physics/layer_12="Item"
 
 [rendering]
 

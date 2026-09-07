@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=4 uid="uid://b2w8u8i2o7kb0"]
+[gd_scene load_steps=9 format=4 uid="uid://b2w8u8i2o7kb0"]
 
 [ext_resource type="PackedScene" uid="uid://dvflu665ngwep" path="res://tilemaps/tilemaplayer.tscn" id="1_5srws"]
 [ext_resource type="Script" uid="uid://dt4due4n652v6" path="res://level_manager/map.gd" id="1_rmof0"]
 [ext_resource type="PackedScene" uid="uid://c1dhy52sxeh16" path="res://level_manager/levelTransition.tscn" id="3_rmof0"]
-[ext_resource type="PackedScene" uid="uid://df7aswoj6uuab" path="res://enemies/octorock.tscn" id="4_fia0l"]
-[ext_resource type="PackedScene" uid="uid://ch21kp4dn4sba" path="res://enemies/moblin.tscn" id="5_14cbn"]
+[ext_resource type="PackedScene" uid="uid://c5aqqw3ui6qoh" path="res://items/drops/item_pickup.tscn" id="4_14cbn"]
+[ext_resource type="Resource" uid="uid://brusq2m24ee0l" path="res://items/drops/rupee.tres" id="5_qfyo1"]
 [ext_resource type="PackedScene" uid="uid://b1wesl64sdfnu" path="res://enemies/stalfos.tscn" id="6_qfyo1"]
-[ext_resource type="PackedScene" uid="uid://dyiev3xs2dfjo" path="res://enemies/keese.tscn" id="7_x8sv1"]
+[ext_resource type="Resource" uid="uid://us6s1iimc8ki" path="res://items/drops/heart.tres" id="6_x8sv1"]
+[ext_resource type="Resource" uid="uid://3j3jrvpnih8a" path="res://items/drops/fairy.tres" id="7_1kugo"]
 
 [node name="Map1" type="Node2D"]
 script = ExtResource("1_rmof0")
@@ -20,14 +21,17 @@ level = "uid://dgc7xp6ophpwe"
 next_map_name = "old_man_cave"
 target_position = Vector2(0, 40)
 
-[node name="Octorock" parent="." instance=ExtResource("4_fia0l")]
-position = Vector2(184, 88)
+[node name="Rupee" parent="." instance=ExtResource("4_14cbn")]
+position = Vector2(104, 120)
+item_drop_data = ExtResource("5_qfyo1")
 
-[node name="Moblin" parent="." instance=ExtResource("5_14cbn")]
-position = Vector2(72, 104)
+[node name="Heart" parent="." instance=ExtResource("4_14cbn")]
+position = Vector2(152, 120)
+item_drop_data = ExtResource("6_x8sv1")
+
+[node name="Fairy" parent="." instance=ExtResource("4_14cbn")]
+position = Vector2(184, 96)
+item_drop_data = ExtResource("7_1kugo")
 
 [node name="Stalfos" parent="." instance=ExtResource("6_qfyo1")]
-position = Vector2(24, 104)
-
-[node name="Keese" parent="." instance=ExtResource("7_x8sv1")]
-position = Vector2(216, 136)
+position = Vector2(40, 120)
