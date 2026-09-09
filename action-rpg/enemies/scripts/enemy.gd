@@ -5,6 +5,7 @@ signal enemy_destroyed (hurt_box : HurtBox)
 signal direction_changed (new_direction : Vector2)
 
 @export var enemy_data : EnemyData
+@export var drop_table : DropTableData
 
 var hp : int
 var cardinal_direction : Vector2 = Vector2.DOWN

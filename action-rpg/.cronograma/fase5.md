@@ -4,7 +4,7 @@
 
 ## Checklist
 - [x] HUD
-- [ ] Drops
+- [x] Drops
 - [x] Consumíveis
 - [x] Moedas
 
@@ -33,18 +33,16 @@ Coletaveis e consumíveis estão presentes e dropam de inimigos/objetos.
 ### Próxima sessão
 - Criar drop table e fazer com que inimigos dropem itens
 
-## Data: 07/09/2026
+## Data: 08/09/2026
 
 ### Objetivo da sessão
--
+- Criar drop table e fazer com que inimigos dropem itens
 
 ### O que foi feito
--
+- Criado drop table com os itens gerais e outra com somente small key
 
 ### Problemas encontrados
--
+- n/a
 
 ### Próxima sessão
--
-
-
+- Iniciar fase 6

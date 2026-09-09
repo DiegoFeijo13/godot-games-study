@@ -1,8 +1,9 @@
-[gd_scene load_steps=38 format=3 uid="uid://b1wesl64sdfnu"]
+[gd_scene load_steps=39 format=3 uid="uid://b1wesl64sdfnu"]
 
 [ext_resource type="Script" uid="uid://daq24tr5n6djr" path="res://enemies/scripts/enemy.gd" id="1_wwl3k"]
 [ext_resource type="Resource" uid="uid://dvd4w4ldcjq60" path="res://enemies/data/stalfos.tres" id="2_0a0la"]
 [ext_resource type="Texture2D" uid="uid://d4fnxwo1cuyya" path="res://assets/enemies/stalfos.png" id="3_wwl3k"]
+[ext_resource type="Resource" uid="uid://pjhyleywvff4" path="res://items/drops/tables/drop_table.tres" id="3_yijkk"]
 [ext_resource type="PackedScene" uid="uid://bkyrx0x4p7g21" path="res://components/hurtbox/hurtbox.tscn" id="4_al7dh"]
 [ext_resource type="PackedScene" uid="uid://ewr4bpmmts1y" path="res://components/hitbox/hit_box.tscn" id="5_ujk4v"]
 [ext_resource type="Texture2D" uid="uid://vttpr85yo8tu" path="res://assets/enemies/death effects.png" id="6_sfalu"]
@@ -517,6 +518,7 @@ collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_wwl3k")
 enemy_data = ExtResource("2_0a0la")
+drop_table = ExtResource("3_yijkk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_wwl3k")

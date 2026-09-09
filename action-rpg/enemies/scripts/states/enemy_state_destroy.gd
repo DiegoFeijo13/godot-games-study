@@ -1,5 +1,6 @@
 class_name EnemyStateDestroy extends EnemyState
 
+const PICKUP : Resource = preload("uid://c5aqqw3ui6qoh")
 const ANIM_NAME : String = "destroy"
 
 var direction : Vector2
@@ -38,4 +39,19 @@ func _on_enemy_destroyed(_h : HurtBox) -> void:
 	state_machine.change_state(self)
 
 func _on_animation_finished(_a : String) -> void:
+	_drop_items()
 	enemy.queue_free()
+
+func _drop_items() -> void:
+	if enemy.drop_table == null:
+		return
+	
+	var item_drop_data := enemy.drop_table.get_drop()
+	if item_drop_data == null:
+		return
+	
+	print("dropped: ", item_drop_data.name)
+	var drop : ItemPickup = PICKUP.instantiate() as ItemPickup
+	drop.item_drop_data = item_drop_data
+	drop.position = enemy.position
+	enemy.call_deferred("add_sibling", drop)

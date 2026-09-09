@@ -4,11 +4,14 @@ class_name PlayerInventoryData extends Resource
 
 const START_MAX_HP : int = 6
 const MAX_GOLD : int = 9999
+const MAX_KEY_COUNT : int = 99
 
 var current_hp : int = 0
 var max_hp : int = 6
 
 var current_gold : int = 0
+
+var current_key_count : int = 0
 
 var action_one_equip : InventoryItemData
 
@@ -17,6 +20,9 @@ func update_hp(delta : int) -> void:
 
 func update_gold(delta : int) -> void:
 	current_gold = clampi(current_gold + delta, 0, MAX_GOLD)
+
+func update_key(delta : int) -> void:
+	current_key_count = clampi(current_key_count + delta, 0, MAX_KEY_COUNT)
 
 func equip_action_one(index : int) -> void:
 	if items.size() -1 < index:

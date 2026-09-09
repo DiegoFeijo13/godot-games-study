@@ -15,6 +15,7 @@ class_name EventBus extends Node
 # HUD events
 @warning_ignore("unused_signal") signal player_hp_updated(current_hp : int, max_hp : int)
 @warning_ignore("unused_signal") signal player_gold_updated(current_gold : int)
+@warning_ignore("unused_signal") signal player_key_count_updated(current_key_count : int)
 
 # Game events
 @warning_ignore("unused_signal") signal game_paused

@@ -35,6 +35,10 @@ func _add_gold(value : int) -> void:
 	inventory.update_gold(value)
 	GlobalEventBus.player_gold_updated.emit(inventory.current_gold)
 
+func _add_key(value : int) -> void:
+	inventory.update_key(value)
+	GlobalEventBus.player_key_count_updated.emit(inventory.current_key_count)
+
 func _on_set_position(new_pos : Vector2) -> void:
 	player.global_position = new_pos
 
@@ -65,4 +69,8 @@ func _on_player_pickup_item(drop : ItemDropData) -> void:
 	
 	if drop.gold_amount > 0:
 		_add_gold(drop.gold_amount)
+		return
+	
+	if drop.key_amount > 0:
+		_add_key(drop.key_amount)
 		return

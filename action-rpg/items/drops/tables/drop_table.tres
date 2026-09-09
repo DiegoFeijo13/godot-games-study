@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="DropTableData" load_steps=11 format=3 uid="uid://pjhyleywvff4"]
+
+[ext_resource type="Script" uid="uid://daa5cptpokv4v" path="res://items/drops/tables/drop_data.gd" id="1_xh8vd"]
+[ext_resource type="Resource" uid="uid://brusq2m24ee0l" path="res://items/drops/data/blue_rupee.tres" id="2_cjmg6"]
+[ext_resource type="Script" uid="uid://c3oe7d48vn8u0" path="res://items/drops/tables/drop_table_data.gd" id="2_w4g81"]
+[ext_resource type="Resource" uid="uid://bqb563mtn8adm" path="res://items/drops/data/red_rupee.tres" id="3_6pdqf"]
+[ext_resource type="Resource" uid="uid://us6s1iimc8ki" path="res://items/drops/data/heart.tres" id="4_06qgc"]
+[ext_resource type="Resource" uid="uid://3j3jrvpnih8a" path="res://items/drops/data/fairy.tres" id="5_4xkdw"]
+
+[sub_resource type="Resource" id="Resource_munbs"]
+script = ExtResource("1_xh8vd")
+item_drop_data = ExtResource("2_cjmg6")
+chance = 30.0
+metadata/_custom_type_script = "uid://daa5cptpokv4v"
+
+[sub_resource type="Resource" id="Resource_02lb7"]
+script = ExtResource("1_xh8vd")
+item_drop_data = ExtResource("3_6pdqf")
+chance = 15.0
+metadata/_custom_type_script = "uid://daa5cptpokv4v"
+
+[sub_resource type="Resource" id="Resource_ethom"]
+script = ExtResource("1_xh8vd")
+item_drop_data = ExtResource("4_06qgc")
+chance = 30.0
+metadata/_custom_type_script = "uid://daa5cptpokv4v"
+
+[sub_resource type="Resource" id="Resource_km2h0"]
+script = ExtResource("1_xh8vd")
+item_drop_data = ExtResource("5_4xkdw")
+chance = 15.0
+metadata/_custom_type_script = "uid://daa5cptpokv4v"
+
+[resource]
+script = ExtResource("2_w4g81")
+items = Array[ExtResource("1_xh8vd")]([SubResource("Resource_munbs"), SubResource("Resource_02lb7"), SubResource("Resource_ethom"), SubResource("Resource_km2h0")])
+metadata/_custom_type_script = "uid://c3oe7d48vn8u0"

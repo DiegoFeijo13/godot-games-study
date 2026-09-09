@@ -6,6 +6,7 @@ class_name ItemPickup extends CharacterBody2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var wander_timer: Timer = $WanderTimer
+@onready var lifetime: Timer = $Lifetime
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
@@ -14,6 +15,10 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 	area_2d.body_entered.connect(_on_body_entered)
+	
+	if item_drop_data.fade:
+		lifetime.timeout.connect(_on_lifetime_timeout)
+	
 	if item_drop_data.velocity > 0:
 		velocity = GlobalContants.get_random_dir8() * item_drop_data.velocity
 		wander_timer.timeout.connect(_on_wander_timer_timeout)
@@ -52,7 +57,6 @@ func _on_wander_timer_timeout() -> void:
 	velocity = GlobalContants.get_random_dir8() * item_drop_data.velocity
 	wander_timer.start(randf())
 	pass
-
 
 func _on_lifetime_timeout() -> void:
 	animation_player.play("fade_out")
