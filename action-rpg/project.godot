@@ -22,6 +22,7 @@ GlobalEventBus="*res://_globals/global_event_bus.gd"
 GlobalGameManager="*res://_globals/global_game_manager.gd"
 PlayerHud="*res://hud/player_hud.tscn"
 GlobalPlayerManager="*res://_globals/global_player_manager.gd"
+GlobalPauseMenu="*res://hud/pause_menu.tscn"
 
 [debug]
 

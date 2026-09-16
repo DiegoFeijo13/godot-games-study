@@ -6,31 +6,21 @@
 
 | # |Fase | Iniciada em |Concluída em |
 |---|---|---|---|
-| 1 | [Fundação do Projeto](./fase1.md)     | 13/06/2026 | 22/07/2026|
-| 2 | [Mundo dividido em áreas](./fase2.md) | 03/08/2026 | 08/08/2026|
-| 3 | [Combate](./fase3.md)                 | 10/08/2026 | 20/08/2026|
-| 4 | [IA dos inimigos](./fase4.md)         | 20/08/2026 | 07/09/2026|
-| 5 | [Loot e itens](./fase5.md)            | 07/09/2026 | |
-| 6 | Inventário e equipamentos             | | |
-| 7 | NPCs e diálogos                       | | |
-| 8 | Quests                                | | |
-| 9 | Save/Load                             | | |
-|10 | Progressão                            | | |
-|11 | Boss                                  | | |
-|12 | Polimento                             | | |
+| 1 | [Fundação do Projeto](./fase1.md)         | 13/06/2026 | 22/07/2026|
+| 2 | [Mundo dividido em áreas](./fase2.md)     | 03/08/2026 | 08/08/2026|
+| 3 | [Combate](./fase3.md)                     | 10/08/2026 | 20/08/2026|
+| 4 | [IA dos inimigos](./fase4.md)             | 20/08/2026 | 07/09/2026|
+| 5 | [Loot e itens](./fase5.md)                | 07/09/2026 | 08/09/2026|
+| 6 | [Inventário e equipamentos](./fase6.md)   | | |
+| 7 | NPCs e diálogos                           | | |
+| 8 | Quests                                    | | |
+| 9 | Save/Load                                 | | |
+|10 | Progressão                                | | |
+|11 | Boss                                      | | |
+|12 | Polimento                                 | | |
 
 
-# Fase 6 — Inventário e Equipamentos
 
-## Checklist
-- [ ] Inventário
-- [ ] Equipamentos
-- [ ] Atualização de atributos
-
-## Critério
-Inventário criado e é atualizado 
-
----
 
 # Fase 7 — NPCs e Diálogos
 

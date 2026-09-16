@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmaft4c6vctj5"]
+
+[ext_resource type="Script" uid="uid://bvlkxtvka2gka" path="res://hud/scripts/inventory_slot.gd" id="1_lsu1u"]
+[ext_resource type="FontFile" uid="uid://qfdi7vqye72g" path="res://assets/themes/m5x7.ttf" id="2_212o3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsu1u"]
+region = Rect2(0, 0, 16, 16)
+
+[node name="InventorySlot" type="Button"]
+custom_minimum_size = Vector2(16, 16)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -240.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lsu1u")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = SubResource("AtlasTexture_lsu1u")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 18.0
+offset_bottom = 19.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_212o3")
+theme_override_font_sizes/font_size = 13
+text = "99"
+horizontal_alignment = 2
+vertical_alignment = 2

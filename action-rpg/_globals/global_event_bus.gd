@@ -16,6 +16,8 @@ class_name EventBus extends Node
 @warning_ignore("unused_signal") signal player_hp_updated(current_hp : int, max_hp : int)
 @warning_ignore("unused_signal") signal player_gold_updated(current_gold : int)
 @warning_ignore("unused_signal") signal player_key_count_updated(current_key_count : int)
+@warning_ignore("unused_signal") signal show_pause_menu()
+@warning_ignore("unused_signal") signal hide_pause_menu()
 
 # Game events
 @warning_ignore("unused_signal") signal game_paused

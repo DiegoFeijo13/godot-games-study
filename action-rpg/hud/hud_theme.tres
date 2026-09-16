@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://bq07i4gikh2fb"]
 
-[ext_resource type="FontFile" uid="uid://0glh4862mnio" path="res://assets/themes/main_font.ttf" id="1_xnmyk"]
+[ext_resource type="FontFile" uid="uid://bd2x3vdl8diwn" path="res://assets/themes/Abaddon Light.ttf" id="1_xnmyk"]
 
 [resource]
 default_font = ExtResource("1_xnmyk")
