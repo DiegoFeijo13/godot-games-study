@@ -3,12 +3,19 @@ class_name PlayerManager extends Node
 const PLAYER = preload("res://player/player.tscn")
 var inventory : PlayerInventoryData = preload("res://player/inventory/player_inventory.tres")
 
+var level_one_sword : EquipData = preload("uid://dscl3340w888d")
+var level_one_armor : EquipData = preload("uid://jtyjbm3bxbig")
+var boomerang : ToolData = preload("uid://c0jgk2ecd32m5")
+
 var player : Player
 var player_spawned : bool = false
 
 func _ready() -> void:
 	add_player_instance(Vector2.ZERO)
-	inventory.equip_action_one(0) #TODO:temp for testing, remove it when menu GUI is done
+	inventory.equip_sword(level_one_sword) #TODO:temp for testing, remove it when menu GUI is done
+	inventory.equip_armor(level_one_armor) #TODO:temp for testing, remove it when menu GUI is done
+	inventory.add_tool(boomerang) #TODO:temp for testing, remove it when menu GUI is done
+	
 	GlobalEventBus.set_player_position.connect(_on_set_position)
 	GlobalEventBus.set_player_parent.connect(_on_set_player_parent)
 	GlobalEventBus.remove_player_parent.connect(_on_remove_player_parent)

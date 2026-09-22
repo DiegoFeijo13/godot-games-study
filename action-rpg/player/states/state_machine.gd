@@ -10,6 +10,7 @@ var player : Player
 @onready var attack: PlayerStateAttack = $Attack
 @onready var hurt: PlayerStateHurt = $Hurt
 @onready var death: PlayerStateDeath = $Death
+@onready var boomerang: PlayerStateBoomerang = $Boomerang
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
@@ -23,8 +24,10 @@ func _physics_process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	var action_state : PlayerState = null
-	if event.is_action_pressed("action"):
+	if event.is_action_pressed("tool"):
 		action_state = on_action_pressed()
+	if event.is_action_pressed("attack") and GlobalPlayerManager.inventory.sword_equip:
+		action_state = attack
 	change_state(current_state.handle_input(event, action_state))
 	
 func initialize( _player : Player ) -> void:
@@ -33,7 +36,8 @@ func initialize( _player : Player ) -> void:
 		walk,
 		attack,
 		hurt,
-		death
+		death,
+		boomerang
 	]		
 	
 	player = _player
@@ -63,10 +67,10 @@ func _on_player_take_damage(_value : int) -> void:
 
 func on_action_pressed() -> PlayerState:
 	# Checks what is equiped in action
-	var equip : InventoryItemData = GlobalPlayerManager.inventory.action_one_equip
+	var equip := GlobalPlayerManager.inventory.tool_equip
 	if equip == null:
 		return null
-	return _resolve_state_by_name(equip.item_data.player_state_name)
+	return _resolve_state_by_name(equip.tool_data.player_state_name)
 	
 	
 func _resolve_state_by_name(state_name : String) -> PlayerState:
@@ -81,4 +85,6 @@ func _resolve_state_by_name(state_name : String) -> PlayerState:
 			return hurt
 		"death":
 			return death
+		"boomerang":
+			return boomerang
 	return null

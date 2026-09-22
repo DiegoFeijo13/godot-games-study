@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ToolData" load_steps=4 format=3 uid="uid://c0jgk2ecd32m5"]
+
+[ext_resource type="Script" uid="uid://bnfp842i70jyi" path="res://items/tools/tool_data.gd" id="1_b211j"]
+[ext_resource type="Texture2D" uid="uid://cw7yrdcg0o375" path="res://assets/hud/hud_items.png" id="2_ic3wm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifxfd"]
+atlas = ExtResource("2_ic3wm")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_b211j")
+name = "Boomerang"
+description = "It goes around and comes around"
+texture = SubResource("AtlasTexture_ifxfd")
+attack_power = 1
+player_state_name = "boomerang"
+metadata/_custom_type_script = "uid://bnfp842i70jyi"

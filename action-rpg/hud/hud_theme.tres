@@ -1,10 +1,39 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bq07i4gikh2fb"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bq07i4gikh2fb"]
 
 [ext_resource type="FontFile" uid="uid://bd2x3vdl8diwn" path="res://assets/themes/Abaddon Light.ttf" id="1_xnmyk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnmyk"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kl5b"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 1, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_se2rm"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8rlj"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c4r7q"]
+bg_color = Color(0, 0, 0, 0)
 
 [resource]
 default_font = ExtResource("1_xnmyk")
 default_font_size = 12
+Button/styles/disabled = SubResource("StyleBoxFlat_xnmyk")
+Button/styles/focus = SubResource("StyleBoxFlat_0kl5b")
+Button/styles/hover = SubResource("StyleBoxFlat_se2rm")
+Button/styles/normal = SubResource("StyleBoxFlat_w8rlj")
+Button/styles/pressed = SubResource("StyleBoxFlat_c4r7q")
 Label/colors/font_outline_color = Color(1, 1, 1, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 0

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipData" load_steps=4 format=3 uid="uid://jtyjbm3bxbig"]
+
+[ext_resource type="Script" uid="uid://br02c3suju8y" path="res://items/equips/equip_data.gd" id="1_svslb"]
+[ext_resource type="Texture2D" uid="uid://dmfgmgrppa7jc" path="res://assets/hud/hud_equips.png" id="2_635gc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g71pl"]
+atlas = ExtResource("2_635gc")
+region = Rect2(0, 32, 16, 16)
+
+[resource]
+script = ExtResource("1_svslb")
+name = "Armor L1"
+texture = SubResource("AtlasTexture_g71pl")
+defense_power = 1
+metadata/_custom_type_script = "uid://564u1cwuy2jq"

@@ -1,10 +1,12 @@
 class_name RupeesControl extends Control
 
-
 @onready var thousands: Sprite2D = $Thousands
 @onready var hundreds: Sprite2D = $Hundreds
 @onready var tens: Sprite2D = $Tens
 @onready var units: Sprite2D = $Units
+
+func _ready() -> void:
+	GlobalEventBus.player_gold_updated.connect(update_rupees)
 
 func update_rupees(value : int) -> void:
 	var digits : Array[int] = []

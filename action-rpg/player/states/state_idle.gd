@@ -19,6 +19,8 @@ func process(_delta : float) -> PlayerState:
 	return null
 
 func handle_input(_event: InputEvent, action_state : PlayerState) -> PlayerState:
-	if _event.is_action_pressed("action"):
+	if _event.is_action_pressed("tool"):
+		return action_state
+	if _event.is_action_pressed("attack"):
 		return action_state
 	return null
