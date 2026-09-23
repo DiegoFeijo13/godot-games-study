@@ -54,7 +54,25 @@ Ações são acionadas conforme item equipado
 - Adicionar descrição do item no hud
 
 
-## Data: 15/09/2026
+## Data: 22/09/2026
+
+### Objetivo da sessão
+- Corrigir bumerangue na transição de mapas
+- Adicionar hud para index no menu de tools
+- Adicionar descrição do item no hud
+
+### O que foi feito
+- Decidi manter o bumerangue na transição de mapas
+- Adicionado index para item selecionado e descrição do item na hud
+- Adicionado transição no menu
+
+### Problemas encontrados
+- 
+
+### Próxima sessão
+- Adicionar bomb para segundo equip
+
+## Data: 22/09/2026
 
 ### Objetivo da sessão
 - 
@@ -67,4 +85,3 @@ Ações são acionadas conforme item equipado
 
 ### Próxima sessão
 - 
-
