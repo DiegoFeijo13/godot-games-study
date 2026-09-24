@@ -1,4 +1,4 @@
-class_name Boomerang extends Node2D
+class_name Boomerang extends CharacterBody2D
 
 enum State { INACTIVE, THROW, RETURN }
 
@@ -11,6 +11,7 @@ var state : State
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var hurtbox: HurtBox = $Hurtbox
 
 func _ready() -> void:
 	visible = false

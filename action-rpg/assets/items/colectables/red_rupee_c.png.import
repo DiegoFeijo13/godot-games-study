@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw7sk78k1jeg3"
-path="res://.godot/imported/colectables.png-4eb72c4ce4575cd58e0ad209e3eccbb4.ctex"
+uid="uid://mhgpiihtxr7s"
+path="res://.godot/imported/red_rupee_c.png-1c589de2582c444d6994bd02543ca595.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/colectables.png"
-dest_files=["res://.godot/imported/colectables.png-4eb72c4ce4575cd58e0ad209e3eccbb4.ctex"]
+source_file="res://assets/items/colectables/red_rupee_c.png"
+dest_files=["res://.godot/imported/red_rupee_c.png-1c589de2582c444d6994bd02543ca595.ctex"]
 
 [params]
 

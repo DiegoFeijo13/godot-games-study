@@ -10,12 +10,14 @@ class_name EventBus extends Node
 @warning_ignore("unused_signal") signal player_get_gold(value : int)
 @warning_ignore("unused_signal") signal player_lose_gold(value : int)
 @warning_ignore("unused_signal") signal player_pickup_item(drop : ItemDropData)
+@warning_ignore("unused_signal") signal player_equip_tool(tool_type : GlobalConstants.TOOL_TYPES)
 
 
 # HUD events
 @warning_ignore("unused_signal") signal player_hp_updated(current_hp : int, max_hp : int)
 @warning_ignore("unused_signal") signal player_gold_updated(current_gold : int)
 @warning_ignore("unused_signal") signal player_key_count_updated(current_key_count : int)
+@warning_ignore("unused_signal") signal player_arrow_count_updated(current_arrow_count : int)
 @warning_ignore("unused_signal") signal show_pause_menu()
 @warning_ignore("unused_signal") signal hide_pause_menu()
 

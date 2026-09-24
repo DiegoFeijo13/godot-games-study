@@ -11,14 +11,14 @@ class_name HudTools extends Control
 
 func update_tools() -> void:
 	disable_all()
-	update_tool_slot(boomerang, "Boomerang", true)
-	update_tool_slot(bomb, "Bomb")
-	update_tool_slot(bow_n_arrow, "Bow")
-	update_tool_slot(candle, "Candle")
-	update_tool_slot(flute, "Flute")
-	update_tool_slot(meat, "Meat")
-	update_tool_slot(letter, "Letter")
-	update_tool_slot(rod, "Rod")
+	update_tool_slot(boomerang, GlobalConstants.TOOL_TYPES.BOOMERANG,true)
+	update_tool_slot(bomb, GlobalConstants.TOOL_TYPES.BOMB)
+	update_tool_slot(bow_n_arrow, GlobalConstants.TOOL_TYPES.BOW)
+	#update_tool_slot(candle)
+	#update_tool_slot(flute)
+	#update_tool_slot(meat)
+	#update_tool_slot(letter)
+	#update_tool_slot(rod)
 	
 
 func disable_all() -> void:
@@ -39,15 +39,15 @@ func set_enabled(btn : Button) -> void:
 	btn.disabled = false
 	btn.focus_mode = Control.FOCUS_ALL
 
-func update_tool_slot(slot : ToolSlotUI, tool_name : String, force_focus_when_no_equip : bool = false) -> void:
+func update_tool_slot(slot : ToolSlotUI,tool_type : GlobalConstants.TOOL_TYPES,  force_focus_when_no_equip : bool = false) -> void:
 	var tools_dic := GlobalPlayerManager.inventory.tools
 	
-	if tools_dic.has(tool_name) == false:
+	if tools_dic.has(tool_type) == false:
 		return
 	
 	var equiped_tool := GlobalPlayerManager.inventory.tool_equip
-	var inventory_tool_data := tools_dic.get(tool_name) as InventoryToolData
-	slot.set_slot_data(inventory_tool_data.tool_data)
+	var inventory_tool_data := tools_dic.get(tool_type) as InventoryToolData
+	slot.set_slot_data(inventory_tool_data.tool_data, inventory_tool_data.quantity)
 	set_enabled(slot)
 	
 	if equiped_tool == null and force_focus_when_no_equip:

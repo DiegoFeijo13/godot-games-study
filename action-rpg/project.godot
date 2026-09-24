@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 
 [autoload]
 
-GlobalContants="*res://_globals/global_contants.gd"
+GlobalConstants="*res://_globals/global_constants.gd"
 GlobalLevelManager="*res://_globals/global_level_manager.gd"
 GlobalEventBus="*res://_globals/global_event_bus.gd"
 GlobalGameManager="*res://_globals/global_game_manager.gd"
@@ -120,6 +120,7 @@ pause={
 2d_physics/layer_12="Item"
 2d_physics/layer_13="Grass"
 2d_physics/layer_17="Boomerang"
+2d_physics/layer_18="Arrow"
 
 [rendering]
 

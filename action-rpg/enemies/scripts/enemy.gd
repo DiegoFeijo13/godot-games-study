@@ -37,7 +37,7 @@ func set_direction(new_direction : Vector2) -> bool:
 	if direction == Vector2.ZERO:
 		return false
 	
-	var new_dir : Vector2 = GlobalContants.translate_to_dir4(direction, cardinal_direction)
+	var new_dir : Vector2 = GlobalConstants.translate_to_dir4(direction, cardinal_direction)
 	
 	if new_dir == cardinal_direction:
 		return false

@@ -20,7 +20,7 @@ func _ready() -> void:
 		lifetime.timeout.connect(_on_lifetime_timeout)
 	
 	if item_drop_data.velocity > 0:
-		velocity = GlobalContants.get_random_dir8() * item_drop_data.velocity
+		velocity = GlobalConstants.get_random_dir8() * item_drop_data.velocity
 		wander_timer.timeout.connect(_on_wander_timer_timeout)
 
 func _physics_process(_adelta: float) -> void:
@@ -54,7 +54,7 @@ func item_picked_up() -> void:
 	pass
 
 func _on_wander_timer_timeout() -> void:
-	velocity = GlobalContants.get_random_dir8() * item_drop_data.velocity
+	velocity = GlobalConstants.get_random_dir8() * item_drop_data.velocity
 	wander_timer.start(randf())
 	pass
 

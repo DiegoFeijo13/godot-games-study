@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ToolDataUI" load_steps=5 format=3 uid="uid://dptgydfjvbmd0"]
+
+[ext_resource type="Script" uid="uid://bnfp842i70jyi" path="res://items/tools/tool_data.gd" id="1_7p7ja"]
+[ext_resource type="Texture2D" uid="uid://cw7yrdcg0o375" path="res://assets/hud/hud_items.png" id="2_2qjwd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1glq"]
+atlas = ExtResource("2_2qjwd")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4laf"]
+atlas = ExtResource("2_2qjwd")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_7p7ja")
+name = "Bow"
+texture = SubResource("AtlasTexture_t1glq")
+when_zero_texture = SubResource("AtlasTexture_b4laf")
+type = 2
+is_unique = false
+metadata/_custom_type_script = "uid://bnfp842i70jyi"

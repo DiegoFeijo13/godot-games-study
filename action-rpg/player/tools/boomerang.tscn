@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bn61n55r1pepg"]
+[gd_scene load_steps=10 format=3 uid="uid://bn61n55r1pepg"]
 
 [ext_resource type="Script" uid="uid://bqse1hxhtt025" path="res://player/tools/boomerang.gd" id="1_hj1wp"]
 [ext_resource type="Texture2D" uid="uid://sgk2ds0wmjfr" path="res://assets/player/tools/boomerang.png" id="2_i6xyw"]
 [ext_resource type="PackedScene" uid="uid://bkyrx0x4p7g21" path="res://components/hurtbox/hurtbox.tscn" id="3_yisbn"]
+[ext_resource type="AudioStream" uid="uid://cytqk6l50bgan" path="res://assets/audio/boomerang.wav" id="4_i6xyw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hj1wp"]
 radius = 8.0
@@ -74,4 +75,5 @@ shape = SubResource("CircleShape2D_nfhf5")
 debug_color = Color(1, 0, 0, 0.41960785)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_i6xyw")
 autoplay = true

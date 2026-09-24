@@ -70,18 +70,20 @@ Ações são acionadas conforme item equipado
 - 
 
 ### Próxima sessão
-- Adicionar bomb para segundo equip
+- Adicionar bow para segundo equip
 
-## Data: 22/09/2026
+## Data: 23/09/2026
 
 ### Objetivo da sessão
-- 
+- Adicionar bow para segundo equip
 
 ### O que foi feito
-- 
+- Adicionado bow
 
 ### Problemas encontrados
-- 
+- Inventário reseta entre cenas
 
 ### Próxima sessão
-- 
+- Corrigir bug do inventário
+- Conferir quantidade de flechas ao acionar bow
+- Drop de flechas nos inimigos

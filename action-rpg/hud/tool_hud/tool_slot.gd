@@ -15,19 +15,21 @@ func set_slot_data(value : ToolData, quantity : int = 0) -> void:
 	tool_data = value
 	if tool_data == null:
 		return
+		
 	texture_rect.texture = tool_data.texture
+	
+	if tool_data.is_unique == false and quantity == 0 and tool_data.when_zero_texture:
+		texture_rect.texture = tool_data.when_zero_texture
 	
 	label.text = str(quantity)
 	if quantity <= 0:
-		label.visible = false
+		label.visible = false	
+	
 	
 func _on_focus_entered() -> void:
 	if tool_data != null:
 		GlobalPauseMenu.update_item_description(tool_data.name)
+		GlobalPlayerManager.inventory.equip_tool(tool_data)
 
 func _on_focus_exited() -> void:
 	GlobalPauseMenu.update_item_description("")
-
-func _on_button_up() -> void:
-	if tool_data:
-		GlobalPlayerManager.inventory.equip_tool(tool_data.name)

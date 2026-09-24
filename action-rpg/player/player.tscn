@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://drojwdohb1g2p"]
+[gd_scene load_steps=41 format=3 uid="uid://drojwdohb1g2p"]
 
 [ext_resource type="Script" uid="uid://drxjrww08lb05" path="res://player/player.gd" id="1_g6k8r"]
 [ext_resource type="Texture2D" uid="uid://caml8qca7hjqy" path="res://assets/player/link.png" id="2_qjkh3"]
@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://ewr4bpmmts1y" path="res://components/hitbox/hit_box.tscn" id="8_hg6s5"]
 [ext_resource type="Script" uid="uid://t8unhv0huaaf" path="res://player/states/state_death.gd" id="9_8t03j"]
 [ext_resource type="PackedScene" uid="uid://bkyrx0x4p7g21" path="res://components/hurtbox/hurtbox.tscn" id="9_hg6s5"]
-[ext_resource type="Script" uid="uid://ehnplcwo4sto" path="res://player/states/tool_states/state_boomerang.gd" id="10_2ieo8"]
+[ext_resource type="Script" uid="uid://ehnplcwo4sto" path="res://player/action_tools/action_boomerang.gd" id="10_2ieo8"]
+[ext_resource type="Script" uid="uid://b0rn74vxo8ge6" path="res://player/action_tools/player_actions.gd" id="11_ebec5"]
+[ext_resource type="Script" uid="uid://c53thjyc8641l" path="res://player/action_tools/action_bow.gd" id="13_yllr7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8t03j"]
 
@@ -502,9 +504,6 @@ script = ExtResource("7_rgyib")
 [node name="Death" type="Node2D" parent="StateMachine"]
 script = ExtResource("9_8t03j")
 
-[node name="Boomerang" type="Node2D" parent="StateMachine"]
-script = ExtResource("10_2ieo8")
-
 [node name="CameraBoundsArea" type="Area2D" parent="."]
 collision_layer = 512
 collision_mask = 0
@@ -534,3 +533,12 @@ debug_color = Color(0.9621236, 0.08979104, 0.4421665, 0.41960785)
 libraries = {
 &"": SubResource("AnimationLibrary_65viv")
 }
+
+[node name="Tools" type="Node2D" parent="."]
+script = ExtResource("11_ebec5")
+
+[node name="Boomerang" type="Node2D" parent="Tools"]
+script = ExtResource("10_2ieo8")
+
+[node name="Bow" type="Node2D" parent="Tools"]
+script = ExtResource("13_yllr7")

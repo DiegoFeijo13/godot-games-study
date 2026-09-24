@@ -1,18 +1,15 @@
-[gd_resource type="Resource" script_class="ItemDropData" load_steps=5 format=3 uid="uid://brusq2m24ee0l"]
+[gd_resource type="Resource" script_class="ItemDropData" load_steps=4 format=3 uid="uid://brusq2m24ee0l"]
 
 [ext_resource type="AudioStream" uid="uid://cnvlloeuho34b" path="res://assets/audio/rupee.wav" id="1_rjw5w"]
 [ext_resource type="Script" uid="uid://bngexblrghnqy" path="res://items/drops/item_drop_data.gd" id="2_0sjgr"]
-[ext_resource type="Texture2D" uid="uid://cw7sk78k1jeg3" path="res://assets/items/colectables.png" id="3_ikgyy"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8rx6k"]
-atlas = ExtResource("3_ikgyy")
-region = Rect2(16, 0, 16, 16)
+[ext_resource type="Texture2D" uid="uid://cuvg22o8c6mdj" path="res://assets/items/colectables/blue_rupee_c.png" id="3_tywjt"]
 
 [resource]
 script = ExtResource("2_0sjgr")
 name = "Rupee"
-description = "It is like gold but better"
-texture = SubResource("AtlasTexture_8rx6k")
+texture = ExtResource("3_tywjt")
 audio = ExtResource("1_rjw5w")
+type = 1
+amount = 1
 gold_amount = 1
 metadata/_custom_type_script = "uid://564u1cwuy2jq"
