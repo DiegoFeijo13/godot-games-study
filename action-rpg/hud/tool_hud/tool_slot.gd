@@ -22,8 +22,8 @@ func set_slot_data(value : ToolData, quantity : int = 0) -> void:
 		texture_rect.texture = tool_data.when_zero_texture
 	
 	label.text = str(quantity)
-	if quantity <= 0:
-		label.visible = false	
+	
+	label.visible = tool_data.is_unique == false
 	
 	
 func _on_focus_entered() -> void:

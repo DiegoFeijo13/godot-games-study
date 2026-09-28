@@ -8,6 +8,9 @@ var player : Player
 
 func _ready() -> void:
 	player = GlobalPlayerManager.player
+	if GlobalPlayerManager.inventory.tool_equip:
+		selected_tool = GlobalPlayerManager.inventory.tool_equip.tool_data.type
+	
 	GlobalEventBus.player_equip_tool.connect(_on_player_equip_tool)
 
 func _unhandled_input(event: InputEvent) -> void:

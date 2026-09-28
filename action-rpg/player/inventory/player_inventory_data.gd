@@ -19,7 +19,6 @@ var tool_equip : InventoryToolData
 
 # Tools counts
 var current_arrow_max : int = 20
-var current_arrow_count : int = 0
 
 func update_hp(delta : int) -> void:
 	current_hp = clampi(current_hp + delta, 0, max_hp)
@@ -31,7 +30,8 @@ func update_key(delta : int) -> void:
 	current_key_count = clampi(current_key_count + delta, 0, MAX_KEY_COUNT)
 
 func update_arrow(delta : int) -> void:
-	current_arrow_count = clampi(current_arrow_count + delta, 0, current_arrow_max)
+	var value_to_set := clampi(get_current_arrow_count() + delta, 0, current_arrow_max)
+	tools[GlobalConstants.TOOL_TYPES.BOW].set_quantity(value_to_set)
 
 func equip_sword(new_sword : EquipData) -> void:
 	sword_equip = new_sword
@@ -55,3 +55,8 @@ func equip_tool(tool_data : ToolData) -> void:
 	
 	tool_equip = tools.get(tool_data.type)
 	GlobalEventBus.player_equip_tool.emit(tool_data.type)
+
+func get_current_arrow_count() -> int:
+	if tools.has(GlobalConstants.TOOL_TYPES.BOW) == false:
+		return 0
+	return tools[GlobalConstants.TOOL_TYPES.BOW].quantity

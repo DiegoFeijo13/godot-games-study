@@ -7,8 +7,14 @@ var arrow_instance : Arrow = null
 func act() -> void:
 	if arrow_instance != null:
 		return
+	
+	if GlobalPlayerManager.inventory.get_current_arrow_count() <= 0:
+		#TODO: play feedback sound
+		return
 		
 	var player := GlobalPlayerManager.player
+	
+	GlobalEventBus.player_lose_arrow.emit(1)
 	
 	var _arrow := ARROW.instantiate() as Arrow
 	player.add_sibling(_arrow)

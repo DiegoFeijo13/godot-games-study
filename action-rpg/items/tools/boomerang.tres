@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ToolDataUI" load_steps=4 format=3 uid="uid://c0jgk2ecd32m5"]
+[gd_resource type="Resource" script_class="ToolData" load_steps=4 format=3 uid="uid://c0jgk2ecd32m5"]
 
 [ext_resource type="Script" uid="uid://bnfp842i70jyi" path="res://items/tools/tool_data.gd" id="1_hvigq"]
 [ext_resource type="Texture2D" uid="uid://cw7yrdcg0o375" path="res://assets/hud/hud_items.png" id="2_y8wao"]

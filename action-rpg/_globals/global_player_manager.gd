@@ -28,6 +28,8 @@ func _ready() -> void:
 	GlobalEventBus.player_get_gold.connect(_on_player_get_gold)
 	GlobalEventBus.player_lose_gold.connect(_on_player_lose_gold)
 	GlobalEventBus.player_pickup_item.connect(_on_player_pickup_item)
+	GlobalEventBus.player_get_arrow.connect(_on_player_get_arrow)
+	GlobalEventBus.player_lose_arrow.connect(_on_player_lose_arrow)
 	
 	_heal_player(inventory.max_hp)
 	_add_gold(-9999)
@@ -51,7 +53,7 @@ func _add_key(value : int) -> void:
 
 func _add_arrow(value : int) -> void:
 	inventory.update_arrow(value)
-	GlobalEventBus.player_arrow_count_updated.emit(inventory.current_arrow_count)
+	GlobalEventBus.player_arrow_count_updated.emit(inventory.get_current_arrow_count())
 
 func _on_set_position(new_pos : Vector2) -> void:
 	player.global_position = new_pos
@@ -76,6 +78,12 @@ func _on_player_get_gold(value : int) -> void:
 func _on_player_lose_gold(value : int) -> void:
 	_add_gold(-value)
 
+func _on_player_get_arrow(value : int) -> void:
+	_add_arrow(value)
+
+func _on_player_lose_arrow(value : int) -> void:
+	_add_arrow(-value)
+	
 func _on_player_pickup_item(drop : ItemDropData) -> void:
 	match drop.type:
 		GlobalConstants.ITEM_DROP_TYPES.HEAL:

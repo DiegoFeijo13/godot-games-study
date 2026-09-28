@@ -87,3 +87,21 @@ Ações são acionadas conforme item equipado
 - Corrigir bug do inventário
 - Conferir quantidade de flechas ao acionar bow
 - Drop de flechas nos inimigos
+
+## Data: 28/09/2026
+
+### Objetivo da sessão
+- Corrigir bug do inventário
+- Conferir quantidade de flechas ao acionar bow
+- Drop de flechas nos inimigos
+
+### O que foi feito
+- Corrigido bug
+- Adicionado arrow drop
+- Check inventário antes de atirar flechas
+
+### Problemas encontrados
+- n/a
+
+### Próxima sessão
+- Iniciar fase 7
