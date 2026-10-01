@@ -1,6 +1,7 @@
 class_name Player extends CharacterBody2D
 
 const SPEED : float = 100.0
+signal direction_changed(new_dir:Vector2)
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -36,6 +37,7 @@ func set_direction() -> bool:
 		return false
 		
 	cardinal_direction = new_dir	
+	direction_changed.emit(new_dir)
 	sprite_2d.scale.x = -1 if cardinal_direction == Vector2.RIGHT else 1
 	return true
 

@@ -21,6 +21,7 @@ class_name EventBus extends Node
 @warning_ignore("unused_signal") signal player_arrow_count_updated(current_arrow_count : int)
 @warning_ignore("unused_signal") signal show_pause_menu()
 @warning_ignore("unused_signal") signal hide_pause_menu()
+@warning_ignore("unused_signal") signal player_interact_pressed()
 
 # Game events
 @warning_ignore("unused_signal") signal game_paused

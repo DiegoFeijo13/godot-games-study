@@ -1,0 +1,154 @@
+[gd_scene load_steps=12 format=3 uid="uid://bk5hh5rogovhp"]
+
+[ext_resource type="Script" uid="uid://bh2wgy03p6cwl" path="res://hud/dialog_hud/dialog_hud.gd" id="1_iltr0"]
+[ext_resource type="Theme" uid="uid://bq07i4gikh2fb" path="res://hud/hud_theme.tres" id="2_k83te"]
+[ext_resource type="AudioStream" uid="uid://bycr588tuf11x" path="res://assets/audio/message.wav" id="3_8tp5y"]
+
+[sub_resource type="Gradient" id="Gradient_g3s5l"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t5ayp"]
+gradient = SubResource("Gradient_g3s5l")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qvove"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.5882353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iltr0"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 0.5882353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lqd61"]
+bg_color = Color(0.7764706, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_g0c4j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(192, 152)]
+}
+
+[sub_resource type="Animation" id="Animation_c4iwg"]
+resource_name = "default"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(192, 152), Vector2(192, 154), Vector2(192, 152)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iru6i"]
+_data = {
+&"RESET": SubResource("Animation_g0c4j"),
+&"default": SubResource("Animation_c4iwg")
+}
+
+[node name="DialogHud" type="CanvasLayer"]
+process_mode = 3
+layer = 0
+script = ExtResource("1_iltr0")
+
+[node name="DialogUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="DialogUI"]
+visible = false
+self_modulate = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
+layout_mode = 0
+offset_left = 48.0
+offset_top = 104.0
+offset_right = 208.0
+offset_bottom = 168.0
+texture = SubResource("GradientTexture2D_t5ayp")
+
+[node name="TextContainer" type="PanelContainer" parent="DialogUI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 72.0
+offset_right = 160.0
+offset_bottom = 120.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qvove")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogUI/TextContainer"]
+layout_mode = 2
+theme = ExtResource("2_k83te")
+bbcode_enabled = true
+text = "Default [b]Bold[/b] [wave]Wavy[/wave]
+[shake][color=red]Shake[/color][/shake]"
+scroll_active = false
+
+[node name="LabelContainer" type="PanelContainer" parent="DialogUI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 52.0
+offset_right = 80.0
+offset_bottom = 70.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_iltr0")
+
+[node name="NameLabel" type="Label" parent="DialogUI/LabelContainer"]
+layout_mode = 2
+theme = ExtResource("2_k83te")
+text = "Name"
+
+[node name="Timer" type="Timer" parent="DialogUI"]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DialogUI"]
+stream = ExtResource("3_8tp5y")
+max_polyphony = 6
+bus = &"SFX"
+
+[node name="DialogProgressIndicator" type="PanelContainer" parent="DialogUI"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 152.0
+offset_right = 196.0
+offset_bottom = 156.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lqd61")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogUI/DialogProgressIndicator"]
+libraries = {
+&"": SubResource("AnimationLibrary_iru6i")
+}
+autoplay = "default"

@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://bu2wdxr4us1a4"]
+
+[ext_resource type="Script" uid="uid://be75tdqfus8fg" path="res://npcs/scripts/npc.gd" id="1_cqejd"]
+[ext_resource type="Shader" uid="uid://xug6rn4gngp3" path="res://shaders/outline.gdshader" id="2_mea8m"]
+[ext_resource type="Texture2D" uid="uid://cbrokfiac8el" path="res://assets/npcs/old_man.png" id="2_novm3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_atlxo"]
+shader = ExtResource("2_mea8m")
+shader_parameter/outline_color = Color(0.9955804, 0.99558026, 0.99558026, 1)
+shader_parameter/pixels_to_check = 1
+shader_parameter/center_distance_cap = 0
+
+[sub_resource type="Animation" id="Animation_mea8m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_atlxo"]
+_data = {
+&"RESET": SubResource("Animation_mea8m")
+}
+
+[sub_resource type="Animation" id="Animation_p37wn"]
+resource_name = "idle_down"
+length = 0.3
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_65ghs"]
+_data = {
+&"down": SubResource("Animation_p37wn")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ntfcn"]
+radius = 6.0
+height = 14.0
+
+[node name="Npc" type="CharacterBody2D"]
+collision_layer = 128
+script = ExtResource("1_cqejd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_atlxo")
+texture = ExtResource("2_novm3")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_atlxo"),
+&"idle": SubResource("AnimationLibrary_65ghs")
+}
+autoplay = "idle/down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ntfcn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://drojwdohb1g2p"]
+[gd_scene load_steps=43 format=3 uid="uid://drojwdohb1g2p"]
 
 [ext_resource type="Script" uid="uid://drxjrww08lb05" path="res://player/player.gd" id="1_g6k8r"]
 [ext_resource type="Texture2D" uid="uid://caml8qca7hjqy" path="res://assets/player/link.png" id="2_qjkh3"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://ehnplcwo4sto" path="res://player/action_tools/action_boomerang.gd" id="10_2ieo8"]
 [ext_resource type="Script" uid="uid://b0rn74vxo8ge6" path="res://player/action_tools/player_actions.gd" id="11_ebec5"]
 [ext_resource type="Script" uid="uid://c53thjyc8641l" path="res://player/action_tools/action_bow.gd" id="13_yllr7"]
+[ext_resource type="Script" uid="uid://eueefy7nevo4" path="res://player/player_interactions_host.gd" id="14_kb6p2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8t03j"]
 
@@ -464,9 +465,12 @@ _data = {
 &"damaged": SubResource("Animation_e7oew")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wodsf"]
+size = Vector2(8, 8)
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
-collision_mask = 2
+collision_mask = 130
 motion_mode = 1
 script = ExtResource("1_g6k8r")
 
@@ -542,3 +546,16 @@ script = ExtResource("10_2ieo8")
 
 [node name="Bow" type="Node2D" parent="Tools"]
 script = ExtResource("13_yllr7")
+
+[node name="Interactions" type="Node2D" parent="."]
+script = ExtResource("14_kb6p2")
+
+[node name="Area2D" type="Area2D" parent="Interactions"]
+position = Vector2(0, 8)
+collision_layer = 32
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Area2D"]
+shape = SubResource("RectangleShape2D_wodsf")
+debug_color = Color(0.96663886, 1.0588765e-06, 0.48226035, 0.41960785)
