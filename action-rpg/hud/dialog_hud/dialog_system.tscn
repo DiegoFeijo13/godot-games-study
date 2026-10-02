@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bk5hh5rogovhp"]
+[gd_scene load_steps=13 format=3 uid="uid://bk5hh5rogovhp"]
 
-[ext_resource type="Script" uid="uid://bh2wgy03p6cwl" path="res://hud/dialog_hud/dialog_hud.gd" id="1_iltr0"]
-[ext_resource type="Theme" uid="uid://bq07i4gikh2fb" path="res://hud/hud_theme.tres" id="2_k83te"]
-[ext_resource type="AudioStream" uid="uid://bycr588tuf11x" path="res://assets/audio/message.wav" id="3_8tp5y"]
+[ext_resource type="Script" uid="uid://bh2wgy03p6cwl" path="res://hud/dialog_hud/dialog_system.gd" id="1_bpol4"]
+[ext_resource type="Theme" uid="uid://bq07i4gikh2fb" path="res://hud/hud_theme.tres" id="2_inu7s"]
+[ext_resource type="AudioStream" uid="uid://bycr588tuf11x" path="res://assets/audio/message.wav" id="3_4lnlc"]
+[ext_resource type="Theme" uid="uid://bem7o4v2m6u3i" path="res://hud/dialog_hud/dialog_choice_theme.tres" id="4_inu7s"]
 
 [sub_resource type="Gradient" id="Gradient_g3s5l"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -67,10 +68,10 @@ _data = {
 &"default": SubResource("Animation_c4iwg")
 }
 
-[node name="DialogHud" type="CanvasLayer"]
+[node name="DialogSystem" type="CanvasLayer"]
 process_mode = 3
 layer = 0
-script = ExtResource("1_iltr0")
+script = ExtResource("1_bpol4")
 
 [node name="DialogUI" type="Control" parent="."]
 layout_mode = 3
@@ -105,7 +106,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_qvove")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="DialogUI/TextContainer"]
 layout_mode = 2
-theme = ExtResource("2_k83te")
+theme = ExtResource("2_inu7s")
 bbcode_enabled = true
 text = "Default [b]Bold[/b] [wave]Wavy[/wave]
 [shake][color=red]Shake[/color][/shake]"
@@ -128,14 +129,14 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_iltr0")
 
 [node name="NameLabel" type="Label" parent="DialogUI/LabelContainer"]
 layout_mode = 2
-theme = ExtResource("2_k83te")
+theme = ExtResource("2_inu7s")
 text = "Name"
 
 [node name="Timer" type="Timer" parent="DialogUI"]
 one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DialogUI"]
-stream = ExtResource("3_8tp5y")
+stream = ExtResource("3_4lnlc")
 max_polyphony = 6
 bus = &"SFX"
 
@@ -152,3 +153,19 @@ libraries = {
 &"": SubResource("AnimationLibrary_iru6i")
 }
 autoplay = "default"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogUI"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 76.0
+offset_right = 200.0
+offset_bottom = 110.0
+theme = ExtResource("4_inu7s")
+
+[node name="Button" type="Button" parent="DialogUI/VBoxContainer"]
+layout_mode = 2
+text = "Choice 1..."
+
+[node name="Button2" type="Button" parent="DialogUI/VBoxContainer"]
+layout_mode = 2
+text = "Choice 2..."

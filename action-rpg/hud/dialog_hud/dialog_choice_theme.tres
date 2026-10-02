@@ -1,0 +1,70 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bem7o4v2m6u3i"]
+
+[ext_resource type="FontFile" uid="uid://bd2x3vdl8diwn" path="res://assets/themes/Abaddon Light.ttf" id="1_keevq"]
+[ext_resource type="Texture2D" uid="uid://wa77hxxta83v" path="res://assets/hud/choice_icon.png" id="2_dt0a1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rsvhj"]
+content_margin_left = 2.0
+content_margin_top = 1.0
+content_margin_right = 2.0
+content_margin_bottom = 1.0
+bg_color = Color(0, 0, 0, 0.5882353)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4m2o0"]
+content_margin_left = 2.0
+content_margin_top = 1.0
+content_margin_right = 2.0
+content_margin_bottom = 1.0
+bg_color = Color(0, 0, 0, 0.5882353)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccwxs"]
+content_margin_left = 2.0
+content_margin_top = 1.0
+content_margin_right = 2.0
+content_margin_bottom = 1.0
+bg_color = Color(0, 0, 0, 0.5882353)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmuu2"]
+content_margin_left = 2.0
+content_margin_top = 1.0
+content_margin_right = 2.0
+content_margin_bottom = 1.0
+bg_color = Color(0, 0, 0, 0.5882353)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing = false
+
+[resource]
+Button/colors/font_color = Color(1, 1, 0.54901963, 1)
+Button/colors/font_focus_color = Color(1, 1, 0.54901963, 1)
+Button/colors/font_hover_color = Color(1, 1, 0.54901963, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 0.54901963, 1)
+Button/colors/font_pressed_color = Color(1, 1, 0.54901963, 1)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 0)
+Button/constants/h_separation = 0
+Button/font_sizes/font_size = 12
+Button/fonts/font = ExtResource("1_keevq")
+Button/icons/icon = ExtResource("2_dt0a1")
+Button/styles/focus = SubResource("StyleBoxFlat_rsvhj")
+Button/styles/hover = SubResource("StyleBoxFlat_4m2o0")
+Button/styles/normal = SubResource("StyleBoxFlat_ccwxs")
+Button/styles/pressed = SubResource("StyleBoxFlat_cmuu2")
+VBoxContainer/constants/separation = 2

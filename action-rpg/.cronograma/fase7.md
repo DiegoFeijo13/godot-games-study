@@ -5,7 +5,8 @@
 ## Checklist
 - [x] Interação
 - [x] Sistema de diálogo
-- [ ] Escolhas simples
+- [x] Escolhas simples
+- [ ] Ação para adicionar item ao inventário durante diálogo
 - [ ] Interação com objetos
 
 ## Critério
@@ -31,10 +32,10 @@ Ao menos um NPC com diálogo e escolhas. Sistema de interação está presente.
 - Adicionar escolhas simples ao diálogo
 
 ### O que foi feito
-- 
+- Adicionado dialog branch e dialog choice
 
 ### Problemas encontrados
-- n/a
+- Ao pressionar Enter ao fim do dialogo, jogo permite mover o player sem fechar a janela de dialogo
 
 ### Próxima sessão
-- 
+- Corrigir bug e adicionar ação para adicionar itens

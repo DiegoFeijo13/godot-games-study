@@ -6,7 +6,7 @@ signal finished
 
 @export var enabled: bool = true
 
-var dialog_texts: Array[DialogText]
+var dialog_items: Array[DialogItem]
 var parent_npc : NPC
 
 
@@ -21,18 +21,18 @@ func _ready() -> void:
 		parent_npc = get_parent() as NPC
 	
 	for c in get_children():
-		if c is DialogText:
-			dialog_texts.append(c)
+		if c is DialogItem:
+			dialog_items.append(c)
 
 func _get_configuration_warnings() -> PackedStringArray:
-	if _check_for_dialog_texts() == false:
-		return ["Requires at least one DialogText node"]
+	if _check_for_dialog_items() == false:
+		return ["Requires at least one DialogItem node"]
 	else:
 		return []
 
-func _check_for_dialog_texts() -> bool:
+func _check_for_dialog_items() -> bool:
 	for c in get_children():
-		if c is DialogText:
+		if c is DialogItem:
 			return true
 	return false
 
@@ -40,12 +40,12 @@ func _on_player_interact() -> void:
 	player_interacted.emit()
 	await get_tree().process_frame
 	await get_tree().process_frame
-	DialogHud.show_dialog(dialog_texts)
-	DialogHud.finished.connect(_on_dialog_finish)
+	DialogSystem.show_dialog(dialog_items)
+	DialogSystem.finished.connect(_on_dialog_finish)
 	pass
 	
 func _on_area_enter(_a:Area2D) -> void:
-	if enabled == false || dialog_texts.size() == 0:
+	if enabled == false || dialog_items.size() == 0:
 		return
 	if parent_npc:
 		parent_npc.toggle_highlight(true)
@@ -57,5 +57,5 @@ func _on_area_exit(_a:Area2D) -> void:
 	GlobalEventBus.player_interact_pressed.disconnect(_on_player_interact)	
 
 func _on_dialog_finish() -> void:
-	DialogHud.finished.disconnect(_on_dialog_finish)
+	DialogSystem.finished.disconnect(_on_dialog_finish)
 	finished.emit()
