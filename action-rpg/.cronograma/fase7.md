@@ -6,7 +6,6 @@
 - [x] Interação
 - [x] Sistema de diálogo
 - [x] Escolhas simples
-- [ ] Ação para adicionar item ao inventário durante diálogo
 - [ ] Interação com objetos
 
 ## Critério
@@ -38,4 +37,18 @@ Ao menos um NPC com diálogo e escolhas. Sistema de interação está presente.
 - Ao pressionar Enter ao fim do dialogo, jogo permite mover o player sem fechar a janela de dialogo
 
 ### Próxima sessão
-- Corrigir bug e adicionar ação para adicionar itens
+- Corrigir bug e adicionar interação com objetos
+
+## Data: 13/10/2026
+
+### Objetivo da sessão
+- Corrigir bug e adicionar interação com objetos
+
+### O que foi feito
+- 
+
+### Problemas encontrados
+- 
+
+### Próxima sessão
+- 

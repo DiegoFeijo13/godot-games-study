@@ -1,8 +1,6 @@
 @tool
 class_name DialogSystemNode extends CanvasLayer
 
-signal finished
-
 var is_active : bool = false
 var text_in_progress : bool = false
 var waiting_for_choice: bool = false
@@ -62,7 +60,7 @@ func show_dialog(_items : Array[DialogItem]) -> void:
 	dialog_ui.process_mode = Node.PROCESS_MODE_ALWAYS
 	dialog_items = _items
 	dialog_item_index = 0
-	get_tree().paused = true	
+	GlobalEventBus.player_started_dialog.emit()
 	await get_tree().process_frame
 	start_dialog()
 	
@@ -71,8 +69,7 @@ func hide_dialog() -> void:
 	choice_options.visible = false
 	dialog_ui.visible = false
 	dialog_ui.process_mode = Node.PROCESS_MODE_DISABLED
-	finished.emit()
-	get_tree().paused = false
+	GlobalEventBus.player_finished_dialog.emit()
 
 func start_dialog() -> void:
 	waiting_for_choice = false

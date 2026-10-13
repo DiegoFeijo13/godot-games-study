@@ -69,6 +69,7 @@ _data = {
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
+visible = false
 script = ExtResource("1_tlsn2")
 
 [node name="Control" type="Control" parent="."]

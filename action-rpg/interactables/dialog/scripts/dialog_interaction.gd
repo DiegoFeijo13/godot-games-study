@@ -1,14 +1,10 @@
 @tool
 class_name DialogInteraction extends Area2D
 
-signal player_interacted
-signal finished
-
 @export var enabled: bool = true
 
 var dialog_items: Array[DialogItem]
 var parent_npc : NPC
-
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -37,11 +33,9 @@ func _check_for_dialog_items() -> bool:
 	return false
 
 func _on_player_interact() -> void:
-	player_interacted.emit()
 	await get_tree().process_frame
 	await get_tree().process_frame
 	DialogSystem.show_dialog(dialog_items)
-	DialogSystem.finished.connect(_on_dialog_finish)
 	pass
 	
 func _on_area_enter(_a:Area2D) -> void:
@@ -54,8 +48,4 @@ func _on_area_enter(_a:Area2D) -> void:
 func _on_area_exit(_a:Area2D) -> void:
 	if parent_npc:
 		parent_npc.toggle_highlight(false)
-	GlobalEventBus.player_interact_pressed.disconnect(_on_player_interact)	
-
-func _on_dialog_finish() -> void:
-	DialogSystem.finished.disconnect(_on_dialog_finish)
-	finished.emit()
+	GlobalEventBus.player_interact_pressed.disconnect(_on_player_interact)
