@@ -10,6 +10,6 @@ region = Rect2(0, 32, 16, 16)
 [resource]
 script = ExtResource("1_svslb")
 name = "Armor L1"
+type = 2
 texture = SubResource("AtlasTexture_g71pl")
 defense_power = 1
-metadata/_custom_type_script = "uid://564u1cwuy2jq"

@@ -39,7 +39,7 @@ func _on_selection_changed() -> void:
 		example_dialog.queue_free()
 	
 	if not sel.is_empty() and self == sel[0]:
-		example_dialog = load("res://GUI/dialog_system/dialog_system.tscn").instantiate() as DialogSystemNode
+		example_dialog = load("res://hud/dialog_hud/dialog_system.tscn").instantiate() as DialogSystemNode
 		if example_dialog == null:
 			return
 		self.add_child(example_dialog)

@@ -31,6 +31,12 @@ enum TOOL_TYPES {
 	BOW
 }
 
+enum EQUIP_TYPES {
+	SWORD,
+	SHIELD,
+	ARMOR
+}
+
 func translate_to_dir4(direction : Vector2, cardinal_direction : Vector2) -> Vector2:
 	# bias the direction by the cardinal_direction
 	var direction_id : int = int( round( 

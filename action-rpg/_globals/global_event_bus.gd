@@ -13,6 +13,7 @@ class_name EventBus extends Node
 @warning_ignore("unused_signal") signal player_get_arrow(value : int)
 @warning_ignore("unused_signal") signal player_lose_arrow(value : int)
 @warning_ignore("unused_signal") signal player_equip_tool(tool_type : GlobalConstants.TOOL_TYPES)
+@warning_ignore("unused_signal") signal player_get_equip(equip : EquipData)
 
 # HUD events
 @warning_ignore("unused_signal") signal player_hp_updated(current_hp : int, max_hp : int)

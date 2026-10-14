@@ -45,10 +45,12 @@ Ao menos um NPC com diálogo e escolhas. Sistema de interação está presente.
 - Corrigir bug e adicionar interação com objetos
 
 ### O que foi feito
-- 
+- Bug corrigido
+- Criado treasure chest e adicionado equip type
 
 ### Problemas encontrados
-- 
+- Sprite da espada é o do menu, precisa adicionar um overworld_sprite
+- Sprite do item do baú está sempre amostra
 
 ### Próxima sessão
-- 
+- Corrigir bugs de sprite e iniciar fase 8

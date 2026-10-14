@@ -14,10 +14,11 @@ var player_spawned : bool = false
 
 func _ready() -> void:
 	add_player_instance(Vector2.ZERO)
-	inventory.equip_sword(level_one_sword) #TODO:temp for testing, remove it when menu GUI is done
 	inventory.equip_armor(level_one_armor) #TODO:temp for testing, remove it when menu GUI is done
-	inventory.add_tool(boomerang) #TODO:temp for testing, remove it when menu GUI is done
-	inventory.add_tool(bow) #TODO:temp for testing, remove it when menu GUI is done
+	
+	#inventory.equip_sword(level_one_sword) #TODO:temp for testing, remove it when menu GUI is done
+	#inventory.add_tool(boomerang) #TODO:temp for testing, remove it when menu GUI is done
+	#inventory.add_tool(bow) #TODO:temp for testing, remove it when menu GUI is done
 	
 	GlobalEventBus.set_player_position.connect(_on_set_position)
 	GlobalEventBus.set_player_parent.connect(_on_set_player_parent)
@@ -30,6 +31,7 @@ func _ready() -> void:
 	GlobalEventBus.player_pickup_item.connect(_on_player_pickup_item)
 	GlobalEventBus.player_get_arrow.connect(_on_player_get_arrow)
 	GlobalEventBus.player_lose_arrow.connect(_on_player_lose_arrow)
+	GlobalEventBus.player_get_equip.connect(_on_player_get_equip)
 	
 	_heal_player(inventory.max_hp)
 	_add_gold(-9999)
@@ -83,6 +85,16 @@ func _on_player_get_arrow(value : int) -> void:
 
 func _on_player_lose_arrow(value : int) -> void:
 	_add_arrow(-value)
+
+func _on_player_get_equip(equip : EquipData) -> void:
+	if equip == null:
+		return
+	match equip.type:
+		GlobalConstants.EQUIP_TYPES.SWORD:
+			inventory.equip_sword(equip)
+		GlobalConstants.EQUIP_TYPES.ARMOR:
+			inventory.equip_armor(equip)
+	
 	
 func _on_player_pickup_item(drop : ItemDropData) -> void:
 	match drop.type:
